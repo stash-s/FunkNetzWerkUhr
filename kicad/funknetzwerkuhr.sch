@@ -1,0 +1,294 @@
+EESchema Schematic File Version 4
+LIBS:funknetzwerkuhr-cache
+LIBS:nixie-breakout-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 9550 800  1000 1050
+U 5B5B1780
+F0 "hv_psu" 50
+F1 "hv_psu.sch" 50
+$EndSheet
+Text HLabel 10300 5450 1    50   Input ~ 0
++180V
+$Comp
+L 74xx:74HC595 U3
+U 1 1 5B5B38D1
+P 8950 3400
+F 0 "U3" V 8904 4041 50  0000 L CNN
+F 1 "74HC595" V 8995 4041 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 8950 3400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 8950 3400 50  0001 C CNN
+	1    8950 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L 74xx:74HC595 U2
+U 1 1 5B5B3A0B
+P 6750 3400
+F 0 "U2" V 6704 4041 50  0000 L CNN
+F 1 "74HC595" V 6795 4041 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 6750 3400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 6750 3400 50  0001 C CNN
+	1    6750 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L 74xx:74HC595 U1
+U 1 1 5B5B3A5D
+P 4650 3450
+F 0 "U1" V 4604 4091 50  0000 L CNN
+F 1 "74HC595" V 4695 4091 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 4650 3450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 4650 3450 50  0001 C CNN
+	1    4650 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8750 3000 8750 2700
+Wire Wire Line
+	8750 2700 6550 2700
+Wire Wire Line
+	6550 2700 6550 3000
+Wire Wire Line
+	4450 3050 4450 2700
+Wire Wire Line
+	4450 2700 6550 2700
+Connection ~ 6550 2700
+$Comp
+L power:GND #PWR05
+U 1 1 5B5B3BE8
+P 8200 3450
+F 0 "#PWR05" H 8200 3200 50  0001 C CNN
+F 1 "GND" H 8205 3277 50  0000 C CNN
+F 2 "" H 8200 3450 50  0001 C CNN
+F 3 "" H 8200 3450 50  0001 C CNN
+	1    8200 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 5B5B3C7C
+P 6000 3450
+F 0 "#PWR03" H 6000 3200 50  0001 C CNN
+F 1 "GND" H 6005 3277 50  0000 C CNN
+F 2 "" H 6000 3450 50  0001 C CNN
+F 3 "" H 6000 3450 50  0001 C CNN
+	1    6000 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5B5B3CC2
+P 3900 3500
+F 0 "#PWR01" H 3900 3250 50  0001 C CNN
+F 1 "GND" H 3905 3327 50  0000 C CNN
+F 2 "" H 3900 3500 50  0001 C CNN
+F 3 "" H 3900 3500 50  0001 C CNN
+	1    3900 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR02
+U 1 1 5B5B3D09
+P 5300 3400
+F 0 "#PWR02" H 5300 3250 50  0001 C CNN
+F 1 "+3V3" H 5315 3573 50  0000 C CNN
+F 2 "" H 5300 3400 50  0001 C CNN
+F 3 "" H 5300 3400 50  0001 C CNN
+	1    5300 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR04
+U 1 1 5B5B3D64
+P 7400 3350
+F 0 "#PWR04" H 7400 3200 50  0001 C CNN
+F 1 "+3V3" H 7415 3523 50  0000 C CNN
+F 2 "" H 7400 3350 50  0001 C CNN
+F 3 "" H 7400 3350 50  0001 C CNN
+	1    7400 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR06
+U 1 1 5B5B3DB6
+P 9600 3350
+F 0 "#PWR06" H 9600 3200 50  0001 C CNN
+F 1 "+3V3" H 9615 3523 50  0000 C CNN
+F 2 "" H 9600 3350 50  0001 C CNN
+F 3 "" H 9600 3350 50  0001 C CNN
+	1    9600 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 3350 9600 3400
+Wire Wire Line
+	9600 3400 9550 3400
+Wire Wire Line
+	8250 3400 8200 3400
+Wire Wire Line
+	8200 3400 8200 3450
+Wire Wire Line
+	7400 3350 7400 3400
+Wire Wire Line
+	7400 3400 7350 3400
+Wire Wire Line
+	6050 3400 6000 3400
+Wire Wire Line
+	6000 3400 6000 3450
+Wire Wire Line
+	5300 3400 5300 3450
+Wire Wire Line
+	5300 3450 5250 3450
+Wire Wire Line
+	3950 3450 3900 3450
+Wire Wire Line
+	3900 3450 3900 3500
+Text HLabel 1600 1300 0    50   Input ~ 0
++9V
+$Comp
+L Regulator_Linear:AP1117-33 U5
+U 1 1 5B5B57E0
+P 1950 1300
+F 0 "U5" H 1950 1542 50  0000 C CNN
+F 1 "AP1117-33" H 1950 1451 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 1950 1500 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/AP1117.pdf" H 2050 1050 50  0001 C CNN
+	1    1950 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 1300 1650 1300
+$Comp
+L power:+3V3 #PWR015
+U 1 1 5B5B5A7B
+P 2300 1250
+F 0 "#PWR015" H 2300 1100 50  0001 C CNN
+F 1 "+3V3" H 2315 1423 50  0000 C CNN
+F 2 "" H 2300 1250 50  0001 C CNN
+F 3 "" H 2300 1250 50  0001 C CNN
+	1    2300 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR014
+U 1 1 5B5B5AED
+P 1950 1650
+F 0 "#PWR014" H 1950 1400 50  0001 C CNN
+F 1 "GND" H 1955 1477 50  0000 C CNN
+F 2 "" H 1950 1650 50  0001 C CNN
+F 3 "" H 1950 1650 50  0001 C CNN
+	1    1950 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 1300 2300 1300
+Wire Wire Line
+	2300 1300 2300 1250
+Wire Wire Line
+	1950 1650 1950 1600
+$Comp
+L Device:R R?
+U 1 1 5B5B64B3
+P 4450 2500
+F 0 "R?" H 4520 2546 50  0000 L CNN
+F 1 "100k" H 4520 2455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4380 2500 50  0001 C CNN
+F 3 "~" H 4450 2500 50  0001 C CNN
+	1    4450 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 2700 4450 2650
+Connection ~ 4450 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5B5B676F
+P 4450 2300
+F 0 "#PWR?" H 4450 2150 50  0001 C CNN
+F 1 "+3V3" H 4465 2473 50  0000 C CNN
+F 2 "" H 4450 2300 50  0001 C CNN
+F 3 "" H 4450 2300 50  0001 C CNN
+	1    4450 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 2350 4450 2300
+$Sheet
+S 8700 850  500  200 
+U 5B5B1D70
+F0 "front_panel" 50
+F1 "front_panel.sch" 50
+$EndSheet
+$Comp
+L Transistor_BJT:MPSA92 Q?
+U 1 1 5B5C06CE
+P 2250 5150
+F 0 "Q?" H 2441 5196 50  0000 L CNN
+F 1 "MPSA92" H 2441 5105 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2450 5075 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 2250 5150 50  0001 L CNN
+	1    2250 5150
+	1    0    0    -1  
+$EndComp
+Text HLabel 2350 4550 0    50   Input ~ 0
+Vdd
+Wire Wire Line
+	2350 4550 2350 4950
+Text HLabel 2350 6450 3    50   Output ~ 0
+Anode1
+Wire Wire Line
+	2350 6450 2350 5350
+$Comp
+L Transistor_BJT:MPSA42 Q?
+U 1 1 5B5C06D9
+P 1950 5850
+F 0 "Q?" H 2141 5896 50  0000 L CNN
+F 1 "MPSA42" H 2141 5805 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2150 5775 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 1950 5850 50  0001 L CNN
+	1    1950 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B5C06E0
+P 2050 5400
+F 0 "R?" H 2120 5446 50  0000 L CNN
+F 1 "R" H 2120 5355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1980 5400 50  0001 C CNN
+F 3 "~" H 2050 5400 50  0001 C CNN
+	1    2050 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 5250 2050 5150
+Wire Wire Line
+	2050 5650 2050 5550
+$Comp
+L power:GND #PWR?
+U 1 1 5B5C06E9
+P 2050 6450
+F 0 "#PWR?" H 2050 6200 50  0001 C CNN
+F 1 "GND" H 2055 6277 50  0000 C CNN
+F 2 "" H 2050 6450 50  0001 C CNN
+F 3 "" H 2050 6450 50  0001 C CNN
+	1    2050 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 6450 2050 6050
+$EndSCHEMATC

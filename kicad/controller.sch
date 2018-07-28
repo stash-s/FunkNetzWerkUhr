@@ -1,10 +1,11 @@
 EESchema Schematic File Version 4
+LIBS:funknetzwerkuhr-cache
 LIBS:nixie-breakout-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 2
+Sheet 2 4
 Title ""
 Date ""
 Rev ""
@@ -14,17 +15,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Transistor_BJT:MPSA92 Q?
-U 1 1 5B3B9AF7
-P 5550 5500
-F 0 "Q?" H 5741 5546 50  0000 L CNN
-F 1 "MPSA92" H 5741 5455 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 5750 5425 50  0001 L CIN
-F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 5550 5500 50  0001 L CNN
-	1    5550 5500
-	1    0    0    -1  
-$EndComp
 $Comp
 L Transistor_BJT:MPSA92 Q?
 U 1 1 5B3B9BBB
@@ -61,7 +51,7 @@ U 1 1 5B3BA1EE
 P 1600 1850
 F 0 "R?" H 1670 1896 50  0000 L CNN
 F 1 "R" H 1670 1805 50  0000 L CNN
-F 2 "" V 1530 1850 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1530 1850 50  0001 C CNN
 F 3 "~" H 1600 1850 50  0001 C CNN
 	1    1600 1850
 	1    0    0    -1  
