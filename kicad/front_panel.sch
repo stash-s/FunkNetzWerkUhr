@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 3
+Sheet 2 3
 Title ""
 Date ""
 Rev ""
@@ -660,4 +660,26 @@ Text Label 2650 3750 0    50   ~ 0
 D9
 Text Label 2650 3850 0    50   ~ 0
 D6
+Text HLabel 1700 3950 0    50   Input ~ 0
+ANODE_N1
+Text HLabel 1700 4050 0    50   Input ~ 0
+CATHODE_N1
+Text HLabel 1700 4150 0    50   Input ~ 0
+ANODE_N2
+Text HLabel 1700 4250 0    50   Input ~ 0
+CATHODE_N2
+Text HLabel 1700 4350 0    50   Input ~ 0
+RED
+Text HLabel 1700 4450 0    50   Input ~ 0
+GREEN
+Text HLabel 1700 4550 0    50   Input ~ 0
+BLUE
+Text HLabel 1700 4650 0    50   Input ~ 0
+ANODE_LED_1
+Text HLabel 1700 4750 0    50   Input ~ 0
+ANODE_LED_2
+Text HLabel 1700 4850 0    50   Input ~ 0
+ANODE_LED_3
+Text HLabel 1700 4950 0    50   Input ~ 0
+ANODE_LED_4
 $EndSCHEMATC

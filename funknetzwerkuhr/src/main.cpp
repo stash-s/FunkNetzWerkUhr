@@ -7,9 +7,11 @@
 #include <NTPClient.h>
 #include <SPI.h>
 
+#include "max_display.h"
+
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 20); 
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 20);
 
 
 
@@ -41,6 +43,9 @@ void sample_isr () {
     digitalWrite (15, HIGH);
 }
 
+
+MaxDisplay display;
+
 void setup() {
     // put your setup code here, to run once:
     pinMode (LED_BUILTIN, OUTPUT);
@@ -50,7 +55,7 @@ void setup() {
 
     WiFiManager wifiManager;
 
-    wifiManager.resetSettings();
+    //wifiManager.resetSettings();
 
     Serial.println ("connecting...");
     wifiManager.autoConnect ("AutoconnectAP");
@@ -91,20 +96,7 @@ void setup() {
   });
   ArduinoOTA.begin();
 
-  SPI.begin ();
-  SPI.setDataMode(SPI_MODE0);
-  SPI.setBitOrder(LSBFIRST);
-  SPI.setFrequency(8000000);
-
-  // tutaj
-
-  pinMode (15, OUTPUT);
-  digitalWrite (15, HIGH);
-
-  timer1_isr_init ();
-  timer1_attachInterrupt (sample_isr);
-  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
-  timer1_write(clockCyclesPerMicrosecond() / 16 * 80); //80us = 12.5kHz sampling freq
+  display.init();
 
   digitalWrite (LED_BUILTIN, HIGH);
 }
@@ -115,7 +107,7 @@ void loop() {
     //     Serial.println (timeClient.getFormattedTime());
     // }
         auto time = timeClient.getFormattedTime();
-        memcpy (&payload, time.c_str(), sizeof(payload));
+        display.set_payload_str (time.c_str());
     }
 
     ArduinoOTA.handle();
