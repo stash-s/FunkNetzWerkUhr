@@ -159,16 +159,16 @@ F 3 "http://www.diodes.com/datasheets/AP1117.pdf" H 6600 700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6000 950  6200 950 
+	6000 950  6050 950 
 $Comp
 L power:+3V3 #PWR015
 U 1 1 5B5B5A7B
-P 6800 900
-F 0 "#PWR015" H 6800 750 50  0001 C CNN
-F 1 "+3V3" H 6815 1073 50  0000 C CNN
-F 2 "" H 6800 900 50  0001 C CNN
-F 3 "" H 6800 900 50  0001 C CNN
-	1    6800 900 
+P 6900 900
+F 0 "#PWR015" H 6900 750 50  0001 C CNN
+F 1 "+3V3" H 6915 1073 50  0000 C CNN
+F 2 "" H 6900 900 50  0001 C CNN
+F 3 "" H 6900 900 50  0001 C CNN
+	1    6900 900 
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -183,7 +183,7 @@ F 3 "" H 6500 1300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6800 950  6800 900 
+	6800 950  6900 950 
 Wire Wire Line
 	6500 1300 6500 1250
 $Comp
@@ -2361,6 +2361,40 @@ F 3 "" H 6700 3750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6700 3450 6700 3400
+Connection ~ 6700 3400
+$Comp
+L Device:CP C11
+U 1 1 5B6D84E6
+P 6050 1100
+F 0 "C11" H 6168 1146 50  0000 L CNN
+F 1 "10uF" H 6168 1055 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 6088 950 50  0001 C CNN
+F 3 "~" H 6050 1100 50  0001 C CNN
+	1    6050 1100
+	1    0    0    -1  
+$EndComp
+Connection ~ 6050 950 
+Wire Wire Line
+	6050 950  6200 950 
+$Comp
+L Device:CP C12
+U 1 1 5B6D89E2
+P 6900 1100
+F 0 "C12" H 7018 1146 50  0000 L CNN
+F 1 "22uF" H 7018 1055 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 6938 950 50  0001 C CNN
+F 3 "~" H 6900 1100 50  0001 C CNN
+	1    6900 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 950  6900 900 
+Connection ~ 6900 950 
+Wire Wire Line
+	6900 1250 6750 1250
+Connection ~ 6500 1250
+Wire Wire Line
+	6050 1250 6500 1250
 Wire Bus Line
 	7650 2850 10000 2850
 Wire Bus Line
@@ -2371,5 +2405,18 @@ Wire Bus Line
 	750  6400 11150 6400
 Wire Bus Line
 	700  4500 11150 4500
-Connection ~ 6700 3400
+$Comp
+L Parts_Stash:THERMAL_VIA U7
+U 1 1 5B728D7F
+P 6750 1350
+F 0 "U7" H 6800 1400 50  0001 C CNN
+F 1 "THERMAL_VIA" H 6700 1650 50  0001 C CNN
+F 2 "PartsStash_RW:Thermal_Via" H 6600 1350 50  0001 C CNN
+F 3 "" H 6600 1350 50  0001 C CNN
+	1    6750 1350
+	-1   0    0    1   
+$EndComp
+Connection ~ 6750 1250
+Wire Wire Line
+	6750 1250 6500 1250
 $EndSCHEMATC

@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 3
+Sheet 3 3
 Title ""
 Date ""
 Rev ""
@@ -155,7 +155,7 @@ U 1 1 5B7B044B
 P 6250 2700
 F 0 "L1" V 6440 2700 50  0000 C CNN
 F 1 "L" V 6349 2700 50  0000 C CNN
-F 2 "Inductor_THT:L_Toroid_Vertical_L16.0mm_W8.0mm_P7.62mm" H 6250 2700 50  0001 C CNN
+F 2 "PartsStash_RW:L_Toroid_Horizontal_D16.8mm_P6mm_AliExpress" H 6250 2700 50  0001 C CNN
 F 3 "" H 6250 2700 50  0001 C CNN
 	1    6250 2700
 	0    -1   -1   0   
@@ -163,12 +163,12 @@ $EndComp
 $Comp
 L Device:CP C4
 U 1 1 5B7B059A
-P 3900 3500
-F 0 "C4" V 4000 3350 50  0000 L CNN
-F 1 "100uF,25V" V 3750 3350 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 3938 3350 50  0001 C CNN
-F 3 "" H 3900 3500 50  0001 C CNN
-	1    3900 3500
+P 5900 2850
+F 0 "C4" V 6000 2700 50  0000 L CNN
+F 1 "100uF,25V" V 5750 2700 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5938 2700 50  0001 C CNN
+F 3 "" H 5900 2850 50  0001 C CNN
+	1    5900 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -198,7 +198,7 @@ U 1 1 5B817112
 P 6600 4300
 F 0 "RSENSE1" V 6500 4200 50  0000 L CNN
 F 1 "0R1" V 6700 4200 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0516_L15.5mm_D5.0mm_P5.08mm_Vertical" V 6530 4300 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P15.24mm_Horizontal" V 6530 4300 50  0001 C CNN
 F 3 "" H 6600 4300 50  0001 C CNN
 	1    6600 4300
 	1    0    0    -1  
@@ -387,7 +387,7 @@ Connection ~ 3900 4550
 Wire Wire Line
 	3900 4550 3500 4550
 Wire Wire Line
-	5550 2700 6100 2700
+	5550 2700 5900 2700
 Wire Wire Line
 	3900 3350 3900 2700
 Connection ~ 3900 2700
@@ -405,5 +405,30 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4880 3600 50  0
 F 3 "~" H 4950 3600 50  0001 C CNN
 	1    4950 3600
 	0    1    1    0   
+$EndComp
+Connection ~ 5900 2700
+Wire Wire Line
+	5900 2700 6100 2700
+$Comp
+L power:GND #PWR049
+U 1 1 5B7288C4
+P 5900 3000
+F 0 "#PWR049" H 5900 2750 50  0001 C CNN
+F 1 "GND" H 5905 2827 50  0000 C CNN
+F 2 "" H 5900 3000 50  0001 C CNN
+F 3 "" H 5900 3000 50  0001 C CNN
+	1    5900 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C13
+U 1 1 5B7288EF
+P 3900 3500
+F 0 "C13" V 4000 3350 50  0000 L CNN
+F 1 "10uF,25V" V 3750 3350 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 3938 3350 50  0001 C CNN
+F 3 "" H 3900 3500 50  0001 C CNN
+	1    3900 3500
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

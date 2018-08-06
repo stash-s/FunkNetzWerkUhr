@@ -535,6 +535,20 @@ X C 3 100 -200 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Parts_Stash:THERMAL_VIA
+#
+DEF ~Parts_Stash:THERMAL_VIA ~ 0 0 N N 1 F N
+F0 "" -50 200 50 H I C CNN
+F1 "Parts_Stash:THERMAL_VIA" -50 300 50 H I C CNN
+F2 "" -150 0 50 H I C CNN
+F3 "" -150 0 50 H I C CNN
+DRAW
+C 0 0 50 0 1 39 N
+X ~ ~ 0 -100 50 U 50 50 1 1 U
+X ~ ~ 0 -100 50 U 50 50 1 1 U
+ENDDRAW
+ENDDEF
+#
 # Regulator_Linear:AP1117-33
 #
 DEF Regulator_Linear:AP1117-33 U 0 10 Y Y 1 F N
