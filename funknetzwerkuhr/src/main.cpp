@@ -13,37 +13,9 @@ WiFiUDP ntpUDP;
 
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 20);
 
-
-
-inline void setDataBits(uint16_t bits) {
-    const uint32_t mask = ~((SPIMMOSI << SPILMOSI) | (SPIMMISO << SPILMISO));
-    bits--;
-    SPI1U1 = ((SPI1U1 & mask) | ((bits << SPILMOSI) | (bits << SPILMISO)));
-}
-
 int position=0;
-uint64_t payload=0;
 
-ICACHE_RAM_ATTR
-void sample_isr () {
-
-    // latch low
-    digitalWrite (15, LOW);
-
-    while(SPI1CMD & SPIBUSY) {}
-
-    setDataBits (8 * sizeof(payload));
-    SPI1W0 = payload;
-    SPI1W1 = payload >> 32;
-
-    SPI1CMD |= SPIBUSY;
-    //while(SPI1CMD & SPIBUSY) {}
-
-    // latchhigh
-    digitalWrite (15, HIGH);
-}
-
-
+WiFiManager wifiManager;
 MaxDisplay display;
 
 void setup() {
@@ -53,7 +25,6 @@ void setup() {
 
     Serial.begin (9600);
 
-    WiFiManager wifiManager;
 
     //wifiManager.resetSettings();
 
@@ -96,7 +67,12 @@ void setup() {
   });
   ArduinoOTA.begin();
 
+
+  // tutaj
   display.init();
+
+  //pinMode (15, OUTPUT);
+  //digitalWrite (15, HIGH);
 
   digitalWrite (LED_BUILTIN, HIGH);
 }
@@ -106,8 +82,8 @@ void loop() {
     if (timeClient.update()) {
     //     Serial.println (timeClient.getFormattedTime());
     // }
-        auto time = timeClient.getFormattedTime();
-        display.set_payload_str (time.c_str());
+    //    auto time = timeClient.getFormattedTime();
+    //    memcpy (&payload, time.c_str(), sizeof(payload));
     }
 
     ArduinoOTA.handle();
