@@ -6,10 +6,7 @@
 
 #include <functional>
 
-//static std::function<void (void)> isr_callback;
-
-
-static MaxDisplay::payload_t payload=0;
+static uint32_t payload=0;
 
 uint8_t MaxDisplay::_red=0;
 uint8_t MaxDisplay::_green=0;
@@ -25,10 +22,6 @@ inline void setDataBits(uint16_t bits) {
     bits--;
     SPI1U1 = ((SPI1U1 & mask) | ((bits << SPILMOSI) | (bits << SPILMISO)));
 }
-
-
-MaxDisplay::MaxDisplay()
-{}
 
 static MaxDisplay::payload_t led_mux_map[] = {
     0b000100000000000000000000, // digit 1
@@ -74,7 +67,8 @@ static MaxDisplay::payload_t number_mux_map[] = {
 //    0b10000000000, // dot
 };
 
-
+MaxDisplay::MaxDisplay()
+{}
 
 ICACHE_RAM_ATTR
 void tick (/* arguments */) {
@@ -126,30 +120,21 @@ void tick (/* arguments */) {
 }
 
 ICACHE_RAM_ATTR
-void
-main_isr() {
+static void isr_call () {
 
-        //tick ();
+    tick();
 
-#ifdef USE_HW_CS
-        // latch low
-        digitalWrite (15, LOW);
-#endif // USE_HW_CS
+    while(SPI1CMD & SPIBUSY) {}
 
-        while(SPI1CMD & SPIBUSY) {}
+    setDataBits (24); //8 * sizeof(payload));
+    SPI1W0 = payload;
+    //SPI1W1 = payload >> 32;
 
-        setDataBits (24); //8 * sizeof(payload));
-        SPI1W0 = payload;
-        //SPI1W1 = payload >> 32;
+    SPI1CMD |= SPIBUSY;
+    //while(SPI1CMD & SPIBUSY) {}
 
-        SPI1CMD |= SPIBUSY;
-
-#ifndef USE_HW_CS
-        while(SPI1CMD & SPIBUSY) {}
-        // latchhigh
-        digitalWrite (15, HIGH);
-#endif // USE_HW_CS
-
+    // latchhigh
+    //digitalWrite (15, HIGH);
 }
 
 void
@@ -157,24 +142,17 @@ MaxDisplay::init()
 {
     SPI.begin ();
     SPI.setDataMode(SPI_MODE0);
-#ifdef USE_HW_CS
     SPI.setHwCs(true);
-#endif// USE_HW_CS
     SPI.setBitOrder(LSBFIRST);
-    SPI.setFrequency(4000000);
+    SPI.setFrequency(8000000);
 
     // tutaj
     setDataBits (24);
 
-#ifndef USE_HW_CS
-    pinMode (15, OUTPUT);
-    digitalWrite (15, HIGH);
-#endif // USE_HW_CS
-
     display_timer_divider = clockCyclesPerMicrosecond() / 16 * 80;
 
     timer1_isr_init ();
-    timer1_attachInterrupt (main_isr);
+    timer1_attachInterrupt (isr_call);
     timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
     timer1_write(display_timer_divider); //80us = 12.5kHz sampling freq
 
@@ -183,20 +161,16 @@ MaxDisplay::init()
 }
 
 
-void MaxDisplay::set_payload_str(const char *str) {
-    memcpy (&payload, str, sizeof(payload));
+void MaxDisplay::shutdown () {
+    digitalWrite (SHDN_PIN, HIGH);
 }
 
-void MaxDisplay::set_payload (MaxDisplay::payload_t payload_in) {
-    payload = payload_in;
+void MaxDisplay::setDigit (unsigned int digit, uint8_t value) {
+    _digits[digit] = value;
 }
 
 void MaxDisplay::setColor (uint8_t red, uint8_t green, uint8_t blue) {
     _red = red;
     _green = green;
     _blue = blue;
-}
-
-void MaxDisplay::setDigit (unsigned int digit, uint8_t value) {
-    _digits[digit] = value;
 }

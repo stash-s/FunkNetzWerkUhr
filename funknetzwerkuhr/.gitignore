@@ -5,3 +5,6 @@
 .vscode/launch.json
 .clang_complete
 .gcc-flags.json
+GPATH
+GRTAGS
+GTAGS
