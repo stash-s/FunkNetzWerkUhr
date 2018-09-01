@@ -22,27 +22,6 @@ inline void setDataBits(uint16_t bits) {
 }
 
 int position=0;
-uint64_t payload=0;
-
-ICACHE_RAM_ATTR
-void sample_isr () {
-
-    // latch low
-    digitalWrite (15, LOW);
-
-    while(SPI1CMD & SPIBUSY) {}
-
-    setDataBits (8 * sizeof(payload));
-    SPI1W0 = payload;
-    SPI1W1 = payload >> 32;
-
-    SPI1CMD |= SPIBUSY;
-    //while(SPI1CMD & SPIBUSY) {}
-
-    // latchhigh
-    digitalWrite (15, HIGH);
-}
-
 
 MaxDisplay display;
 
@@ -51,15 +30,18 @@ void setup() {
     pinMode (LED_BUILTIN, OUTPUT);
     digitalWrite (LED_BUILTIN, LOW);
 
+    display.init();
+    display.setColor(255, 0, 0);
+
     Serial.begin (9600);
 
     WiFiManager wifiManager;
 
-    //wifiManager.resetSettings();
-
     Serial.println ("connecting...");
     wifiManager.autoConnect ("AutoconnectAP");
     Serial.println ("connected ... yay!");
+    display.setColor(0, 255, 64);
+
 
     timeClient.begin();
 
@@ -73,6 +55,9 @@ void setup() {
 
     // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
     Serial.println("Start updating " + type);
+
+    display.shutdown();
+
   });
   ArduinoOTA.onEnd([]() {
     Serial.println("\nEnd");
@@ -96,18 +81,18 @@ void setup() {
   });
   ArduinoOTA.begin();
 
-  display.init();
-
   digitalWrite (LED_BUILTIN, HIGH);
 }
 
 void loop() {
     // put your main code here, to run repeatedly:
     if (timeClient.update()) {
-    //     Serial.println (timeClient.getFormattedTime());
-    // }
-        auto time = timeClient.getFormattedTime();
-        display.set_payload_str (time.c_str());
+        //Serial.println (timeClient.getFormattedTime());
+
+        display.setDigit(0, timeClient.getHours() / 10);
+        display.setDigit(1, timeClient.getHours() % 10);
+        display.setDigit(2, timeClient.getMinutes() / 10);
+        display.setDigit(3, timeClient.getMinutes() % 10);
     }
 
     ArduinoOTA.handle();
