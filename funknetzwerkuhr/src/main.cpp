@@ -23,12 +23,17 @@ void setup() {
     pinMode (LED_BUILTIN, OUTPUT);
     digitalWrite (LED_BUILTIN, LOW);
 
+    //wifiManager.resetSettings();
+
     display.init();
 
     display.setColor(255, 0, 0);
 
     Serial.begin (9600);
 
+    wifiManager.setAPCallback([](WiFiManager * mgr){
+        display.setColor(0, 0, 255);
+    });
 
     Serial.println ("connecting...");
     wifiManager.autoConnect ("AutoconnectAP");

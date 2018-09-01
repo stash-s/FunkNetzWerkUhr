@@ -100,6 +100,17 @@ void tick (/* arguments */) {
         if (MaxDisplay::_red) color_mask &= RED_MASK;
         if (MaxDisplay::_green) color_mask &= GREEN_MASK;
         if (MaxDisplay::_blue) color_mask &= BLUE_MASK;
+        
+#ifdef FULL_COLOR
+        for (auto i : led_mux_map) {
+            color_mask |= i;
+        }
+#else
+        color_mask |= led_mux_map[current_digit];
+#endif
+
+
+
 
         // if pwm counter >= pwm, blank digits
         if (pwm_counter >= MaxDisplay::_pwm) {
@@ -111,7 +122,7 @@ void tick (/* arguments */) {
             //}
 
         } else {
-            payload = led_mux_map[current_digit] | dots_map[dots_state] | digit_mux_map[current_digit]
+            payload = dots_map[dots_state] | digit_mux_map[current_digit]
                     | color_mask
                     | number_mux_map[MaxDisplay::_digits[current_digit]];
         }
