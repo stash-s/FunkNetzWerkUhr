@@ -11,7 +11,7 @@
 
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 20);
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 300 * 1000);
 
 
 
@@ -40,7 +40,7 @@ void setup() {
     Serial.println ("connecting...");
     wifiManager.autoConnect ("AutoconnectAP");
     Serial.println ("connected ... yay!");
-    display.setColor(0, 255, 64);
+    display.setColor(0, 255, 0);
 
 
     timeClient.begin();
