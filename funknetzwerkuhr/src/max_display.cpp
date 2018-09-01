@@ -75,6 +75,15 @@ void tick (/* arguments */) {
     static int current_digit=0;
     static int seconds_counter=0;
     static int pwm_counter=0;
+    static uint8_t color_counter=0;
+
+    uint32_t color_mask = RGB_MASK;
+
+    if (MaxDisplay::_red   > color_counter) color_mask &= RED_MASK;
+    if (MaxDisplay::_green > color_counter) color_mask &= GREEN_MASK;
+    if (MaxDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
+
+    ++color_counter;
 
     ++pwm_counter;
     if (pwm_counter >= PWM_MAX) {
@@ -94,13 +103,12 @@ void tick (/* arguments */) {
         if ( seconds_counter >= (display_timer_divider * 16) ) {
             seconds_counter = 0;
             dots_state = dots_state ? 0 : 1;
+            MaxDisplay::_red  += 7;
+            MaxDisplay::_blue += 5;
+            MaxDisplay::_green -= 1;
+
         }
 
-        uint32_t color_mask = RGB_MASK;
-        if (MaxDisplay::_red) color_mask &= RED_MASK;
-        if (MaxDisplay::_green) color_mask &= GREEN_MASK;
-        if (MaxDisplay::_blue) color_mask &= BLUE_MASK;
-        
 #ifdef FULL_COLOR
         for (auto i : led_mux_map) {
             color_mask |= i;
@@ -108,8 +116,6 @@ void tick (/* arguments */) {
 #else
         color_mask |= led_mux_map[current_digit];
 #endif
-
-
 
 
         // if pwm counter >= pwm, blank digits
