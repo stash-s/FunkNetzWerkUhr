@@ -28,6 +28,8 @@ public:
     void setDigit (unsigned int digit, uint8_t value);
     void setColor (uint8_t red, uint8_t green, uint8_t blue);
 
+    void setBrightness (uint8_t brightness);
+
 
 private:
 

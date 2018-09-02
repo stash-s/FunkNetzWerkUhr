@@ -8,6 +8,7 @@
 #include <SPI.h>
 
 #include "max_display.h"
+#include "light_sensor.h"
 
 WiFiUDP ntpUDP;
 
@@ -17,6 +18,7 @@ int position=0;
 
 WiFiManager wifiManager;
 MaxDisplay display;
+LightSensor lightSensor;
 
 void setup() {
     // put your setup code here, to run once:
@@ -24,12 +26,25 @@ void setup() {
     digitalWrite (LED_BUILTIN, LOW);
 
     //wifiManager.resetSettings();
+    Serial.begin (9600);
 
     display.init();
-
     display.setColor(255, 0, 0);
 
-    Serial.begin (9600);
+    // lightSensor.onReading([](int value) {
+    //     display.setDigit (0,  value / 1000);
+    //     display.setDigit (1, (value % 1000) / 100);
+    //     display.setDigit (2, (value % 100)  / 10);
+    //     display.setDigit (3, (value % 10));
+    // });
+
+    lightSensor.onLevelSet([](int value) {
+        display.setBrightness(value);
+        // display.setDigit (0,  value / 1000);
+        // display.setDigit (1, (value % 1000) / 100);
+        // display.setDigit (2, (value % 100)  / 10);
+        // display.setDigit (3, (value % 10));
+    });
 
     wifiManager.setAPCallback([](WiFiManager * mgr){
         display.setColor(0, 0, 255);
@@ -83,6 +98,8 @@ void setup() {
 
 void loop() {
     // put your main code here, to run repeatedly:
+    lightSensor.handle ();
+
     if (timeClient.update()) {
         //Serial.println (timeClient.getFormattedTime());
 

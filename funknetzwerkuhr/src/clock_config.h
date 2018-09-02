@@ -5,9 +5,9 @@ const int BLINK_LED = 2;
 const int SHDN_PIN = 4;
 const int LATCH_PIN = 15;
 
-#define PWM_MAX 32
+#define PWM_MAX 33
 //#define PWM_INIT (1)
-#define PWM_INIT (30)
+#define PWM_INIT (32)
 
 #define FULL_COLOR
 

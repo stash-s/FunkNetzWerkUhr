@@ -70,18 +70,16 @@ static MaxDisplay::payload_t number_mux_map[] = {
 MaxDisplay::MaxDisplay()
 {}
 
+void  MaxDisplay::setBrightness (uint8_t brightness) {
+    _pwm = brightness;
+}
+
 ICACHE_RAM_ATTR
 void tick (/* arguments */) {
     static int current_digit=0;
     static int seconds_counter=0;
     static int pwm_counter=0;
     static uint8_t color_counter=0;
-
-    uint32_t color_mask = RGB_MASK;
-
-    if (MaxDisplay::_red   > color_counter) color_mask &= RED_MASK;
-    if (MaxDisplay::_green > color_counter) color_mask &= GREEN_MASK;
-    if (MaxDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
 
     ++color_counter;
 
@@ -100,23 +98,18 @@ void tick (/* arguments */) {
 
         static int dots_state = 0;
         ++ seconds_counter;
-        if ( seconds_counter >= (display_timer_divider * 16) ) {
+        if ( seconds_counter >= (display_timer_divider * 16 * 16) ) {
             seconds_counter = 0;
             dots_state = dots_state ? 0 : 1;
-            MaxDisplay::_red  += 7;
-            MaxDisplay::_blue += 5;
-            MaxDisplay::_green -= 1;
+            if (dots_state) {
+                MaxDisplay::_red  += 7;
+                MaxDisplay::_blue += 5;
+                MaxDisplay::_green -= 1;
+            }
 
         }
 
-#ifdef FULL_COLOR
-        for (auto i : led_mux_map) {
-            color_mask |= i;
-        }
-#else
-        color_mask |= led_mux_map[current_digit];
-#endif
-
+        uint32_t color_mask = RGB_MASK;
 
         // if pwm counter >= pwm, blank digits
         if (pwm_counter >= MaxDisplay::_pwm) {
@@ -128,6 +121,19 @@ void tick (/* arguments */) {
             //}
 
         } else {
+
+            if (MaxDisplay::_red   > color_counter) color_mask &= RED_MASK;
+            if (MaxDisplay::_green > color_counter) color_mask &= GREEN_MASK;
+            if (MaxDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
+
+            #ifdef FULL_COLOR
+                    for (auto i : led_mux_map) {
+                        color_mask |= i;
+                    }
+            #else
+                    color_mask |= led_mux_map[current_digit];
+            #endif
+
             payload = dots_map[dots_state] | digit_mux_map[current_digit]
                     | color_mask
                     | number_mux_map[MaxDisplay::_digits[current_digit]];
@@ -166,12 +172,12 @@ MaxDisplay::init()
     // tutaj
     setDataBits (24);
 
-    display_timer_divider = clockCyclesPerMicrosecond() / 16 * 80;
+    display_timer_divider = (clockCyclesPerMicrosecond() / 16) * 20; // 40us = 25kHz sampling freq
 
     timer1_isr_init ();
     timer1_attachInterrupt (isr_call);
     timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
-    timer1_write(display_timer_divider); //80us = 12.5kHz sampling freq
+    timer1_write(display_timer_divider);
 
     pinMode (SHDN_PIN, OUTPUT);
     digitalWrite (SHDN_PIN, LOW);
