@@ -228,19 +228,6 @@ Wire Wire Line
 Connection ~ 8450 3850
 Wire Wire Line
 	8450 3850 10050 3850
-$Comp
-L Connector_Generic:Conn_01x26 J2
-U 1 1 5B3174A8
-P 2350 3650
-F 0 "J2" H 2456 5028 50  0000 C CNN
-F 1 "Conn_01x26_Male" H 2456 4937 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x26_P2.54mm_Vertical" H 2350 3650 50  0001 C CNN
-F 3 "~" H 2350 3650 50  0001 C CNN
-	1    2350 3650
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	2550 2450 2800 2450
 Wire Wire Line
 	2800 2450 2800 1750
 Wire Wire Line
@@ -254,10 +241,6 @@ Wire Wire Line
 Wire Wire Line
 	2900 1650 2900 2550
 Wire Wire Line
-	2900 2550 2550 2550
-Wire Wire Line
-	2550 2650 3000 2650
-Wire Wire Line
 	3000 2650 3000 1550
 Wire Wire Line
 	3000 1550 7950 1550
@@ -269,8 +252,6 @@ Wire Wire Line
 	9550 1450 3100 1450
 Wire Wire Line
 	3100 1450 3100 2750
-Wire Wire Line
-	3100 2750 2550 2750
 $Comp
 L Parts_Stash:LED_RGB_CA D2
 U 1 1 5B33640C
@@ -363,8 +344,6 @@ Wire Wire Line
 	3300 6200 6700 6200
 Wire Wire Line
 	3550 3250 3550 2850
-Wire Wire Line
-	3550 2850 2550 2850
 Wire Wire Line
 	3600 3950 2550 3950
 Wire Wire Line
@@ -484,85 +463,44 @@ Wire Wire Line
 	7100 5400 7000 5400
 Wire Wire Line
 	6700 5550 6700 6200
-$Comp
-L Connector:Conn_01x26_Female J3
-U 1 1 5B5EDBAE
-P 1900 3650
-F 0 "J3" H 1927 3626 50  0000 L CNN
-F 1 "Conn_01x26_Female" H 1927 3535 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x26_P2.54mm_Vertical" H 1900 3650 50  0001 C CNN
-F 3 "~" H 1900 3650 50  0001 C CNN
-	1    1900 3650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1700 2450 1500 2450
-Wire Wire Line
-	1700 2550 1500 2550
-Wire Wire Line
-	1700 2650 1500 2650
-Wire Wire Line
-	1700 2750 1500 2750
-Text HLabel 1500 2450 0    50   Input ~ 0
+Text HLabel 2350 2450 0    50   Input ~ 0
 ANODE_1
-Text HLabel 1500 2550 0    50   Input ~ 0
+Text HLabel 2350 2750 0    50   Input ~ 0
 ANODE_2
-Text HLabel 1500 2650 0    50   Input ~ 0
+Text HLabel 2350 2650 0    50   Input ~ 0
 ANODE_3
-Text HLabel 1500 2750 0    50   Input ~ 0
+Text HLabel 2350 2550 0    50   Input ~ 0
 ANODE_4
 Text Label 2650 2450 0    50   ~ 0
 A1
 Text Label 2650 2550 0    50   ~ 0
-A2
+A4
 Text Label 2650 2650 0    50   ~ 0
 A3
 Text Label 2650 2750 0    50   ~ 0
-A4
-Text HLabel 1500 3650 0    50   Input ~ 0
+A2
+Text HLabel 2350 3650 0    50   Input ~ 0
 DIGIT_0
-Text HLabel 1500 3350 0    50   Input ~ 0
+Text HLabel 2350 3350 0    50   Input ~ 0
 DIGIT_1
-Text HLabel 1500 3250 0    50   Input ~ 0
+Text HLabel 2350 3250 0    50   Input ~ 0
 DIGIT_2
-Text HLabel 1500 3150 0    50   Input ~ 0
+Text HLabel 2350 3150 0    50   Input ~ 0
 DIGIT_3
-Text HLabel 1500 2850 0    50   Input ~ 0
+Text HLabel 2350 2850 0    50   Input ~ 0
 DIGIT_4
-Text HLabel 1500 2950 0    50   Input ~ 0
+Text HLabel 2350 2950 0    50   Input ~ 0
 DIGIT_5
-Text HLabel 1500 3850 0    50   Input ~ 0
+Text HLabel 2350 3850 0    50   Input ~ 0
 DIGIT_6
-Text HLabel 1500 3550 0    50   Input ~ 0
+Text HLabel 2350 3550 0    50   Input ~ 0
 DIGIT_7
-Text HLabel 1500 3050 0    50   Input ~ 0
+Text HLabel 2350 3050 0    50   Input ~ 0
 DIGIT_8
-Text HLabel 1500 3750 0    50   Input ~ 0
+Text HLabel 2350 3750 0    50   Input ~ 0
 DIGIT_9
-Text HLabel 1500 3450 0    50   Input ~ 0
+Text HLabel 2350 3450 0    50   Input ~ 0
 DIGIT_DOT
-Wire Wire Line
-	1700 2850 1500 2850
-Wire Wire Line
-	1700 2950 1500 2950
-Wire Wire Line
-	1700 3050 1500 3050
-Wire Wire Line
-	1700 3150 1500 3150
-Wire Wire Line
-	1700 3250 1500 3250
-Wire Wire Line
-	1700 3350 1500 3350
-Wire Wire Line
-	1700 3450 1500 3450
-Wire Wire Line
-	1700 3550 1500 3550
-Wire Wire Line
-	1700 3650 1500 3650
-Wire Wire Line
-	1700 3750 1500 3750
-Wire Wire Line
-	1700 3850 1500 3850
 Wire Wire Line
 	3850 2650 3850 2750
 Wire Wire Line
@@ -570,25 +508,17 @@ Wire Wire Line
 Connection ~ 4050 3250
 Wire Wire Line
 	3450 3350 3450 2950
-Wire Wire Line
-	3450 2950 2550 2950
 Connection ~ 4150 3350
 Wire Wire Line
 	4450 3650 3350 3650
 Wire Wire Line
 	3350 3650 3350 3050
-Wire Wire Line
-	3350 3050 2550 3050
 Connection ~ 4450 3650
 Wire Wire Line
 	4150 3350 3450 3350
 Wire Wire Line
 	5850 3350 4150 3350
-Wire Wire Line
-	2550 3150 3950 3150
 Connection ~ 3950 3150
-Wire Wire Line
-	2550 3250 3250 3250
 Wire Wire Line
 	3250 3250 3250 2750
 Wire Wire Line
@@ -597,18 +527,12 @@ Wire Wire Line
 	3750 3450 3250 3450
 Wire Wire Line
 	3250 3450 3250 3350
-Wire Wire Line
-	3250 3350 2550 3350
 Connection ~ 3750 2950
-Wire Wire Line
-	2550 3450 3150 3450
 Wire Wire Line
 	3150 3450 3150 3850
 Wire Wire Line
 	3150 3850 4650 3850
 Connection ~ 4650 3850
-Wire Wire Line
-	4350 3550 2550 3550
 Connection ~ 4350 3550
 Wire Wire Line
 	3650 2650 3650 2850
@@ -618,19 +542,13 @@ Connection ~ 3850 2750
 Wire Wire Line
 	3850 2750 3850 3050
 Wire Wire Line
-	2550 3650 3250 3650
-Wire Wire Line
 	3250 3650 3250 3700
 Wire Wire Line
 	3250 3700 3650 3700
 Wire Wire Line
 	3650 3700 3650 2850
 Connection ~ 3650 2850
-Wire Wire Line
-	4550 3750 2550 3750
 Connection ~ 4550 3750
-Wire Wire Line
-	2550 3850 3100 3850
 Wire Wire Line
 	3100 3850 3100 3900
 Wire Wire Line
@@ -660,26 +578,56 @@ Text Label 2650 3750 0    50   ~ 0
 D9
 Text Label 2650 3850 0    50   ~ 0
 D6
-Text HLabel 1700 3950 0    50   Input ~ 0
+Text HLabel 2550 3950 0    50   Input ~ 0
 ANODE_N1
-Text HLabel 1700 4050 0    50   Input ~ 0
+Text HLabel 2550 4050 0    50   Input ~ 0
 CATHODE_N1
-Text HLabel 1700 4150 0    50   Input ~ 0
+Text HLabel 2550 4150 0    50   Input ~ 0
 ANODE_N2
-Text HLabel 1700 4250 0    50   Input ~ 0
+Text HLabel 2550 4250 0    50   Input ~ 0
 CATHODE_N2
-Text HLabel 1700 4350 0    50   Input ~ 0
+Text HLabel 2550 4350 0    50   Input ~ 0
 RED
-Text HLabel 1700 4450 0    50   Input ~ 0
+Text HLabel 2550 4450 0    50   Input ~ 0
 GREEN
-Text HLabel 1700 4550 0    50   Input ~ 0
+Text HLabel 2550 4550 0    50   Input ~ 0
 BLUE
-Text HLabel 1700 4650 0    50   Input ~ 0
+Text HLabel 2550 4650 0    50   Input ~ 0
 ANODE_LED_1
-Text HLabel 1700 4750 0    50   Input ~ 0
+Text HLabel 2550 4750 0    50   Input ~ 0
 ANODE_LED_2
-Text HLabel 1700 4850 0    50   Input ~ 0
+Text HLabel 2550 4850 0    50   Input ~ 0
 ANODE_LED_3
-Text HLabel 1700 4950 0    50   Input ~ 0
+Text HLabel 2550 4950 0    50   Input ~ 0
 ANODE_LED_4
+Wire Wire Line
+	2350 2450 2800 2450
+Wire Wire Line
+	2350 2550 2900 2550
+Wire Wire Line
+	2350 2650 3000 2650
+Wire Wire Line
+	2350 2750 3100 2750
+Wire Wire Line
+	2350 2850 3550 2850
+Wire Wire Line
+	2350 2950 3450 2950
+Wire Wire Line
+	2350 3050 3350 3050
+Wire Wire Line
+	2350 3150 3950 3150
+Wire Wire Line
+	2350 3250 3250 3250
+Wire Wire Line
+	2350 3350 3250 3350
+Wire Wire Line
+	2350 3450 3150 3450
+Wire Wire Line
+	2350 3550 4350 3550
+Wire Wire Line
+	2350 3650 3250 3650
+Wire Wire Line
+	2350 3750 4550 3750
+Wire Wire Line
+	2350 3850 3100 3850
 $EndSCHEMATC

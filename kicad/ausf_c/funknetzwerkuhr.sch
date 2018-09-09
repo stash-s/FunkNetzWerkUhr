@@ -26,17 +26,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 6050 3400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L 74xx:74HC595 U2
-U 1 1 5B5B3A0B
-P 3850 3400
-F 0 "U2" V 3804 4041 50  0000 L CNN
-F 1 "74HC595" V 3895 4041 50  0000 L CNN
-F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 3850 3400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 3850 3400 50  0001 C CNN
-	1    3850 3400
-	0    1    1    0   
-$EndComp
-$Comp
 L 74xx:74HC595 U3
 U 1 1 5B5B3A5D
 P 1750 3450
@@ -321,8 +310,6 @@ Wire Wire Line
 Wire Wire Line
 	850  5250 850  4600
 Wire Wire Line
-	8550 900  7950 900 
-Wire Wire Line
 	8550 1100 8250 1100
 Text Label 8300 900  0    50   ~ 0
 180V
@@ -430,7 +417,7 @@ Wire Wire Line
 Text Label 2350 4900 1    50   ~ 0
 180V
 Text Label 2350 5850 3    50   ~ 0
-A2
+A4
 Entry Wire Line
 	750  4500 850  4600
 Entry Wire Line
@@ -438,7 +425,7 @@ Entry Wire Line
 Text Label 850  4600 0    50   ~ 0
 DRIVE_A1
 Text Label 1750 4600 0    50   ~ 0
-DRIVE_A2
+DRIVE_A4
 Wire Wire Line
 	5550 3800 5550 3900
 Wire Wire Line
@@ -475,10 +462,10 @@ Wire Wire Line
 	1650 3850 1650 4400
 Wire Wire Line
 	1750 3850 1750 4400
-Text Label 1450 4200 1    50   ~ 0
-DRIVE_A1
-Text Label 1550 4200 1    50   ~ 0
-DRIVE_A2
+Text Label 1450 4400 1    50   ~ 0
+DRIVE_LED_A4
+Text Label 1550 4400 1    50   ~ 0
+DRIVE_BLUE
 $Comp
 L Parts_Stash:MMBTA92 Q?
 U 1 1 5B61DCAA
@@ -752,11 +739,11 @@ Wire Wire Line
 Text Label 4150 4900 1    50   ~ 0
 180V
 Text Label 4150 5850 3    50   ~ 0
-A4
+A2
 Entry Wire Line
 	3450 4500 3550 4600
 Text Label 3550 4600 0    50   ~ 0
-DRIVE_A4
+DRIVE_A2
 $Comp
 L Device:R R?
 U 1 1 5B657ACA
@@ -793,10 +780,10 @@ F 3 "~" H 4150 5600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4150 5450 4150 5350
-Text Label 1650 4200 1    50   ~ 0
-DRIVE_A3
-Text Label 1750 4200 1    50   ~ 0
-DRIVE_A4
+Text Label 1650 4400 1    50   ~ 0
+DRIVE_D3
+Text Label 1750 4400 1    50   ~ 0
+DRIVE_D2
 $Comp
 L Parts_Stash:MMBTA42 Q10
 U 1 1 5B66EB7A
@@ -1424,14 +1411,14 @@ Text Label 8950 4600 0    50   ~ 0
 DRIVE_D9
 Text Label 9450 4600 0    50   ~ 0
 DRIVE_DOT
-Text Label 1850 4200 1    50   ~ 0
-DRIVE_D4
-Text Label 1950 4200 1    50   ~ 0
-DRIVE_D5
-Text Label 2050 4200 1    50   ~ 0
-DRIVE_D8
-Text Label 2150 4200 1    50   ~ 0
-DRIVE_D3
+Text Label 1850 4400 1    50   ~ 0
+DRIVE_A4
+Text Label 1950 4400 1    50   ~ 0
+DRIVE_D1
+Text Label 2050 4400 1    50   ~ 0
+DRIVE_LED_A3
+Text Label 2150 4400 1    50   ~ 0
+DRIVE_D7
 Entry Wire Line
 	10000 1000 10100 1100
 Entry Wire Line
@@ -1648,39 +1635,6 @@ Text GLabel 3450 1450 2    50   Input ~ 0
 HSPI_CS
 Text GLabel 6450 3000 1    50   Input ~ 0
 HSPI_MOSI
-$Comp
-L power:GND #PWR033
-U 1 1 5B72A6BA
-P 1850 3050
-F 0 "#PWR033" H 1850 2800 50  0001 C CNN
-F 1 "GND" H 1855 2877 50  0000 C CNN
-F 2 "" H 1850 3050 50  0001 C CNN
-F 3 "" H 1850 3050 50  0001 C CNN
-	1    1850 3050
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR034
-U 1 1 5B72A7F9
-P 3950 3000
-F 0 "#PWR034" H 3950 2750 50  0001 C CNN
-F 1 "GND" H 3955 2827 50  0000 C CNN
-F 2 "" H 3950 3000 50  0001 C CNN
-F 3 "" H 3950 3000 50  0001 C CNN
-	1    3950 3000
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR035
-U 1 1 5B72ABAB
-P 6150 3000
-F 0 "#PWR035" H 6150 2750 50  0001 C CNN
-F 1 "GND" H 6155 2827 50  0000 C CNN
-F 2 "" H 6150 3000 50  0001 C CNN
-F 3 "" H 6150 3000 50  0001 C CNN
-	1    6150 3000
-	-1   0    0    1   
-$EndComp
 Text GLabel 1950 3050 1    50   Input ~ 0
 HSPI_CLK
 Text GLabel 4050 3000 1    50   Input ~ 0
@@ -1826,14 +1780,14 @@ F 3 "" H 3300 1750 50  0001 C CNN
 $EndComp
 Connection ~ 3300 1750
 $Comp
-L Connector:Conn_01x05_Male J4
+L Connector:Conn_01x04_Male J4
 U 1 1 5B66F399
-P 4400 850
-F 0 "J4" H 4373 823 50  0000 R CNN
-F 1 "Conn_01x04_Male" H 4373 732 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Horizontal" H 4400 850 50  0001 C CNN
-F 3 "~" H 4400 850 50  0001 C CNN
-	1    4400 850 
+P 4400 950
+F 0 "J4" H 4373 923 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 4373 832 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 4400 950 50  0001 C CNN
+F 3 "~" H 4400 950 50  0001 C CNN
+	1    4400 950 
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
@@ -1966,24 +1920,24 @@ Entry Wire Line
 	10850 6300 10950 6400
 Text Label 10550 4600 0    50   ~ 0
 DRIVE_S2
-Text Label 3550 4150 1    50   ~ 0
-DRIVE_D2
-Text Label 3650 4150 1    50   ~ 0
-DRIVE_D1
-Text Label 3750 4200 1    50   ~ 0
-DRIVE_DOT
-Text Label 3850 4150 1    50   ~ 0
-DRIVE_D7
-Text Label 3950 4150 1    50   ~ 0
-DRIVE_D0
-Text Label 4050 4150 1    50   ~ 0
-DRIVE_D9
-Text Label 4150 4150 1    50   ~ 0
-DRIVE_D6
-Text Label 4250 4150 1    50   ~ 0
+Text Label 3550 4350 1    50   ~ 0
 DRIVE_S1
-Text Label 5750 4150 1    50   ~ 0
+Text Label 3650 4350 1    50   ~ 0
 DRIVE_S2
+Text Label 3750 4350 1    50   ~ 0
+DRIVE_A3
+Text Label 3850 4350 1    50   ~ 0
+DRIVE_D9
+Text Label 3950 4350 1    50   ~ 0
+DRIVE_GREEN
+Text Label 4050 4350 1    50   ~ 0
+DRIVE_LED_A2
+Text Label 4150 4350 1    50   ~ 0
+DRIVE_D6
+Text Label 4250 4350 1    50   ~ 0
+DRIVE_A2
+Text Label 5750 4350 1    50   ~ 0
+DRIVE_D4
 Wire Wire Line
 	10300 1600 10100 1600
 Wire Wire Line
@@ -2207,19 +2161,19 @@ F 3 "~" H 8750 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 5850 4350 1    50   ~ 0
-DRIVE_RED
+DRIVE_DOT
 Text Label 5950 4350 1    50   ~ 0
-DRIVE_GREEN
+DRIVE_D0
 Text Label 6050 4350 1    50   ~ 0
-DRIVE_BLUE
+DRIVE_D8
 Text Label 6150 4350 1    50   ~ 0
 DRIVE_LED_A1
 Text Label 6250 4350 1    50   ~ 0
-DRIVE_LED_A2
+DRIVE_RED
 Text Label 6350 4350 1    50   ~ 0
-DRIVE_LED_A3
+DRIVE_D5
 Text Label 6450 4350 1    50   ~ 0
-DRIVE_LED_A4
+DRIVE_A1
 Wire Wire Line
 	7750 4400 7750 3850
 Wire Wire Line
@@ -2251,17 +2205,6 @@ Text Label 8250 3400 1    50   ~ 0
 GREEN
 Text Label 8750 3400 1    50   ~ 0
 BLUE
-$Comp
-L power:+5V #PWR0103
-U 1 1 5B6824B0
-P 4200 650
-F 0 "#PWR0103" H 4200 500 50  0001 C CNN
-F 1 "+5V" V 4215 778 50  0000 L CNN
-F 2 "" H 4200 650 50  0001 C CNN
-F 3 "" H 4200 650 50  0001 C CNN
-	1    4200 650 
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Device:C C1
 U 1 1 5B68474F
@@ -2368,7 +2311,7 @@ U 1 1 5B6D84E6
 P 6050 1100
 F 0 "C11" H 6168 1146 50  0000 L CNN
 F 1 "10uF" H 6168 1055 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 6088 950 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 6088 950 50  0001 C CNN
 F 3 "~" H 6050 1100 50  0001 C CNN
 	1    6050 1100
 	1    0    0    -1  
@@ -2382,7 +2325,7 @@ U 1 1 5B6D89E2
 P 6900 1100
 F 0 "C12" H 7018 1146 50  0000 L CNN
 F 1 "22uF" H 7018 1055 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 6938 950 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 6938 950 50  0001 C CNN
 F 3 "~" H 6900 1100 50  0001 C CNN
 	1    6900 1100
 	1    0    0    -1  
@@ -2390,167 +2333,100 @@ $EndComp
 Wire Wire Line
 	6900 950  6900 900 
 Connection ~ 6900 950 
-Wire Wire Line
-	6900 1250 6750 1250
 Connection ~ 6500 1250
 Wire Wire Line
 	6050 1250 6500 1250
+Text Label 2850 2700 0    50   ~ 0
+~OE
 $Comp
-L Parts_Stash:THERMAL_VIA U7
-U 1 1 5B728D7F
-P 6750 1350
-F 0 "U7" H 6800 1400 50  0001 C CNN
-F 1 "THERMAL_VIA" H 6700 1650 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 6600 1350 50  0001 C CNN
-F 3 "" H 6600 1350 50  0001 C CNN
-	1    6750 1350
-	-1   0    0    1   
+L 74xx:74HC595 U2
+U 1 1 5B5B3A0B
+P 3850 3400
+F 0 "U2" V 3804 4041 50  0000 L CNN
+F 1 "74HC595" V 3895 4041 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 3850 3400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 3850 3400 50  0001 C CNN
+	1    3850 3400
+	0    1    1    0   
 $EndComp
-Connection ~ 6750 1250
-Wire Wire Line
-	6750 1250 6500 1250
+Text Label 2300 2900 0    50   ~ 0
+SERIAL_U3
+Text Label 4400 2900 0    50   ~ 0
+SERIAL_U2
 $Comp
-L Parts_Stash:THERMAL_VIA U8
-U 1 1 5B6D658D
-P 4950 1500
-F 0 "U8" H 5000 1550 50  0001 C CNN
-F 1 "THERMAL_VIA" H 4900 1800 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 4800 1500 50  0001 C CNN
-F 3 "" H 4800 1500 50  0001 C CNN
-	1    4950 1500
+L Device:R R47
+U 1 1 5B99E4A8
+P 1850 2500
+F 0 "R47" H 1920 2546 50  0000 L CNN
+F 1 "10k" H 1920 2455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1780 2500 50  0001 C CNN
+F 3 "~" H 1850 2500 50  0001 C CNN
+	1    1850 2500
 	1    0    0    -1  
 $EndComp
 $Comp
-L Parts_Stash:THERMAL_VIA U9
-U 1 1 5B6D669F
-P 5100 1500
-F 0 "U9" H 5150 1550 50  0001 C CNN
-F 1 "THERMAL_VIA" H 5050 1800 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 4950 1500 50  0001 C CNN
-F 3 "" H 4950 1500 50  0001 C CNN
-	1    5100 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Parts_Stash:THERMAL_VIA U10
-U 1 1 5B6D67B1
-P 5250 1500
-F 0 "U10" H 5300 1550 50  0001 C CNN
-F 1 "THERMAL_VIA" H 5200 1800 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 5100 1500 50  0001 C CNN
-F 3 "" H 5100 1500 50  0001 C CNN
-	1    5250 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Parts_Stash:THERMAL_VIA U11
-U 1 1 5B6D68C3
-P 5550 1500
-F 0 "U11" H 5600 1550 50  0001 C CNN
-F 1 "THERMAL_VIA" H 5500 1800 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 5400 1500 50  0001 C CNN
-F 3 "" H 5400 1500 50  0001 C CNN
-	1    5550 1500
+L Device:R R48
+U 1 1 5B99E6C8
+P 3950 2500
+F 0 "R48" H 4020 2546 50  0000 L CNN
+F 1 "10k" H 4020 2455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3880 2500 50  0001 C CNN
+F 3 "~" H 3950 2500 50  0001 C CNN
+	1    3950 2500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 1600 5100 1600
-Connection ~ 5100 1600
+	3950 3000 3950 2650
 Wire Wire Line
-	5100 1600 5250 1600
-Connection ~ 5250 1600
-Wire Wire Line
-	5250 1600 5400 1600
+	1850 3050 1850 2650
 $Comp
-L power:GND #PWR0104
-U 1 1 5B6E444B
-P 5550 1600
-F 0 "#PWR0104" H 5550 1350 50  0001 C CNN
-F 1 "GND" H 5555 1427 50  0000 C CNN
-F 2 "" H 5550 1600 50  0001 C CNN
-F 3 "" H 5550 1600 50  0001 C CNN
-	1    5550 1600
+L Device:R R49
+U 1 1 5B9C83BF
+P 6150 2850
+F 0 "R49" H 6220 2896 50  0000 L CNN
+F 1 "10k" H 6220 2805 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6080 2850 50  0001 C CNN
+F 3 "~" H 6150 2850 50  0001 C CNN
+	1    6150 2850
 	1    0    0    -1  
 $EndComp
 $Comp
-L Parts_Stash:THERMAL_VIA U12
-U 1 1 5B6F2CCE
-P 7300 1550
-F 0 "U12" H 7350 1600 50  0001 C CNN
-F 1 "THERMAL_VIA" H 7250 1850 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 7150 1550 50  0001 C CNN
-F 3 "" H 7150 1550 50  0001 C CNN
-	1    7300 1550
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:+3V3 #PWR0105
-U 1 1 5B6F2F1A
-P 7300 1450
-F 0 "#PWR0105" H 7300 1300 50  0001 C CNN
-F 1 "+3V3" H 7315 1623 50  0000 C CNN
-F 2 "" H 7300 1450 50  0001 C CNN
-F 3 "" H 7300 1450 50  0001 C CNN
-	1    7300 1450
+L power:+3V3 #PWR035
+U 1 1 5B9C84B3
+P 6150 2700
+F 0 "#PWR035" H 6150 2550 50  0001 C CNN
+F 1 "+3V3" H 6165 2873 50  0000 C CNN
+F 2 "" H 6150 2700 50  0001 C CNN
+F 3 "" H 6150 2700 50  0001 C CNN
+	1    6150 2700
 	1    0    0    -1  
 $EndComp
 $Comp
-L Parts_Stash:THERMAL_VIA U13
-U 1 1 5B6F3C74
-P 5400 1500
-F 0 "U13" H 5450 1550 50  0001 C CNN
-F 1 "THERMAL_VIA" H 5350 1800 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 5250 1500 50  0001 C CNN
-F 3 "" H 5250 1500 50  0001 C CNN
-	1    5400 1500
+L power:+3V3 #PWR034
+U 1 1 5B9C8564
+P 3950 2350
+F 0 "#PWR034" H 3950 2200 50  0001 C CNN
+F 1 "+3V3" H 3965 2523 50  0000 C CNN
+F 2 "" H 3950 2350 50  0001 C CNN
+F 3 "" H 3950 2350 50  0001 C CNN
+	1    3950 2350
 	1    0    0    -1  
 $EndComp
-Connection ~ 5400 1600
-Wire Wire Line
-	5400 1600 5550 1600
-Connection ~ 5550 1600
 $Comp
-L Parts_Stash:THERMAL_VIA U14
-U 1 1 5B729D24
-P 7950 1000
-F 0 "U14" H 8000 1050 50  0001 C CNN
-F 1 "THERMAL_VIA" H 7900 1300 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 7800 1000 50  0001 C CNN
-F 3 "" H 7800 1000 50  0001 C CNN
-	1    7950 1000
-	-1   0    0    1   
+L power:+3V3 #PWR033
+U 1 1 5B9C895D
+P 1850 2350
+F 0 "#PWR033" H 1850 2200 50  0001 C CNN
+F 1 "+3V3" H 1865 2523 50  0000 C CNN
+F 2 "" H 1850 2350 50  0001 C CNN
+F 3 "" H 1850 2350 50  0001 C CNN
+	1    1850 2350
+	1    0    0    -1  
 $EndComp
-Connection ~ 7950 900 
 Wire Wire Line
-	7950 900  7650 900 
-$Comp
-L Parts_Stash:THERMAL_VIA U15
-U 1 1 5B75317F
-P 7500 1000
-F 0 "U15" H 7550 1050 50  0001 C CNN
-F 1 "THERMAL_VIA" H 7450 1300 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 7350 1000 50  0001 C CNN
-F 3 "" H 7350 1000 50  0001 C CNN
-	1    7500 1000
-	-1   0    0    1   
-$EndComp
-Connection ~ 7500 900 
+	7400 900  8550 900 
 Wire Wire Line
-	7500 900  7400 900 
-$Comp
-L Parts_Stash:THERMAL_VIA U16
-U 1 1 5B75322C
-P 7650 1000
-F 0 "U16" H 7700 1050 50  0001 C CNN
-F 1 "THERMAL_VIA" H 7600 1300 50  0001 C CNN
-F 2 "PartsStash_RW:Thermal_Via" H 7500 1000 50  0001 C CNN
-F 3 "" H 7500 1000 50  0001 C CNN
-	1    7650 1000
-	-1   0    0    1   
-$EndComp
-Connection ~ 7650 900 
-Wire Wire Line
-	7650 900  7500 900 
+	6500 1250 6900 1250
 Wire Bus Line
 	7650 2850 10000 2850
 Wire Bus Line

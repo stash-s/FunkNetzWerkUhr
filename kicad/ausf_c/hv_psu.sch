@@ -155,7 +155,7 @@ U 1 1 5B7B044B
 P 6250 2700
 F 0 "L1" V 6440 2700 50  0000 C CNN
 F 1 "L" V 6349 2700 50  0000 C CNN
-F 2 "PartsStash_RW:L_Toroid_Horizontal_D16.8mm_P6mm_AliExpress" H 6250 2700 50  0001 C CNN
+F 2 "Inductor_THT:L_Toroid_Vertical_L14.0mm_W6.3mm_P4.57mm_Pulse_A" H 6250 2700 50  0001 C CNN
 F 3 "" H 6250 2700 50  0001 C CNN
 	1    6250 2700
 	0    -1   -1   0   
@@ -163,12 +163,12 @@ $EndComp
 $Comp
 L Device:CP C4
 U 1 1 5B7B059A
-P 5900 2850
-F 0 "C4" V 6000 2700 50  0000 L CNN
-F 1 "100uF,25V" V 5750 2700 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5938 2700 50  0001 C CNN
-F 3 "" H 5900 2850 50  0001 C CNN
-	1    5900 2850
+P 3900 3500
+F 0 "C4" V 4000 3350 50  0000 L CNN
+F 1 "100uF,25V" V 3750 3350 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_8x10.5" H 3938 3350 50  0001 C CNN
+F 3 "" H 3900 3500 50  0001 C CNN
+	1    3900 3500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -198,7 +198,7 @@ U 1 1 5B817112
 P 6600 4300
 F 0 "RSENSE1" V 6500 4200 50  0000 L CNN
 F 1 "0R1" V 6700 4200 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P15.24mm_Horizontal" V 6530 4300 50  0001 C CNN
+F 2 "Resistor_SMD:R_2512_6332Metric_Pad1.52x3.35mm_HandSolder" V 6530 4300 50  0001 C CNN
 F 3 "" H 6600 4300 50  0001 C CNN
 	1    6600 4300
 	1    0    0    -1  
@@ -217,7 +217,7 @@ U 1 1 5B82AEE8
 P 6950 2700
 F 0 "D1" H 6950 2484 50  0000 C CNN
 F 1 "ES2J" H 6950 2575 50  0000 C CNN
-F 2 "Parts:D_MELF-RM10_Universal_Handsoldering" H 6950 2700 50  0001 C CNN
+F 2 "Diode_SMD:D_SMB_Handsoldering" H 6950 2700 50  0001 C CNN
 F 3 "" H 6950 2700 50  0001 C CNN
 	1    6950 2700
 	-1   0    0    1   
@@ -273,8 +273,6 @@ Wire Wire Line
 	7700 4550 7300 4550
 Connection ~ 7300 4550
 Wire Wire Line
-	7700 2950 7700 2850
-Wire Wire Line
 	7700 2700 7300 2700
 Connection ~ 7300 2700
 Wire Wire Line
@@ -283,8 +281,6 @@ Wire Wire Line
 	6950 4050 6950 3600
 Wire Wire Line
 	6950 3600 7700 3600
-Wire Wire Line
-	7700 3600 7700 3350
 $Comp
 L Device:C C7
 U 1 1 5B9159FA
@@ -347,31 +343,6 @@ Wire Wire Line
 Connection ~ 7700 3600
 Wire Wire Line
 	7700 4150 7700 4050
-$Comp
-L Device:C C6
-U 1 1 5B5BDFDB
-P 8050 3100
-F 0 "C6" H 8165 3146 50  0000 L CNN
-F 1 "100p 1kV" H 8165 3055 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 8088 2950 50  0001 C CNN
-F 3 "~" H 8050 3100 50  0001 C CNN
-	1    8050 3100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8050 2950 8050 2850
-Wire Wire Line
-	8050 2850 7700 2850
-Connection ~ 7700 2850
-Wire Wire Line
-	7700 2850 7700 2700
-Wire Wire Line
-	8050 3250 8050 3350
-Wire Wire Line
-	8050 3350 7700 3350
-Connection ~ 7700 3350
-Wire Wire Line
-	7700 3350 7700 3250
 Text HLabel 8800 2700 2    50   Output ~ 0
 +180V
 Wire Wire Line
@@ -386,8 +357,6 @@ Wire Wire Line
 Connection ~ 3900 4550
 Wire Wire Line
 	3900 4550 3500 4550
-Wire Wire Line
-	5550 2700 5900 2700
 Wire Wire Line
 	3900 3350 3900 2700
 Connection ~ 3900 2700
@@ -406,29 +375,12 @@ F 3 "~" H 4950 3600 50  0001 C CNN
 	1    4950 3600
 	0    1    1    0   
 $EndComp
-Connection ~ 5900 2700
 Wire Wire Line
-	5900 2700 6100 2700
-$Comp
-L power:GND #PWR049
-U 1 1 5B7288C4
-P 5900 3000
-F 0 "#PWR049" H 5900 2750 50  0001 C CNN
-F 1 "GND" H 5905 2827 50  0000 C CNN
-F 2 "" H 5900 3000 50  0001 C CNN
-F 3 "" H 5900 3000 50  0001 C CNN
-	1    5900 3000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP C13
-U 1 1 5B7288EF
-P 3900 3500
-F 0 "C13" V 4000 3350 50  0000 L CNN
-F 1 "10uF,25V" V 3750 3350 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 3938 3350 50  0001 C CNN
-F 3 "" H 3900 3500 50  0001 C CNN
-	1    3900 3500
-	1    0    0    -1  
-$EndComp
+	7700 2700 7700 2950
+Wire Wire Line
+	7700 3250 7700 3600
+Wire Wire Line
+	5550 2700 6100 2700
+Text Label 6600 3900 3    50   ~ 0
+SENSE
 $EndSCHEMATC
