@@ -17,7 +17,8 @@ NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 300 * 1000);
 int position=0;
 
 WiFiManager wifiManager;
-MaxDisplay display;
+Display * display = new MaxDisplay();
+
 LightSensor lightSensor;
 
 void setup() {
@@ -28,8 +29,8 @@ void setup() {
     //wifiManager.resetSettings();
     Serial.begin (9600);
 
-    display.init();
-    display.setColor(255, 0, 0);
+    display->init();
+    display->setColor(255, 0, 0);
 
     // lightSensor.onReading([](int value) {
     //     display.setDigit (0,  value / 1000);
@@ -39,7 +40,7 @@ void setup() {
     // });
 
     lightSensor.onLevelSet([](int value) {
-        display.setBrightness(value);
+        display->setBrightness(value);
         // display.setDigit (0,  value / 1000);
         // display.setDigit (1, (value % 1000) / 100);
         // display.setDigit (2, (value % 100)  / 10);
@@ -47,13 +48,13 @@ void setup() {
     });
 
     wifiManager.setAPCallback([](WiFiManager * mgr){
-        display.setColor(0, 0, 255);
+        display->setColor(0, 0, 255);
     });
 
     Serial.println ("connecting...");
     wifiManager.autoConnect ("AutoconnectAP");
     Serial.println ("connected ... yay!");
-    display.setColor(0, 255, 0);
+    display->setColor(0, 255, 0);
 
 
     timeClient.begin();
@@ -69,7 +70,7 @@ void setup() {
         // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
         Serial.println("Start updating " + type);
 
-        display.shutdown();
+        display->shutdown();
     });
   ArduinoOTA.onEnd([]() {
     Serial.println("\nEnd");
@@ -103,15 +104,11 @@ void loop() {
     if (timeClient.update()) {
         //Serial.println (timeClient.getFormattedTime());
 
-        display.setDigit(0, timeClient.getHours() / 10);
-        display.setDigit(1, timeClient.getHours() % 10);
-        display.setDigit(2, timeClient.getMinutes() / 10);
-        display.setDigit(3, timeClient.getMinutes() % 10);
+        display->setDigit(0, timeClient.getHours() / 10);
+        display->setDigit(1, timeClient.getHours() % 10);
+        display->setDigit(2, timeClient.getMinutes() / 10);
+        display->setDigit(3, timeClient.getMinutes() % 10);
     }
 
     ArduinoOTA.handle();
-    //digitalWrite (LED_BUILTIN, HIGH);
-    //delay(1000);
-    //digitalWrite (LED_BUILTIN, LOW);
-    //delay(1000);
 }

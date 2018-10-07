@@ -5,6 +5,7 @@
 
 #include "clock_config.h"
 
+#include "display.h"
 
 
 
@@ -15,20 +16,20 @@
 #define BLUE_MASK  0b000001100000000000000000
 
 
-class MaxDisplay {
+class MaxDisplay : public Display {
 
 
 public:
     typedef uint32_t payload_t;
 
     MaxDisplay ();
-    void init();
+    virtual void init();
 
-    void shutdown ();
-    void setDigit (unsigned int digit, uint8_t value);
-    void setColor (uint8_t red, uint8_t green, uint8_t blue);
+    virtual void shutdown ();
+    virtual void setDigit (unsigned int digit, uint8_t value);
+    virtual void setColor (uint8_t red, uint8_t green, uint8_t blue);
 
-    void setBrightness (uint8_t brightness);
+    virtual void setBrightness (uint8_t brightness);
 
 
 private:
