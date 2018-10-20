@@ -8,6 +8,7 @@
 
 static uint32_t payload=0;
 
+bool MaxDisplay::_pulse_colors = false;
 uint8_t MaxDisplay::_red=0;
 uint8_t MaxDisplay::_green=0;
 uint8_t MaxDisplay::_blue=0;
@@ -101,7 +102,7 @@ void tick (/* arguments */) {
         if ( seconds_counter >= (display_timer_divider * 16 * 16) ) {
             seconds_counter = 0;
             dots_state = dots_state ? 0 : 1;
-            if (dots_state) {
+            if (dots_state && MaxDisplay::_pulse_colors) {
                 MaxDisplay::_red  += 7;
                 MaxDisplay::_blue += 5;
                 MaxDisplay::_green -= 1;
@@ -127,11 +128,11 @@ void tick (/* arguments */) {
             if (MaxDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
 
             #ifdef FULL_COLOR
-                    for (auto i : led_mux_map) {
-                        color_mask |= i;
-                    }
+                for (auto i : led_mux_map) {
+                    color_mask |= i;
+                }
             #else
-                    color_mask |= led_mux_map[current_digit];
+                color_mask |= led_mux_map[current_digit];
             #endif
 
             payload = dots_map[dots_state] | digit_mux_map[current_digit]
@@ -192,8 +193,9 @@ void MaxDisplay::setDigit (unsigned int digit, uint8_t value) {
     _digits[digit] = value;
 }
 
-void MaxDisplay::setColor (uint8_t red, uint8_t green, uint8_t blue) {
+void MaxDisplay::setColor (uint8_t red, uint8_t green, uint8_t blue, bool pulse_colors) {
     _red = red;
     _green = green;
     _blue = blue;
+    _pulse_colors = pulse_colors;
 }
