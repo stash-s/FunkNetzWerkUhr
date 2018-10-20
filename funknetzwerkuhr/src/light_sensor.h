@@ -6,13 +6,15 @@
 class LightSensor {
 
 public:
+    typedef std::function<void(int)> HandlerFunction;
+
     LightSensor ();
-    void onReading (std::function<void(int)>);
-    void onLevelSet (std::function<void(int)>);
+    void onReading (HandlerFunction);
+    void onLevelSet (HandlerFunction);
     void handle ();
 
 private:
-    std::function<void(int)> _readingHandler;
+    HandlerFunction _readingHandler;
     std::function<void(int)> _levelHandler;
 
 };

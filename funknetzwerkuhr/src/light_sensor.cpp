@@ -12,11 +12,11 @@ LightSensor::LightSensor ()
 
 }
 
-void LightSensor::onReading(std::function<void(int)> handler) {
+void LightSensor::onReading(HandlerFunction handler) {
     _readingHandler = handler;
 }
 
-void LightSensor::onLevelSet (std::function<void(int)> handler) {
+void LightSensor::onLevelSet (HandlerFunction handler) {
     _levelHandler = handler;
 }
 
