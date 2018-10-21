@@ -50,10 +50,15 @@ void setup() {
     wifiManager.setAPCallback([](WiFiManager * mgr){
         display->setColor(0, 0, 255, false);
     });
-
+    wifiManager.setConfigPortalTimeout (180);
+    
     Serial.println ("connecting...");
-    wifiManager.autoConnect ("AutoconnectAP");
-    Serial.println ("connected ... yay!");
+    if (wifiManager.autoConnect ("AutoconnectAP")) {
+        Serial.println ("connected ... yay!");
+    } else {
+        Serial.println ("connection failed, rebooting");
+        ESP.restart();
+    }
     display->setColor(0, 255, 0, false);
 
     timeClient.onStartUpdate ([](){ display->setColor (0,255,0,false); });
