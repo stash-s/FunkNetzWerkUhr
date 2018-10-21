@@ -12,7 +12,7 @@
 
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 300 * 1000);
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 10 * 1000);
 
 int position=0;
 
@@ -54,11 +54,11 @@ void setup() {
     Serial.println ("connecting...");
     wifiManager.autoConnect ("AutoconnectAP");
     Serial.println ("connected ... yay!");
-    display->setColor(0, 255, 0);
+    display->setColor(0, 255, 0, false);
 
     timeClient.onStartUpdate ([](){ display->setColor (0,255,0,false); });
     timeClient.onEndUpdate ([](){ 
-        display->setColor(0, 128, 128,true); });
+        display->setColor(0, 128, 128, true); });
 
     timeClient.begin();
 
@@ -105,13 +105,25 @@ void loop() {
     // put your main code here, to run repeatedly:
     lightSensor.handle ();
 
+    static int ntpFailCount=0;
+
     if (timeClient.update()) {
+
+        ntpFailCount=0;
         //Serial.println (timeClient.getFormattedTime());
 
         display->setDigit(0, timeClient.getHours() / 10);
         display->setDigit(1, timeClient.getHours() % 10);
         display->setDigit(2, timeClient.getMinutes() / 10);
         display->setDigit(3, timeClient.getMinutes() % 10);
+
+    } else {
+
+        ++ntpFailCount;
+
+        if (ntpFailCount > 2) {
+            ESP.restart();
+        }
     }
 
     ArduinoOTA.handle();

@@ -38,10 +38,12 @@ private:
     static uint8_t _green;
     static uint8_t _blue;
     static uint8_t _digits[MAX_DIGITS];
+    static uint8_t _slot_effect[MAX_DIGITS];
 
     static uint8_t _pwm;
 
     friend void tick (/* arguments */);
+    friend uint8_t get_digit (unsigned int);
 };
 
 #endif //  __MAX_DISPLAY_H__

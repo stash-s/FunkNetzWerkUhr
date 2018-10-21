@@ -9,11 +9,13 @@
 static uint32_t payload=0;
 
 bool MaxDisplay::_pulse_colors = false;
+
 uint8_t MaxDisplay::_red=0;
 uint8_t MaxDisplay::_green=0;
 uint8_t MaxDisplay::_blue=0;
 uint8_t MaxDisplay::_digits[MAX_DIGITS];
 uint8_t MaxDisplay::_pwm=PWM_INIT;
+uint8_t MaxDisplay::_slot_effect[MAX_DIGITS]={0,0,0,0};
 
 static int display_timer_divider=0;
 
@@ -76,6 +78,37 @@ void  MaxDisplay::setBrightness (uint8_t brightness) {
 }
 
 ICACHE_RAM_ATTR
+uint8_t get_digit (unsigned int digit) {
+
+    static uint8_t slot_number[] = {4,2,6,9};
+    static int counter=0;
+
+    ++counter;
+    if (counter >= display_timer_divider * 16 * 4) {
+        counter = 0;
+
+        for (int i=0; i < MAX_DIGITS; ++i) {
+            if (MaxDisplay::_slot_effect[i] > 0) {
+                if (MaxDisplay::_pulse_colors && (MaxDisplay::_digits[i] == slot_number[i])) {
+                    -- MaxDisplay::_slot_effect[i];
+                }
+            }
+
+            ++slot_number[i];
+            if (slot_number[i] > 9) {
+                slot_number[i] = 0;
+            }
+        }
+    }
+
+    if (MaxDisplay::_slot_effect[digit] > 0) {
+        return slot_number[digit];
+    } else {
+        return MaxDisplay::_digits[digit];
+    }
+}
+
+ICACHE_RAM_ATTR
 void tick (/* arguments */) {
     static int current_digit=0;
     static int seconds_counter=0;
@@ -93,7 +126,7 @@ void tick (/* arguments */) {
              current_digit = 0;
         }
 
-    } else {
+    }
 
         //MaxDisplay::payload_t anodes=0;
 
@@ -111,15 +144,11 @@ void tick (/* arguments */) {
         }
 
         uint32_t color_mask = RGB_MASK;
+        uint32_t number_mask = number_mux_map[get_digit(current_digit)];
 
         // if pwm counter >= pwm, blank digits
         if (pwm_counter >= MaxDisplay::_pwm) {
-            payload = color_mask
-                | number_mux_map[MaxDisplay::_digits[current_digit]];
-
-            //for (auto i : number_mux_map) {
-            //    payload |= i;
-            //}
+            payload = color_mask | number_mask;
 
         } else {
 
@@ -136,11 +165,8 @@ void tick (/* arguments */) {
             #endif
 
             payload = dots_map[dots_state] | digit_mux_map[current_digit]
-                    | color_mask
-                    | number_mux_map[MaxDisplay::_digits[current_digit]];
+                    | color_mask | number_mask;
         }
-
-    }
 }
 
 ICACHE_RAM_ATTR
@@ -198,4 +224,12 @@ void MaxDisplay::setColor (uint8_t red, uint8_t green, uint8_t blue, bool pulse_
     _green = green;
     _blue = blue;
     _pulse_colors = pulse_colors;
+
+    if (!_pulse_colors) {
+        uint8_t spins=5;
+        for (auto &i : _slot_effect) { 
+            i = spins;
+            spins -= 1;
+        }
+    }
 }
