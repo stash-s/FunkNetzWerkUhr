@@ -12,7 +12,7 @@
 
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 10 * 1000);
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 236 * 1000);
 
 int position=0;
 
@@ -121,7 +121,7 @@ void loop() {
 
         ++ntpFailCount;
 
-        if (ntpFailCount > 2) {
+        if (ntpFailCount > 5) {
             ESP.restart();
         }
     }
