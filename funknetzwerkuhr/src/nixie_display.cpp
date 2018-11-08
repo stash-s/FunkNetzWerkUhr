@@ -1,39 +1,33 @@
 
-#include <SPI.h>
-
 #include "clock_config.h"
-#include "max_display.h"
+#include "spi_wrapper.h"
+#include "nixie_display.h"
 
 #include <functional>
 
+using namespace SpiWrapper;
+
 static uint32_t payload=0;
 
-bool MaxDisplay::_pulse_colors = false;
+bool NixieDisplay::_pulse_colors = false;
 
-uint8_t MaxDisplay::_red=0;
-uint8_t MaxDisplay::_green=0;
-uint8_t MaxDisplay::_blue=0;
-uint8_t MaxDisplay::_digits[MAX_DIGITS];
-uint8_t MaxDisplay::_pwm=PWM_INIT;
-uint8_t MaxDisplay::_slot_effect[MAX_DIGITS]={0,0,0,0};
+uint8_t NixieDisplay::_red=0;
+uint8_t NixieDisplay::_green=0;
+uint8_t NixieDisplay::_blue=0;
+uint8_t NixieDisplay::_digits[MAX_DIGITS];
+uint8_t NixieDisplay::_pwm=PWM_INIT;
+uint8_t NixieDisplay::_slot_effect[MAX_DIGITS]={0,0,0,0};
 
 static int display_timer_divider=0;
 
-ICACHE_RAM_ATTR
-inline void setDataBits(uint16_t bits) {
-    const uint32_t mask = ~((SPIMMOSI << SPILMOSI) | (SPIMMISO << SPILMISO));
-    bits--;
-    SPI1U1 = ((SPI1U1 & mask) | ((bits << SPILMOSI) | (bits << SPILMISO)));
-}
-
-static MaxDisplay::payload_t led_mux_map[] = {
+static NixieDisplay::payload_t led_mux_map[] = {
     0b000100000000000000000000, // digit 1
     0b001000000000000000000000, // digit 2
     0b010000000000000000000000, // digit 3
     0b100000000000000000000000, // nope
 };
 
-static MaxDisplay::payload_t color_map[] = {
+static NixieDisplay::payload_t color_map[] = {
     0b000011000000000000000000, // red
     0b000010100000000000000000, // green
     0b000001100000000000000000, // blue
@@ -42,13 +36,13 @@ static MaxDisplay::payload_t color_map[] = {
 };
 
 
-static MaxDisplay::payload_t dots_map[] = {
+static NixieDisplay::payload_t dots_map[] = {
     0b000000000000000000000000, // dots off
     0b000000011000000000000000  // dots on
 };
 
 
-static MaxDisplay::payload_t digit_mux_map[] = {
+static NixieDisplay::payload_t digit_mux_map[] = {
     0b0001, // digit 1
     0b0010, // digit 2
     0b0100, // digit 3
@@ -56,7 +50,7 @@ static MaxDisplay::payload_t digit_mux_map[] = {
 };
 
 
-static MaxDisplay::payload_t number_mux_map[] = {
+static NixieDisplay::payload_t number_mux_map[] = {
     0b1000000000000, // number 0
     0b1000000000, // number 1
     0b100000000, // number 2
@@ -70,10 +64,10 @@ static MaxDisplay::payload_t number_mux_map[] = {
 //    0b10000000000, // dot
 };
 
-MaxDisplay::MaxDisplay()
+NixieDisplay::NixieDisplay()
 {}
 
-void  MaxDisplay::setBrightness (uint8_t brightness) {
+void  NixieDisplay::setBrightness (uint8_t brightness) {
     _pwm = brightness;
 }
 
@@ -88,9 +82,9 @@ uint8_t get_digit (unsigned int digit) {
         counter = 0;
 
         for (int i=0; i < MAX_DIGITS; ++i) {
-            if (MaxDisplay::_slot_effect[i] > 0) {
-                if (MaxDisplay::_pulse_colors && (MaxDisplay::_digits[i] == slot_number[i])) {
-                    -- MaxDisplay::_slot_effect[i];
+            if (NixieDisplay::_slot_effect[i] > 0) {
+                if (NixieDisplay::_pulse_colors && (NixieDisplay::_digits[i] == slot_number[i])) {
+                    -- NixieDisplay::_slot_effect[i];
                 }
             }
 
@@ -101,10 +95,10 @@ uint8_t get_digit (unsigned int digit) {
         }
     }
 
-    if (MaxDisplay::_slot_effect[digit] > 0) {
+    if (NixieDisplay::_slot_effect[digit] > 0) {
         return slot_number[digit];
     } else {
-        return MaxDisplay::_digits[digit];
+        return NixieDisplay::_digits[digit];
     }
 }
 
@@ -128,17 +122,17 @@ void tick (/* arguments */) {
 
     }
 
-        //MaxDisplay::payload_t anodes=0;
+        //NixieDisplay::payload_t anodes=0;
 
         static int dots_state = 0;
         ++ seconds_counter;
         if ( seconds_counter >= (display_timer_divider * 16 * 16) ) {
             seconds_counter = 0;
             dots_state = dots_state ? 0 : 1;
-            if (dots_state && MaxDisplay::_pulse_colors) {
-                MaxDisplay::_red  += 7;
-                MaxDisplay::_blue += 5;
-                MaxDisplay::_green -= 1;
+            if (dots_state && NixieDisplay::_pulse_colors) {
+                NixieDisplay::_red  += 7;
+                NixieDisplay::_blue += 5;
+                NixieDisplay::_green -= 1;
             }
 
         }
@@ -147,14 +141,14 @@ void tick (/* arguments */) {
         uint32_t number_mask = number_mux_map[get_digit(current_digit)];
 
         // if pwm counter >= pwm, blank digits
-        if (pwm_counter >= MaxDisplay::_pwm) {
+        if (pwm_counter >= NixieDisplay::_pwm) {
             payload = color_mask | number_mask;
 
         } else {
 
-            if (MaxDisplay::_red   > color_counter) color_mask &= RED_MASK;
-            if (MaxDisplay::_green > color_counter) color_mask &= GREEN_MASK;
-            if (MaxDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
+            if (NixieDisplay::_red   > color_counter) color_mask &= RED_MASK;
+            if (NixieDisplay::_green > color_counter) color_mask &= GREEN_MASK;
+            if (NixieDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
 
             #ifdef FULL_COLOR
                 for (auto i : led_mux_map) {
@@ -174,30 +168,14 @@ static void isr_call () {
 
     tick();
 
-    while(SPI1CMD & SPIBUSY) {}
+    SpiWrapper::transmit (payload, 24);
 
-    setDataBits (24); //8 * sizeof(payload));
-    SPI1W0 = payload;
-    //SPI1W1 = payload >> 32;
-
-    SPI1CMD |= SPIBUSY;
-    //while(SPI1CMD & SPIBUSY) {}
-
-    // latchhigh
-    //digitalWrite (15, HIGH);
 }
 
 void
-MaxDisplay::init()
+NixieDisplay::init()
 {
-    SPI.begin ();
-    SPI.setDataMode(SPI_MODE0);
-    SPI.setHwCs(true);
-    SPI.setBitOrder(LSBFIRST);
-    SPI.setFrequency(8000000);
-
-    // tutaj
-    setDataBits (24);
+    SpiWrapper::init(24);
 
     display_timer_divider = (clockCyclesPerMicrosecond() / 16) * 20; // 40us = 25kHz sampling freq
 
@@ -211,25 +189,31 @@ MaxDisplay::init()
 }
 
 
-void MaxDisplay::shutdown () {
+void NixieDisplay::shutdown () {
     digitalWrite (SHDN_PIN, HIGH);
 }
 
-void MaxDisplay::setDigit (unsigned int digit, uint8_t value) {
+void NixieDisplay::setDigit (unsigned int digit, uint8_t value) {
     _digits[digit] = value;
 }
 
-void MaxDisplay::setColor (uint8_t red, uint8_t green, uint8_t blue, bool pulse_colors) {
+void NixieDisplay::setColor (uint8_t red, uint8_t green, uint8_t blue) {
     _red = red;
     _green = green;
     _blue = blue;
-    _pulse_colors = pulse_colors;
+}
 
-    if (!_pulse_colors) {
-        uint8_t spins=5;
-        for (auto &i : _slot_effect) { 
-            i = spins;
-            spins -= 1;
-        }
+void NixieDisplay::startAnimation () {
+    _pulse_colors = false;
+
+    int spins=5;
+
+    for (auto &i : _slot_effect) { 
+        i = spins;
+        spins -= 1;
     }
+}
+
+void NixieDisplay::stopAnimation () {
+    _pulse_colors = true;
 }

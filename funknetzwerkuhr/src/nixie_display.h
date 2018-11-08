@@ -8,6 +8,7 @@
 #include "display.h"
 
 
+#define DISPLAY_HW_CLASS NixieDisplay
 
 #define MAX_DIGITS 4
 #define RGB_MASK   0b000011100000000000000000
@@ -16,18 +17,21 @@
 #define BLUE_MASK  0b000001100000000000000000
 
 
-class MaxDisplay : public Display {
+class NixieDisplay : public Display {
 
 
 public:
     typedef uint32_t payload_t;
 
-    MaxDisplay ();
+    NixieDisplay ();
     virtual void init();
 
     virtual void shutdown ();
     virtual void setDigit (unsigned int digit, uint8_t value);
-    virtual void setColor (uint8_t red, uint8_t green, uint8_t blue, bool pulseColors=true);
+    virtual void setColor (uint8_t red, uint8_t green, uint8_t blue) override;
+
+    virtual void startAnimation () override;
+    virtual void stopAnimation () override;
 
     virtual void setBrightness (uint8_t brightness);
 

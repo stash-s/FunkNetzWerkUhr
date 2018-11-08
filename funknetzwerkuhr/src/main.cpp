@@ -7,7 +7,22 @@
 #include <NTPClient.h>
 #include <SPI.h>
 
-#include "max_display.h"
+#define VFD 1
+#define Nixie 2
+
+#ifndef DISPLAY_HW
+#  define DISPLAY_HW Nixie
+#endif // DISPLAY_HW
+
+#if DISPLAY_HW==VFD 
+#  include "vfd_display.h"
+#elif DISPLAY_HW==Nixie
+#  include "nixie_display.h"
+#else 
+#  error "Unsupported or unknown display hardware: " #DISPLAY_HW
+#endif // DISPLAY_HW
+
+//#include "nixie_display.h"
 #include "light_sensor.h"
 
 WiFiUDP ntpUDP;
@@ -17,7 +32,8 @@ NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 1 * 3600, 236 * 1000);
 int position=0;
 
 WiFiManager wifiManager;
-Display * display = new MaxDisplay();
+
+Display * display = new DISPLAY_HW_CLASS ();
 
 LightSensor lightSensor;
 
@@ -30,25 +46,16 @@ void setup() {
     Serial.begin (9600);
 
     display->init();
-    display->setColor(255, 0, 0, false);
-
-    // lightSensor.onReading([](int value) {
-    //     display.setDigit (0,  value / 1000);
-    //     display.setDigit (1, (value % 1000) / 100);
-    //     display.setDigit (2, (value % 100)  / 10);
-    //     display.setDigit (3, (value % 10));
-    // });
+    display->setColor(255, 0, 0);
+    display->startAnimation();
 
     lightSensor.onLevelSet([](int value) {
         display->setBrightness(value);
-        // display.setDigit (0,  value / 1000);
-        // display.setDigit (1, (value % 1000) / 100);
-        // display.setDigit (2, (value % 100)  / 10);
-        // display.setDigit (3, (value % 10));
     });
 
     wifiManager.setAPCallback([](WiFiManager * mgr){
-        display->setColor(0, 0, 255, false);
+        display->setColor(0, 0, 255);
+        display->startAnimation();
     });
     wifiManager.setConfigPortalTimeout (180);
     
@@ -59,11 +66,17 @@ void setup() {
         Serial.println ("connection failed, rebooting");
         ESP.restart();
     }
-    display->setColor(0, 255, 0, false);
+    display->setColor(0, 255, 0);
+    display->startAnimation();
 
-    timeClient.onStartUpdate ([](){ display->setColor (0,255,0,false); });
+    timeClient.onStartUpdate ([](){ 
+        display->setColor (0,255,0);
+        display->startAnimation();
+    });
     timeClient.onEndUpdate ([](){ 
-        display->setColor(0, 128, 128, true); });
+        display->setColor(0, 128, 128);
+        display->stopAnimation();
+    });
 
     timeClient.begin();
 
