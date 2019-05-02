@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:funknetzwerkuhr-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,45 +15,45 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Russian_Lamps:IN-12 T1
+L funknetzwerkuhr-rescue:IN-12-Russian_Lamps T1
 U 1 1 5B30153D
 P 4150 2250
 F 0 "T1" V 4196 1522 50  0000 R CNN
 F 1 "IN-12" V 4105 1522 50  0000 R CNN
-F 2 "Parts:IN-12_0.8mm" H 4050 1950 50  0001 C CNN
+F 2 "PartsStash:IN-12_0.8mm_simple" H 4050 1950 50  0001 C CNN
 F 3 "" H 4050 1950 50  0001 C CNN
 	1    4150 2250
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Russian_Lamps:IN-12 T2
+L funknetzwerkuhr-rescue:IN-12-Russian_Lamps T2
 U 1 1 5B3017C6
 P 5850 2250
 F 0 "T2" V 5896 1522 50  0000 R CNN
 F 1 "IN-12" V 5805 1522 50  0000 R CNN
-F 2 "Parts:IN-12_0.8mm" H 5750 1950 50  0001 C CNN
+F 2 "PartsStash:IN-12_0.8mm_simple" H 5750 1950 50  0001 C CNN
 F 3 "" H 5750 1950 50  0001 C CNN
 	1    5850 2250
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Russian_Lamps:IN-12 T3
+L funknetzwerkuhr-rescue:IN-12-Russian_Lamps T3
 U 1 1 5B3018D2
 P 7950 2250
 F 0 "T3" V 7996 1522 50  0000 R CNN
 F 1 "IN-12" V 7905 1522 50  0000 R CNN
-F 2 "Parts:IN-12_0.8mm" H 7850 1950 50  0001 C CNN
+F 2 "PartsStash:IN-12_0.8mm_simple" H 7850 1950 50  0001 C CNN
 F 3 "" H 7850 1950 50  0001 C CNN
 	1    7950 2250
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Russian_Lamps:IN-12 T4
+L funknetzwerkuhr-rescue:IN-12-Russian_Lamps T4
 U 1 1 5B301A1E
 P 9550 2250
 F 0 "T4" V 9596 1522 50  0000 R CNN
 F 1 "IN-12" V 9505 1522 50  0000 R CNN
-F 2 "Parts:IN-12_0.8mm" H 9450 1950 50  0001 C CNN
+F 2 "PartsStash:IN-12_0.8mm_simple" H 9450 1950 50  0001 C CNN
 F 3 "" H 9450 1950 50  0001 C CNN
 	1    9550 2250
 	0    -1   -1   0   
@@ -253,9 +253,11 @@ Wire Wire Line
 Wire Wire Line
 	3100 1450 3100 2750
 $Comp
-L Parts_Stash:LED_RGB_CA D2
+L funknetzwerkuhr-rescue:LED_RGB_CA-Parts_Stash D2
 U 1 1 5B33640C
 P 4300 5500
+AR Path="/5B33640C" Ref="D2"  Part="1" 
+AR Path="/5B5B1D70/5B33640C" Ref="D2"  Part="1" 
 F 0 "D2" H 4300 5965 50  0000 C CNN
 F 1 "LED_RGB_CA" H 4300 5874 50  0000 C CNN
 F 2 "PartsStash:LED_3528_3.5x2.8mm" H 3950 5600 50  0001 C CNN
@@ -264,9 +266,11 @@ F 3 "" H 3950 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Parts_Stash:LED_RGB_CA D3
+L funknetzwerkuhr-rescue:LED_RGB_CA-Parts_Stash D3
 U 1 1 5B336836
 P 5800 5500
+AR Path="/5B336836" Ref="D3"  Part="1" 
+AR Path="/5B5B1D70/5B336836" Ref="D3"  Part="1" 
 F 0 "D3" H 5800 5965 50  0000 C CNN
 F 1 "LED_RGB_CA" H 5800 5874 50  0000 C CNN
 F 2 "PartsStash:LED_3528_3.5x2.8mm" H 5450 5600 50  0001 C CNN
@@ -275,9 +279,11 @@ F 3 "" H 5450 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Parts_Stash:LED_RGB_CA D4
+L funknetzwerkuhr-rescue:LED_RGB_CA-Parts_Stash D4
 U 1 1 5B336AC2
 P 7900 5500
+AR Path="/5B336AC2" Ref="D4"  Part="1" 
+AR Path="/5B5B1D70/5B336AC2" Ref="D4"  Part="1" 
 F 0 "D4" H 7900 5965 50  0000 C CNN
 F 1 "LED_RGB_CA" H 7900 5874 50  0000 C CNN
 F 2 "Parts:LED_3528_3.5x2.8mm" H 7550 5600 50  0001 C CNN
@@ -286,9 +292,11 @@ F 3 "" H 7550 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Parts_Stash:LED_RGB_CA D5
+L funknetzwerkuhr-rescue:LED_RGB_CA-Parts_Stash D5
 U 1 1 5B336BFA
 P 9400 5500
+AR Path="/5B336BFA" Ref="D5"  Part="1" 
+AR Path="/5B5B1D70/5B336BFA" Ref="D5"  Part="1" 
 F 0 "D5" H 9400 5965 50  0000 C CNN
 F 1 "LED_RGB_CA" H 9400 5874 50  0000 C CNN
 F 2 "Parts:LED_3528_3.5x2.8mm" H 9050 5600 50  0001 C CNN
@@ -424,7 +432,7 @@ Wire Wire Line
 Wire Wire Line
 	8800 4450 8800 5650
 $Comp
-L Russian_Lamps:ins-1 L2
+L funknetzwerkuhr-rescue:ins-1-Russian_Lamps L2
 U 1 1 5B36A59C
 P 6800 5100
 F 0 "L2" H 6800 5361 50  0000 C CNN
@@ -435,7 +443,7 @@ F 3 "" H 6800 5100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Russian_Lamps:ins-1 L3
+L funknetzwerkuhr-rescue:ins-1-Russian_Lamps L3
 U 1 1 5B36A720
 P 6800 5400
 F 0 "L3" H 6800 5661 50  0000 C CNN

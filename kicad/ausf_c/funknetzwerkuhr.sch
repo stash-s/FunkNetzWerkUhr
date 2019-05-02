@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:funknetzwerkuhr-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -181,7 +181,7 @@ U 1 1 5B5B64B3
 P 1000 2500
 F 0 "R3" H 1070 2546 50  0000 L CNN
 F 1 "10k" H 1070 2455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 930 2500 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 930 2500 50  0001 C CNN
 F 3 "~" H 1000 2500 50  0001 C CNN
 	1    1000 2500
 	1    0    0    -1  
@@ -233,14 +233,14 @@ F26 "ANODE_LED_3" I L 10300 3100 50
 F27 "ANODE_LED_4" I L 10300 3200 50 
 $EndSheet
 $Comp
-L Parts_Stash:MMBTA92 Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
 U 1 1 5B5C06CE
 P 1350 5150
 AR Path="/5B5B1D70/5B3B1181/5B5C06CE" Ref="Q?"  Part="1" 
 AR Path="/5B5C06CE" Ref="Q3"  Part="1" 
 F 0 "Q3" V 1550 5200 50  0000 L CNN
 F 1 "MMBTA92" V 1550 4750 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 1550 5075 50  0001 L CIN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 1550 5075 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 1350 5150 50  0001 L CNN
 	1    1350 5150
 	1    0    0    -1  
@@ -250,14 +250,14 @@ Wire Wire Line
 Wire Wire Line
 	1450 6300 1450 5750
 $Comp
-L Parts_Stash:MMBTA42 Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
 U 1 1 5B5C06D9
 P 1050 5850
 AR Path="/5B5B1D70/5B3B1181/5B5C06D9" Ref="Q?"  Part="1" 
 AR Path="/5B5C06D9" Ref="Q2"  Part="1" 
 F 0 "Q2" V 1250 5900 50  0000 L CNN
 F 1 "MMBTA42" V 1250 5500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 1250 5775 50  0001 L CIN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 1250 5775 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 1050 5850 50  0001 L CNN
 	1    1050 5850
 	1    0    0    -1  
@@ -270,7 +270,7 @@ AR Path="/5B5B1D70/5B3B1181/5B5C06E0" Ref="R?"  Part="1"
 AR Path="/5B5C06E0" Ref="R6"  Part="1" 
 F 0 "R6" H 1220 5446 50  0000 L CNN
 F 1 "1M" H 1220 5355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1080 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1080 5400 50  0001 C CNN
 F 3 "~" H 1150 5400 50  0001 C CNN
 	1    1150 5400
 	1    0    0    -1  
@@ -300,7 +300,7 @@ U 1 1 5B5D4BA1
 P 850 5400
 F 0 "R4" H 780 5354 50  0000 R CNN
 F 1 "33k" H 780 5445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 780 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 780 5400 50  0001 C CNN
 F 3 "~" H 850 5400 50  0001 C CNN
 	1    850  5400
 	-1   0    0    1   
@@ -338,14 +338,14 @@ Entry Wire Line
 Entry Wire Line
 	10000 900  10100 1000
 $Comp
-L Parts_Stash:MMBTA92 Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
 U 1 1 5B6151F7
 P 2250 5150
 AR Path="/5B5B1D70/5B3B1181/5B6151F7" Ref="Q?"  Part="1" 
 AR Path="/5B6151F7" Ref="Q5"  Part="1" 
 F 0 "Q5" V 2450 5200 50  0000 L CNN
 F 1 "MMBTA92" V 2450 4750 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 2450 5075 50  0001 L CIN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 2450 5075 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 2250 5150 50  0001 L CNN
 	1    2250 5150
 	1    0    0    -1  
@@ -355,14 +355,14 @@ Wire Wire Line
 Wire Wire Line
 	2350 6300 2350 5750
 $Comp
-L Parts_Stash:MMBTA42 Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
 U 1 1 5B615200
 P 1950 5850
 AR Path="/5B5B1D70/5B3B1181/5B615200" Ref="Q?"  Part="1" 
 AR Path="/5B615200" Ref="Q4"  Part="1" 
 F 0 "Q4" V 2150 5900 50  0000 L CNN
 F 1 "MMBTA42" V 2150 5500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 2150 5775 50  0001 L CIN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 2150 5775 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 1950 5850 50  0001 L CNN
 	1    1950 5850
 	1    0    0    -1  
@@ -375,7 +375,7 @@ AR Path="/5B5B1D70/5B3B1181/5B615207" Ref="R?"  Part="1"
 AR Path="/5B615207" Ref="R10"  Part="1" 
 F 0 "R10" H 2120 5446 50  0000 L CNN
 F 1 "1M" H 2120 5355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1980 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1980 5400 50  0001 C CNN
 F 3 "~" H 2050 5400 50  0001 C CNN
 	1    2050 5400
 	1    0    0    -1  
@@ -405,7 +405,7 @@ U 1 1 5B615217
 P 1750 5400
 F 0 "R8" H 1680 5354 50  0000 R CNN
 F 1 "33k" H 1680 5445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1680 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1680 5400 50  0001 C CNN
 F 3 "~" H 1750 5400 50  0001 C CNN
 	1    1750 5400
 	-1   0    0    1   
@@ -467,14 +467,14 @@ DRIVE_LED_A4
 Text Label 1550 4400 1    50   ~ 0
 DRIVE_BLUE
 $Comp
-L Parts_Stash:MMBTA92 Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
 U 1 1 5B61DCAA
 P 3150 5150
 AR Path="/5B5B1D70/5B3B1181/5B61DCAA" Ref="Q?"  Part="1" 
 AR Path="/5B61DCAA" Ref="Q7"  Part="1" 
 F 0 "Q7" V 3350 5200 50  0000 L CNN
 F 1 "MMBTA92" V 3350 4850 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 3350 5075 50  0001 L CIN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 3350 5075 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 3150 5150 50  0001 L CNN
 	1    3150 5150
 	1    0    0    -1  
@@ -484,14 +484,14 @@ Wire Wire Line
 Wire Wire Line
 	3250 6300 3250 5750
 $Comp
-L Parts_Stash:MMBTA42 Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
 U 1 1 5B61DCB3
 P 2850 5850
 AR Path="/5B5B1D70/5B3B1181/5B61DCB3" Ref="Q?"  Part="1" 
 AR Path="/5B61DCB3" Ref="Q6"  Part="1" 
 F 0 "Q6" V 3050 5900 50  0000 L CNN
 F 1 "MMBTA42" V 3050 5500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 3050 5775 50  0001 L CIN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 3050 5775 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 2850 5850 50  0001 L CNN
 	1    2850 5850
 	1    0    0    -1  
@@ -504,7 +504,7 @@ AR Path="/5B5B1D70/5B3B1181/5B61DCBA" Ref="R?"  Part="1"
 AR Path="/5B61DCBA" Ref="R14"  Part="1" 
 F 0 "R14" H 3020 5446 50  0000 L CNN
 F 1 "1M" H 3020 5355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2880 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2880 5400 50  0001 C CNN
 F 3 "~" H 2950 5400 50  0001 C CNN
 	1    2950 5400
 	1    0    0    -1  
@@ -534,10 +534,10 @@ U 1 1 5B61DCCA
 P 2650 5400
 F 0 "R12" H 2580 5354 50  0000 R CNN
 F 1 "33k" H 2580 5445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2580 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2580 5400 50  0001 C CNN
 F 3 "~" H 2650 5400 50  0001 C CNN
 	1    2650 5400
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	2650 5850 2650 5550
@@ -559,7 +559,7 @@ AR Path="/5B5B1D70/5B3B1181/5B62077E" Ref="R?"  Part="1"
 AR Path="/5B62077E" Ref="R5"  Part="1" 
 F 0 "R5" H 1220 4946 50  0000 L CNN
 F 1 "1M" H 1220 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1080 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1080 4900 50  0001 C CNN
 F 3 "~" H 1150 4900 50  0001 C CNN
 	1    1150 4900
 	1    0    0    -1  
@@ -572,7 +572,7 @@ AR Path="/5B5B1D70/5B3B1181/5B6207D6" Ref="R?"  Part="1"
 AR Path="/5B6207D6" Ref="R9"  Part="1" 
 F 0 "R9" H 2120 4946 50  0000 L CNN
 F 1 "1M" H 2120 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1980 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1980 4900 50  0001 C CNN
 F 3 "~" H 2050 4900 50  0001 C CNN
 	1    2050 4900
 	1    0    0    -1  
@@ -585,7 +585,7 @@ AR Path="/5B5B1D70/5B3B1181/5B62081E" Ref="R?"  Part="1"
 AR Path="/5B62081E" Ref="R13"  Part="1" 
 F 0 "R13" H 3020 4946 50  0000 L CNN
 F 1 "1M" H 3020 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2880 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2880 4900 50  0001 C CNN
 F 3 "~" H 2950 4900 50  0001 C CNN
 	1    2950 4900
 	1    0    0    -1  
@@ -626,7 +626,7 @@ U 1 1 5B642DE9
 P 3250 5600
 F 0 "R15" H 3180 5554 50  0000 R CNN
 F 1 "8k" H 3180 5645 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3180 5600 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3180 5600 50  0001 C CNN
 F 3 "~" H 3250 5600 50  0001 C CNN
 	1    3250 5600
 	-1   0    0    1   
@@ -639,10 +639,10 @@ U 1 1 5B64AD60
 P 2350 5600
 F 0 "R11" H 2280 5554 50  0000 R CNN
 F 1 "8k" H 2280 5645 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2280 5600 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2280 5600 50  0001 C CNN
 F 3 "~" H 2350 5600 50  0001 C CNN
 	1    2350 5600
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R7
@@ -650,7 +650,7 @@ U 1 1 5B652A7A
 P 1450 5600
 F 0 "R7" H 1380 5554 50  0000 R CNN
 F 1 "8k" H 1380 5645 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1380 5600 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1380 5600 50  0001 C CNN
 F 3 "~" H 1450 5600 50  0001 C CNN
 	1    1450 5600
 	-1   0    0    1   
@@ -660,14 +660,14 @@ Wire Wire Line
 Wire Wire Line
 	2350 5450 2350 5350
 $Comp
-L Parts_Stash:MMBTA92 Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
 U 1 1 5B657A9D
 P 4050 5150
 AR Path="/5B5B1D70/5B3B1181/5B657A9D" Ref="Q?"  Part="1" 
 AR Path="/5B657A9D" Ref="Q9"  Part="1" 
 F 0 "Q9" V 4250 5200 50  0000 L CNN
 F 1 "MMBTA92" V 4250 4850 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 4250 5075 50  0001 L CIN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 4250 5075 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 4050 5150 50  0001 L CNN
 	1    4050 5150
 	1    0    0    -1  
@@ -677,14 +677,14 @@ Wire Wire Line
 Wire Wire Line
 	4150 6300 4150 5750
 $Comp
-L Parts_Stash:MMBTA42 Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
 U 1 1 5B657AA6
 P 3750 5850
 AR Path="/5B5B1D70/5B3B1181/5B657AA6" Ref="Q?"  Part="1" 
 AR Path="/5B657AA6" Ref="Q8"  Part="1" 
 F 0 "Q8" V 3950 5900 50  0000 L CNN
 F 1 "MMBTA42" V 3950 5500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 3950 5775 50  0001 L CIN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 3950 5775 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 3750 5850 50  0001 L CNN
 	1    3750 5850
 	1    0    0    -1  
@@ -697,7 +697,7 @@ AR Path="/5B5B1D70/5B3B1181/5B657AAD" Ref="R?"  Part="1"
 AR Path="/5B657AAD" Ref="R18"  Part="1" 
 F 0 "R18" H 3920 5446 50  0000 L CNN
 F 1 "1M" H 3920 5355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3780 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3780 5400 50  0001 C CNN
 F 3 "~" H 3850 5400 50  0001 C CNN
 	1    3850 5400
 	1    0    0    -1  
@@ -727,7 +727,7 @@ U 1 1 5B657ABD
 P 3550 5400
 F 0 "R16" H 3480 5354 50  0000 R CNN
 F 1 "33k" H 3480 5445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3480 5400 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3480 5400 50  0001 C CNN
 F 3 "~" H 3550 5400 50  0001 C CNN
 	1    3550 5400
 	-1   0    0    1   
@@ -752,7 +752,7 @@ AR Path="/5B5B1D70/5B3B1181/5B657ACA" Ref="R?"  Part="1"
 AR Path="/5B657ACA" Ref="R17"  Part="1" 
 F 0 "R17" H 3920 4946 50  0000 L CNN
 F 1 "1M" H 3920 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3780 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3780 4900 50  0001 C CNN
 F 3 "~" H 3850 4900 50  0001 C CNN
 	1    3850 4900
 	1    0    0    -1  
@@ -773,7 +773,7 @@ U 1 1 5B657AD9
 P 4150 5600
 F 0 "R19" H 4080 5554 50  0000 R CNN
 F 1 "8k" H 4080 5645 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4080 5600 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4080 5600 50  0001 C CNN
 F 3 "~" H 4150 5600 50  0001 C CNN
 	1    4150 5600
 	-1   0    0    1   
@@ -785,12 +785,12 @@ DRIVE_D3
 Text Label 1750 4400 1    50   ~ 0
 DRIVE_D2
 $Comp
-L Parts_Stash:MMBTA42 Q10
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q10
 U 1 1 5B66EB7A
 P 4600 5150
 F 0 "Q10" V 4800 5200 50  0000 L CNN
 F 1 "MMBTA42" V 4800 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 4650 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 4650 5150 50  0001 C CNN
 F 3 "" H 4650 5150 50  0001 C CNN
 	1    4600 5150
 	1    0    0    1   
@@ -803,7 +803,7 @@ AR Path="/5B5B1D70/5B3B1181/5B66EC98" Ref="R?"  Part="1"
 AR Path="/5B66EC98" Ref="R20"  Part="1" 
 F 0 "R20" H 4470 4946 50  0000 L CNN
 F 1 "33k" H 4470 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4330 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4330 4900 50  0001 C CNN
 F 3 "~" H 4400 4900 50  0001 C CNN
 	1    4400 4900
 	1    0    0    -1  
@@ -840,12 +840,12 @@ Wire Wire Line
 Entry Wire Line
 	4700 6300 4800 6400
 $Comp
-L Parts_Stash:MMBTA42 Q11
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q11
 U 1 1 5B68C6FD
 P 5150 5150
 F 0 "Q11" V 5350 5200 50  0000 L CNN
 F 1 "MMBTA42" V 5350 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 5200 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 5200 5150 50  0001 C CNN
 F 3 "" H 5200 5150 50  0001 C CNN
 	1    5150 5150
 	1    0    0    1   
@@ -858,7 +858,7 @@ AR Path="/5B5B1D70/5B3B1181/5B68C704" Ref="R?"  Part="1"
 AR Path="/5B68C704" Ref="R21"  Part="1" 
 F 0 "R21" H 5020 4946 50  0000 L CNN
 F 1 "33k" H 5020 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4880 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4880 4900 50  0001 C CNN
 F 3 "~" H 4950 4900 50  0001 C CNN
 	1    4950 4900
 	1    0    0    -1  
@@ -887,12 +887,12 @@ Wire Wire Line
 Entry Wire Line
 	5250 6300 5350 6400
 $Comp
-L Parts_Stash:MMBTA42 Q12
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q12
 U 1 1 5B68F8EA
 P 5650 5150
 F 0 "Q12" V 5850 5200 50  0000 L CNN
 F 1 "MMBTA42" V 5850 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 5700 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 5700 5150 50  0001 C CNN
 F 3 "" H 5700 5150 50  0001 C CNN
 	1    5650 5150
 	1    0    0    1   
@@ -905,7 +905,7 @@ AR Path="/5B5B1D70/5B3B1181/5B68F8F1" Ref="R?"  Part="1"
 AR Path="/5B68F8F1" Ref="R22"  Part="1" 
 F 0 "R22" H 5520 4946 50  0000 L CNN
 F 1 "33k" H 5520 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5380 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 5380 4900 50  0001 C CNN
 F 3 "~" H 5450 4900 50  0001 C CNN
 	1    5450 4900
 	1    0    0    -1  
@@ -934,17 +934,6 @@ Wire Wire Line
 Entry Wire Line
 	5750 6300 5850 6400
 $Comp
-L Parts_Stash:MMBTA42 Q13
-U 1 1 5B692F19
-P 6150 5150
-F 0 "Q13" V 6350 5200 50  0000 L CNN
-F 1 "MMBTA42" V 6350 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 6200 5150 50  0001 C CNN
-F 3 "" H 6200 5150 50  0001 C CNN
-	1    6150 5150
-	1    0    0    1   
-$EndComp
-$Comp
 L Device:R R?
 U 1 1 5B692F20
 P 5950 4900
@@ -952,10 +941,10 @@ AR Path="/5B5B1D70/5B3B1181/5B692F20" Ref="R?"  Part="1"
 AR Path="/5B692F20" Ref="R23"  Part="1" 
 F 0 "R23" H 6020 4946 50  0000 L CNN
 F 1 "33k" H 6020 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5880 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 5880 4900 50  0001 C CNN
 F 3 "~" H 5950 4900 50  0001 C CNN
 	1    5950 4900
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	5950 5050 5950 5150
@@ -981,12 +970,12 @@ Wire Wire Line
 Entry Wire Line
 	6250 6300 6350 6400
 $Comp
-L Parts_Stash:MMBTA42 Q14
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q14
 U 1 1 5B6968F8
 P 6650 5150
 F 0 "Q14" V 6850 5200 50  0000 L CNN
 F 1 "MMBTA42" V 6850 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 6700 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 6700 5150 50  0001 C CNN
 F 3 "" H 6700 5150 50  0001 C CNN
 	1    6650 5150
 	1    0    0    1   
@@ -999,7 +988,7 @@ AR Path="/5B5B1D70/5B3B1181/5B6968FF" Ref="R?"  Part="1"
 AR Path="/5B6968FF" Ref="R24"  Part="1" 
 F 0 "R24" H 6520 4946 50  0000 L CNN
 F 1 "33k" H 6520 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6380 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 6380 4900 50  0001 C CNN
 F 3 "~" H 6450 4900 50  0001 C CNN
 	1    6450 4900
 	1    0    0    -1  
@@ -1028,12 +1017,12 @@ Wire Wire Line
 Entry Wire Line
 	6750 6300 6850 6400
 $Comp
-L Parts_Stash:MMBTA42 Q15
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q15
 U 1 1 5B69A76F
 P 7150 5150
 F 0 "Q15" V 7350 5200 50  0000 L CNN
 F 1 "MMBTA42" V 7350 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 7200 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 7200 5150 50  0001 C CNN
 F 3 "" H 7200 5150 50  0001 C CNN
 	1    7150 5150
 	1    0    0    1   
@@ -1046,7 +1035,7 @@ AR Path="/5B5B1D70/5B3B1181/5B69A776" Ref="R?"  Part="1"
 AR Path="/5B69A776" Ref="R25"  Part="1" 
 F 0 "R25" H 7020 4946 50  0000 L CNN
 F 1 "33k" H 7020 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6880 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 6880 4900 50  0001 C CNN
 F 3 "~" H 6950 4900 50  0001 C CNN
 	1    6950 4900
 	1    0    0    -1  
@@ -1075,12 +1064,12 @@ Wire Wire Line
 Entry Wire Line
 	7250 6300 7350 6400
 $Comp
-L Parts_Stash:MMBTA42 Q16
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q16
 U 1 1 5B69E9E7
 P 7650 5150
 F 0 "Q16" V 7850 5200 50  0000 L CNN
 F 1 "MMBTA42" V 7850 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 7700 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 7700 5150 50  0001 C CNN
 F 3 "" H 7700 5150 50  0001 C CNN
 	1    7650 5150
 	1    0    0    1   
@@ -1093,7 +1082,7 @@ AR Path="/5B5B1D70/5B3B1181/5B69E9EE" Ref="R?"  Part="1"
 AR Path="/5B69E9EE" Ref="R26"  Part="1" 
 F 0 "R26" H 7520 4946 50  0000 L CNN
 F 1 "33k" H 7520 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7380 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 7380 4900 50  0001 C CNN
 F 3 "~" H 7450 4900 50  0001 C CNN
 	1    7450 4900
 	1    0    0    -1  
@@ -1122,12 +1111,12 @@ Wire Wire Line
 Entry Wire Line
 	7750 6300 7850 6400
 $Comp
-L Parts_Stash:MMBTA42 Q17
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q17
 U 1 1 5B6A3147
 P 8150 5150
 F 0 "Q17" V 8350 5200 50  0000 L CNN
 F 1 "MMBTA42" V 8350 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 8200 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 8200 5150 50  0001 C CNN
 F 3 "" H 8200 5150 50  0001 C CNN
 	1    8150 5150
 	1    0    0    1   
@@ -1140,10 +1129,10 @@ AR Path="/5B5B1D70/5B3B1181/5B6A314E" Ref="R?"  Part="1"
 AR Path="/5B6A314E" Ref="R27"  Part="1" 
 F 0 "R27" H 8020 4946 50  0000 L CNN
 F 1 "33k" H 8020 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7880 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 7880 4900 50  0001 C CNN
 F 3 "~" H 7950 4900 50  0001 C CNN
 	1    7950 4900
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	7950 5050 7950 5150
@@ -1169,12 +1158,12 @@ Wire Wire Line
 Entry Wire Line
 	8250 6300 8350 6400
 $Comp
-L Parts_Stash:MMBTA42 Q18
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q18
 U 1 1 5B6A7F16
 P 8650 5150
 F 0 "Q18" V 8850 5200 50  0000 L CNN
 F 1 "MMBTA42" V 8850 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 8700 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 8700 5150 50  0001 C CNN
 F 3 "" H 8700 5150 50  0001 C CNN
 	1    8650 5150
 	1    0    0    1   
@@ -1187,7 +1176,7 @@ AR Path="/5B5B1D70/5B3B1181/5B6A7F1D" Ref="R?"  Part="1"
 AR Path="/5B6A7F1D" Ref="R28"  Part="1" 
 F 0 "R28" H 8520 4946 50  0000 L CNN
 F 1 "33k" H 8520 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8380 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8380 4900 50  0001 C CNN
 F 3 "~" H 8450 4900 50  0001 C CNN
 	1    8450 4900
 	1    0    0    -1  
@@ -1216,12 +1205,12 @@ Wire Wire Line
 Entry Wire Line
 	8750 6300 8850 6400
 $Comp
-L Parts_Stash:MMBTA42 Q19
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q19
 U 1 1 5B6ACF8A
 P 9150 5150
 F 0 "Q19" V 9350 5200 50  0000 L CNN
 F 1 "MMBTA42" V 9350 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 9200 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 9200 5150 50  0001 C CNN
 F 3 "" H 9200 5150 50  0001 C CNN
 	1    9150 5150
 	1    0    0    1   
@@ -1234,7 +1223,7 @@ AR Path="/5B5B1D70/5B3B1181/5B6ACF91" Ref="R?"  Part="1"
 AR Path="/5B6ACF91" Ref="R29"  Part="1" 
 F 0 "R29" H 9020 4946 50  0000 L CNN
 F 1 "33k" H 9020 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8880 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8880 4900 50  0001 C CNN
 F 3 "~" H 8950 4900 50  0001 C CNN
 	1    8950 4900
 	1    0    0    -1  
@@ -1263,12 +1252,12 @@ Wire Wire Line
 Entry Wire Line
 	9250 6300 9350 6400
 $Comp
-L Parts_Stash:MMBTA42 Q20
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q20
 U 1 1 5B6B2485
 P 9650 5150
 F 0 "Q20" V 9850 5200 50  0000 L CNN
 F 1 "MMBTA42" V 9850 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 9700 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 9700 5150 50  0001 C CNN
 F 3 "" H 9700 5150 50  0001 C CNN
 	1    9650 5150
 	1    0    0    1   
@@ -1281,7 +1270,7 @@ AR Path="/5B5B1D70/5B3B1181/5B6B248C" Ref="R?"  Part="1"
 AR Path="/5B6B248C" Ref="R30"  Part="1" 
 F 0 "R30" H 9520 4946 50  0000 L CNN
 F 1 "33k" H 9520 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9380 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 9380 4900 50  0001 C CNN
 F 3 "~" H 9450 4900 50  0001 C CNN
 	1    9450 4900
 	1    0    0    -1  
@@ -1497,7 +1486,7 @@ D9
 Text Label 9750 6300 1    50   ~ 0
 DOT
 $Comp
-L ESP8266:ESP-12E U6
+L funknetzwerkuhr-rescue:ESP-12E-ESP8266 U6
 U 1 1 5B6C570B
 P 2250 1150
 F 0 "U6" H 2250 1915 50  0000 C CNN
@@ -1547,7 +1536,7 @@ U 1 1 5B6D751B
 P 2050 6950
 F 0 "R31" H 2120 6996 50  0000 L CNN
 F 1 "10k" H 2120 6905 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1980 6950 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1980 6950 50  0001 C CNN
 F 3 "~" H 2050 6950 50  0001 C CNN
 	1    2050 6950
 	1    0    0    -1  
@@ -1558,7 +1547,7 @@ U 1 1 5B6D7600
 P 3150 6950
 F 0 "R32" H 3220 6996 50  0000 L CNN
 F 1 "10k" H 3220 6905 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3080 6950 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3080 6950 50  0001 C CNN
 F 3 "~" H 3150 6950 50  0001 C CNN
 	1    3150 6950
 	1    0    0    -1  
@@ -1617,7 +1606,7 @@ U 1 1 5B6FD2CF
 P 1300 2700
 F 0 "R33" V 1093 2700 50  0000 C CNN
 F 1 "0R0" V 1184 2700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1230 2700 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1230 2700 50  0001 C CNN
 F 3 "~" H 1300 2700 50  0001 C CNN
 	1    1300 2700
 	0    1    1    0   
@@ -1650,12 +1639,12 @@ HSPI_CS
 $Comp
 L Device:R R37
 U 1 1 5B72DCEB
-P 4150 6950
-F 0 "R37" H 4220 6996 50  0000 L CNN
-F 1 "12k" H 4220 6905 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4080 6950 50  0001 C CNN
-F 3 "~" H 4150 6950 50  0001 C CNN
-	1    4150 6950
+P 4150 6850
+F 0 "R37" H 4220 6896 50  0000 L CNN
+F 1 "12k" H 4220 6805 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4080 6850 50  0001 C CNN
+F 3 "~" H 4150 6850 50  0001 C CNN
+	1    4150 6850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1675,14 +1664,11 @@ U 1 1 5B736D51
 P 3800 7250
 F 0 "R36" H 3870 7296 50  0000 L CNN
 F 1 "4k7" H 3870 7205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3730 7250 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3730 7250 50  0001 C CNN
 F 3 "~" H 3800 7250 50  0001 C CNN
 	1    3800 7250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3800 7100 4150 7100
-Connection ~ 4150 7100
 Wire Wire Line
 	3800 7400 4000 7400
 $Comp
@@ -1702,15 +1688,15 @@ Wire Wire Line
 $Comp
 L power:+3V3 #PWR039
 U 1 1 5B7484E7
-P 4150 6800
-F 0 "#PWR039" H 4150 6650 50  0001 C CNN
-F 1 "+3V3" H 4165 6973 50  0000 C CNN
-F 2 "" H 4150 6800 50  0001 C CNN
-F 3 "" H 4150 6800 50  0001 C CNN
-	1    4150 6800
+P 4150 6700
+F 0 "#PWR039" H 4150 6550 50  0001 C CNN
+F 1 "+3V3" H 4165 6873 50  0000 C CNN
+F 2 "" H 4150 6700 50  0001 C CNN
+F 3 "" H 4150 6700 50  0001 C CNN
+	1    4150 6700
 	1    0    0    -1  
 $EndComp
-Text GLabel 4150 7100 2    50   Input ~ 0
+Text GLabel 4200 7050 2    50   Input ~ 0
 ADC
 Text GLabel 1350 950  0    50   Input ~ 0
 ADC
@@ -1720,7 +1706,7 @@ U 1 1 5B749011
 P 800 900
 F 0 "R35" H 870 946 50  0000 L CNN
 F 1 "10k" H 870 855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 730 900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 730 900 50  0001 C CNN
 F 3 "~" H 800 900 50  0001 C CNN
 	1    800  900 
 	1    0    0    -1  
@@ -1753,7 +1739,7 @@ U 1 1 5B63E588
 P 3300 1600
 F 0 "R39" H 3370 1646 50  0000 L CNN
 F 1 "10k" H 3370 1555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3230 1600 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3230 1600 50  0001 C CNN
 F 3 "~" H 3300 1600 50  0001 C CNN
 	1    3300 1600
 	1    0    0    -1  
@@ -1818,30 +1804,6 @@ F 3 "" H 4200 750 50  0001 C CNN
 $EndComp
 Entry Wire Line
 	9900 4500 10000 4600
-$Comp
-L Parts_Stash:MMBTA42 Q21
-U 1 1 5B6C98E5
-P 10200 5150
-F 0 "Q21" V 10400 5200 50  0000 L CNN
-F 1 "MMBTA42" V 10400 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 10250 5150 50  0001 C CNN
-F 3 "" H 10250 5150 50  0001 C CNN
-	1    10200 5150
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 5B6C98EC
-P 10000 4900
-AR Path="/5B5B1D70/5B3B1181/5B6C98EC" Ref="R?"  Part="1" 
-AR Path="/5B6C98EC" Ref="R40"  Part="1" 
-F 0 "R40" H 10070 4946 50  0000 L CNN
-F 1 "33k" H 10070 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9930 4900 50  0001 C CNN
-F 3 "~" H 10000 4900 50  0001 C CNN
-	1    10000 4900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	10000 5050 10000 5150
 Wire Wire Line
@@ -1874,12 +1836,12 @@ DRIVE_S1
 Entry Wire Line
 	10450 4500 10550 4600
 $Comp
-L Parts_Stash:MMBTA42 Q22
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q22
 U 1 1 5B7684A7
 P 10750 5150
 F 0 "Q22" V 10950 5200 50  0000 L CNN
 F 1 "MMBTA42" V 10950 4800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:TSOT-23_HandSoldering" H 10800 5150 50  0001 C CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 10800 5150 50  0001 C CNN
 F 3 "" H 10800 5150 50  0001 C CNN
 	1    10750 5150
 	1    0    0    1   
@@ -1892,7 +1854,7 @@ AR Path="/5B5B1D70/5B3B1181/5B7684AE" Ref="R?"  Part="1"
 AR Path="/5B7684AE" Ref="R41"  Part="1" 
 F 0 "R41" H 10620 4946 50  0000 L CNN
 F 1 "33k" H 10620 4855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 10480 4900 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 10480 4900 50  0001 C CNN
 F 3 "~" H 10550 4900 50  0001 C CNN
 	1    10550 4900
 	1    0    0    -1  
@@ -2036,7 +1998,7 @@ U 1 1 5B8610D1
 P 10000 5550
 F 0 "R42" H 10070 5596 50  0000 L CNN
 F 1 "240k" H 10070 5505 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9930 5550 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 9930 5550 50  0001 C CNN
 F 3 "~" H 10000 5550 50  0001 C CNN
 	1    10000 5550
 	1    0    0    -1  
@@ -2072,7 +2034,7 @@ U 1 1 5B86D5CA
 P 10550 5550
 F 0 "R43" H 10620 5596 50  0000 L CNN
 F 1 "240k" H 10620 5505 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 10480 5550 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 10480 5550 50  0001 C CNN
 F 3 "~" H 10550 5550 50  0001 C CNN
 	1    10550 5550
 	1    0    0    -1  
@@ -2129,7 +2091,7 @@ AR Path="/5B5B1D70/5B3B1181/5B89825D" Ref="R?"  Part="1"
 AR Path="/5B89825D" Ref="R44"  Part="1" 
 F 0 "R44" H 7820 3746 50  0000 L CNN
 F 1 "68R" H 7820 3655 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7680 3700 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 7680 3700 50  0001 C CNN
 F 3 "~" H 7750 3700 50  0001 C CNN
 	1    7750 3700
 	1    0    0    -1  
@@ -2142,7 +2104,7 @@ AR Path="/5B5B1D70/5B3B1181/5B898423" Ref="R?"  Part="1"
 AR Path="/5B898423" Ref="R45"  Part="1" 
 F 0 "R45" H 8320 3746 50  0000 L CNN
 F 1 "15R" H 8320 3655 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8180 3700 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8180 3700 50  0001 C CNN
 F 3 "~" H 8250 3700 50  0001 C CNN
 	1    8250 3700
 	1    0    0    -1  
@@ -2155,7 +2117,7 @@ AR Path="/5B5B1D70/5B3B1181/5B8985C4" Ref="R?"  Part="1"
 AR Path="/5B8985C4" Ref="R46"  Part="1" 
 F 0 "R46" H 8820 3746 50  0000 L CNN
 F 1 "15R" H 8820 3655 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8680 3700 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8680 3700 50  0001 C CNN
 F 3 "~" H 8750 3700 50  0001 C CNN
 	1    8750 3700
 	1    0    0    -1  
@@ -2359,10 +2321,10 @@ U 1 1 5B99E4A8
 P 1850 2500
 F 0 "R47" H 1920 2546 50  0000 L CNN
 F 1 "10k" H 1920 2455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1780 2500 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1780 2500 50  0001 C CNN
 F 3 "~" H 1850 2500 50  0001 C CNN
 	1    1850 2500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R48
@@ -2370,10 +2332,10 @@ U 1 1 5B99E6C8
 P 3950 2500
 F 0 "R48" H 4020 2546 50  0000 L CNN
 F 1 "10k" H 4020 2455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3880 2500 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3880 2500 50  0001 C CNN
 F 3 "~" H 3950 2500 50  0001 C CNN
 	1    3950 2500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	3950 3000 3950 2650
@@ -2385,10 +2347,10 @@ U 1 1 5B9C83BF
 P 6150 2850
 F 0 "R49" H 6220 2896 50  0000 L CNN
 F 1 "10k" H 6220 2805 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6080 2850 50  0001 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 6080 2850 50  0001 C CNN
 F 3 "~" H 6150 2850 50  0001 C CNN
 	1    6150 2850
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L power:+3V3 #PWR035
@@ -2427,14 +2389,60 @@ Wire Wire Line
 	7400 900  8550 900 
 Wire Wire Line
 	6500 1250 6900 1250
+Wire Wire Line
+	4200 7050 4150 7050
+Wire Wire Line
+	3800 7050 3800 7100
+Wire Wire Line
+	4150 7000 4150 7050
+Connection ~ 4150 7050
+Wire Wire Line
+	4150 7050 3800 7050
+Wire Wire Line
+	4150 7050 4150 7100
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q21
+U 1 1 5B6C98E5
+P 10200 5150
+F 0 "Q21" V 10400 5200 50  0000 L CNN
+F 1 "MMBTA42" V 10400 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 10250 5150 50  0001 C CNN
+F 3 "" H 10250 5150 50  0001 C CNN
+	1    10200 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6C98EC
+P 10000 4900
+AR Path="/5B5B1D70/5B3B1181/5B6C98EC" Ref="R?"  Part="1" 
+AR Path="/5B6C98EC" Ref="R40"  Part="1" 
+F 0 "R40" H 10070 4946 50  0000 L CNN
+F 1 "33k" H 10070 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 9930 4900 50  0001 C CNN
+F 3 "~" H 10000 4900 50  0001 C CNN
+	1    10000 4900
+	-1   0    0    1   
+$EndComp
 Wire Bus Line
 	7650 2850 10000 2850
 Wire Bus Line
 	10000 2850 10000 3400
 Wire Bus Line
-	10000 600  10000 2850
-Wire Bus Line
 	750  6400 11150 6400
 Wire Bus Line
 	700  4500 11150 4500
+Wire Bus Line
+	10000 600  10000 2850
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q13
+U 1 1 5B692F19
+P 6150 5150
+F 0 "Q13" V 6350 5200 50  0000 L CNN
+F 1 "MMBTA42" V 6350 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 6200 5150 50  0001 C CNN
+F 3 "" H 6200 5150 50  0001 C CNN
+	1    6150 5150
+	1    0    0    1   
+$EndComp
 $EndSCHEMATC
