@@ -162,17 +162,6 @@ F 3 "" H 6250 2700 50  0001 C CNN
 	1    6250 2700
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Device:CP C4
-U 1 1 5B7B059A
-P 3900 3500
-F 0 "C4" V 4000 3350 50  0000 L CNN
-F 1 "100uF,25V" V 3750 3350 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_8x10.5" H 3938 3350 50  0001 C CNN
-F 3 "" H 3900 3500 50  0001 C CNN
-	1    3900 3500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5550 2550 5550 2700
 $Comp
@@ -295,7 +284,7 @@ F 3 "" H 8550 3600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8550 2700 8550 3450
+	8550 2700 8550 3000
 Wire Wire Line
 	7700 2700 8550 2700
 Connection ~ 7700 2700
@@ -385,4 +374,36 @@ Wire Wire Line
 	5550 2700 6100 2700
 Text Label 6600 3900 3    50   ~ 0
 SENSE
+$Comp
+L Device:CP C4
+U 1 1 5B7B059A
+P 3900 3500
+F 0 "C4" V 4000 3350 50  0000 L CNN
+F 1 "220uF,25V" V 3750 3350 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P2.50mm_P5.00mm" H 3938 3350 50  0001 C CNN
+F 3 "" H 3900 3500 50  0001 C CNN
+	1    3900 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 5CCD2A7A
+P 9150 3100
+F 0 "J3" H 9122 2982 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 9122 3073 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9150 3100 50  0001 C CNN
+F 3 "~" H 9150 3100 50  0001 C CNN
+	1    9150 3100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8550 3000 8950 3000
+Connection ~ 8550 3000
+Wire Wire Line
+	8550 3000 8550 3450
+Wire Wire Line
+	8950 3100 8950 4550
+Wire Wire Line
+	8950 4550 8550 4550
+Connection ~ 8550 4550
 $EndSCHEMATC

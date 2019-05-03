@@ -147,8 +147,6 @@ F 3 "http://www.diodes.com/datasheets/AP1117.pdf" H 6600 700 50  0001 C CNN
 	1    6500 950 
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6000 950  6050 950 
 $Comp
 L power:+3V3 #PWR015
 U 1 1 5B5B5A7B
@@ -2268,26 +2266,12 @@ Wire Wire Line
 	6700 3450 6700 3400
 Connection ~ 6700 3400
 $Comp
-L Device:CP C11
-U 1 1 5B6D84E6
-P 6050 1100
-F 0 "C11" H 6168 1146 50  0000 L CNN
-F 1 "10uF" H 6168 1055 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 6088 950 50  0001 C CNN
-F 3 "~" H 6050 1100 50  0001 C CNN
-	1    6050 1100
-	1    0    0    -1  
-$EndComp
-Connection ~ 6050 950 
-Wire Wire Line
-	6050 950  6200 950 
-$Comp
 L Device:CP C12
 U 1 1 5B6D89E2
 P 6900 1100
 F 0 "C12" H 7018 1146 50  0000 L CNN
 F 1 "22uF" H 7018 1055 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 6938 950 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 6938 950 50  0001 C CNN
 F 3 "~" H 6900 1100 50  0001 C CNN
 	1    6900 1100
 	1    0    0    -1  
@@ -2424,16 +2408,6 @@ F 3 "~" H 10000 4900 50  0001 C CNN
 	1    10000 4900
 	-1   0    0    1   
 $EndComp
-Wire Bus Line
-	7650 2850 10000 2850
-Wire Bus Line
-	10000 2850 10000 3400
-Wire Bus Line
-	750  6400 11150 6400
-Wire Bus Line
-	700  4500 11150 4500
-Wire Bus Line
-	10000 600  10000 2850
 $Comp
 L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q13
 U 1 1 5B692F19
@@ -2445,4 +2419,50 @@ F 3 "" H 6200 5150 50  0001 C CNN
 	1    6150 5150
 	1    0    0    1   
 $EndComp
+Wire Wire Line
+	6000 950  6200 950 
+Text Notes 5000 1200 0    50   ~ 0
+Electrolitic capacitor \nis already covered by 220uF\n cap on input of 180v regulator
+Text Label 3250 850  0    50   ~ 0
+TXD
+Text Label 3250 950  0    50   ~ 0
+RXD
+$Comp
+L Connector:Conn_01x04_Male J2
+U 1 1 5CE3FFDC
+P 4500 1500
+F 0 "J2" H 4473 1473 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 4473 1382 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4500 1500 50  0001 C CNN
+F 3 "~" H 4500 1500 50  0001 C CNN
+	1    4500 1500
+	-1   0    0    1   
+$EndComp
+Text GLabel 4300 1300 0    50   Input ~ 0
+HSPI_CS
+Text GLabel 4300 1400 0    50   Input ~ 0
+HSPI_CLK
+Text GLabel 4300 1500 0    50   Input ~ 0
+HSPI_MOSI
+$Comp
+L power:GND #PWR049
+U 1 1 5CE41997
+P 4300 1600
+F 0 "#PWR049" H 4300 1350 50  0001 C CNN
+F 1 "GND" V 4300 1400 50  0000 C CNN
+F 2 "" H 4300 1600 50  0001 C CNN
+F 3 "" H 4300 1600 50  0001 C CNN
+	1    4300 1600
+	0    1    1    0   
+$EndComp
+Wire Bus Line
+	7650 2850 10000 2850
+Wire Bus Line
+	10000 2850 10000 3400
+Wire Bus Line
+	10000 600  10000 2850
+Wire Bus Line
+	750  6400 11150 6400
+Wire Bus Line
+	700  4500 11150 4500
 $EndSCHEMATC
