@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+LIBS:ausf_d-cache
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
+Sheet 1 3
 Title ""
 Date ""
 Rev ""
@@ -13,15 +14,393 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Sheet
+S 9700 900  750  550 
+U 5CD516F1
+F0 "hv_psu" 50
+F1 "hv_psu.sch" 50
+F2 "+9V" I L 9700 1000 50 
+F3 "+HVDC" I L 9700 1100 50 
+$EndSheet
+$Sheet
+S 9700 1900 750  450 
+U 5CD5170D
+F0 "filament_psu" 50
+F1 "filament_psu.sch" 50
+F2 "+9V" I L 9700 2000 50 
+F3 "+FILAMENT_DC" I L 9700 2100 50 
+$EndSheet
+Wire Wire Line
+	7950 1250 7950 1350
 $Comp
-L MCU_Espressif:ESP8266EX U?
-U 1 1 5BD33174
-P 7100 3150
-F 0 "U?" H 7100 1964 50  0000 C CNN
-F 1 "ESP8266EX" H 7100 1873 50  0000 C CNN
-F 2 "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm" H 7100 1850 50  0001 C CNN
-F 3 "http://espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf" H 7200 1850 50  0001 C CNN
-	1    7100 3150
+L power:GND #PWR?
+U 1 1 5CD70972
+P 7950 1450
+AR Path="/5CD516F1/5CD70972" Ref="#PWR?"  Part="1" 
+AR Path="/5CD70972" Ref="#PWR02"  Part="1" 
+F 0 "#PWR02" H 7950 1200 50  0001 C CNN
+F 1 "GND" H 7955 1277 50  0000 C CNN
+F 2 "" H 7950 1450 50  0001 C CNN
+F 3 "" H 7950 1450 50  0001 C CNN
+	1    7950 1450
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	7950 1450 7950 1350
+Connection ~ 7950 1350
+$Comp
+L power:+9V #PWR?
+U 1 1 5CD7097A
+P 7950 1050
+AR Path="/5CD516F1/5CD7097A" Ref="#PWR?"  Part="1" 
+AR Path="/5CD7097A" Ref="#PWR01"  Part="1" 
+F 0 "#PWR01" H 7950 900 50  0001 C CNN
+F 1 "+9V" H 7965 1223 50  0000 C CNN
+F 2 "" H 7950 1050 50  0001 C CNN
+F 3 "" H 7950 1050 50  0001 C CNN
+	1    7950 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7950 1150 7950 1050
+$Comp
+L RF_Module:ESP-12F U3
+U 1 1 5CD8D60B
+P 4550 3750
+F 0 "U3" H 4550 4731 50  0000 C CNN
+F 1 "ESP-12F" H 4550 4640 50  0000 C CNN
+F 2 "RF_Module:ESP-12E" H 4550 3750 50  0001 C CNN
+F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 4200 3850 50  0001 C CNN
+	1    4550 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:AMS1117CD-3.3 U4
+U 1 1 5CD8FEBA
+P 4700 1350
+F 0 "U4" H 4700 1592 50  0000 C CNN
+F 1 "AMS1117CD-3.3" H 4700 1501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TO-252-3_TabPin2" H 4700 1550 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 4800 1100 50  0001 C CNN
+	1    4700 1350
+	1    0    0    -1  
+$EndComp
+Text HLabel 4550 2950 1    50   Input ~ 0
++3V3
+$Comp
+L power:GND #PWR?
+U 1 1 5CD916D4
+P 4550 4450
+AR Path="/5CD516F1/5CD916D4" Ref="#PWR?"  Part="1" 
+AR Path="/5CD916D4" Ref="#PWR07"  Part="1" 
+F 0 "#PWR07" H 4550 4200 50  0001 C CNN
+F 1 "GND" H 4555 4277 50  0000 C CNN
+F 2 "" H 4550 4450 50  0001 C CNN
+F 3 "" H 4550 4450 50  0001 C CNN
+	1    4550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5CD92149
+P 4700 1900
+AR Path="/5CD516F1/5CD92149" Ref="#PWR?"  Part="1" 
+AR Path="/5CD92149" Ref="#PWR08"  Part="1" 
+F 0 "#PWR08" H 4700 1650 50  0001 C CNN
+F 1 "GND" H 4705 1727 50  0000 C CNN
+F 2 "" H 4700 1900 50  0001 C CNN
+F 3 "" H 4700 1900 50  0001 C CNN
+	1    4700 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+9V #PWR?
+U 1 1 5CD9D3AB
+P 9550 1000
+AR Path="/5CD516F1/5CD9D3AB" Ref="#PWR?"  Part="1" 
+AR Path="/5CD9D3AB" Ref="#PWR0101"  Part="1" 
+F 0 "#PWR0101" H 9550 850 50  0001 C CNN
+F 1 "+9V" H 9565 1173 50  0000 C CNN
+F 2 "" H 9550 1000 50  0001 C CNN
+F 3 "" H 9550 1000 50  0001 C CNN
+	1    9550 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 1000 9550 1000
+$Comp
+L power:+9V #PWR?
+U 1 1 5CD9DE8F
+P 9600 2000
+AR Path="/5CD516F1/5CD9DE8F" Ref="#PWR?"  Part="1" 
+AR Path="/5CD9DE8F" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 9600 1850 50  0001 C CNN
+F 1 "+9V" H 9615 2173 50  0000 C CNN
+F 2 "" H 9600 2000 50  0001 C CNN
+F 3 "" H 9600 2000 50  0001 C CNN
+	1    9600 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 2000 9600 2000
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J3
+U 1 1 5CDAB1CA
+P 8350 3250
+F 0 "J3" H 8400 3767 50  0000 C CNN
+F 1 "Conn_02x10_Odd_Even" H 8400 3676 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x08_P2.54mm_Vertical" H 8350 3250 50  0001 C CNN
+F 3 "~" H 8350 3250 50  0001 C CNN
+	1    8350 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5CDABED0
+P 8150 2950
+AR Path="/5CD516F1/5CDABED0" Ref="#PWR?"  Part="1" 
+AR Path="/5CDABED0" Ref="#PWR0103"  Part="1" 
+F 0 "#PWR0103" H 8150 2700 50  0001 C CNN
+F 1 "GND" H 8155 2777 50  0000 C CNN
+F 2 "" H 8150 2950 50  0001 C CNN
+F 3 "" H 8150 2950 50  0001 C CNN
+	1    8150 2950
+	0    1    1    0   
+$EndComp
+Text HLabel 9700 1100 0    50   Input ~ 0
++HVDC
+Text HLabel 8150 3350 0    50   Input ~ 0
++HVDC
+Text HLabel 9700 2100 0    50   Input ~ 0
++FILAMENT_DC
+Text HLabel 8150 3050 0    50   Input ~ 0
++FILAMENT_DC
+Text HLabel 8650 3550 2    50   Input ~ 0
+HSPI_CLK
+Text HLabel 8150 3550 0    50   Input ~ 0
+HSPI_CS
+Text HLabel 8150 3650 0    50   Input ~ 0
+HSPI_DATA
+Text HLabel 8650 3650 2    50   Input ~ 0
+FILAMENT_CLK
+Text HLabel 5400 1350 2    50   Input ~ 0
++3V3
+Text HLabel 8150 3150 0    50   Input ~ 0
++3V3
+$Comp
+L power:+9V #PWR?
+U 1 1 5CDAF613
+P 8150 3250
+AR Path="/5CD516F1/5CDAF613" Ref="#PWR?"  Part="1" 
+AR Path="/5CDAF613" Ref="#PWR0104"  Part="1" 
+F 0 "#PWR0104" H 8150 3100 50  0001 C CNN
+F 1 "+9V" H 8165 3423 50  0000 C CNN
+F 2 "" H 8150 3250 50  0001 C CNN
+F 3 "" H 8150 3250 50  0001 C CNN
+	1    8150 3250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5CDB1D08
+P 8650 2950
+AR Path="/5CD516F1/5CDB1D08" Ref="#PWR?"  Part="1" 
+AR Path="/5CDB1D08" Ref="#PWR0105"  Part="1" 
+F 0 "#PWR0105" H 8650 2700 50  0001 C CNN
+F 1 "GND" H 8655 2777 50  0000 C CNN
+F 2 "" H 8650 2950 50  0001 C CNN
+F 3 "" H 8650 2950 50  0001 C CNN
+	1    8650 2950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+9V #PWR?
+U 1 1 5CDB2989
+P 8650 3250
+AR Path="/5CD516F1/5CDB2989" Ref="#PWR?"  Part="1" 
+AR Path="/5CDB2989" Ref="#PWR0106"  Part="1" 
+F 0 "#PWR0106" H 8650 3100 50  0001 C CNN
+F 1 "+9V" H 8665 3423 50  0000 C CNN
+F 2 "" H 8650 3250 50  0001 C CNN
+F 3 "" H 8650 3250 50  0001 C CNN
+	1    8650 3250
+	0    1    1    0   
+$EndComp
+Text HLabel 8650 3350 2    50   Input ~ 0
++HVDC
+Text HLabel 8650 3050 2    50   Input ~ 0
++FILAMENT_DC
+Text HLabel 8650 3150 2    50   Input ~ 0
++3V3
+Wire Wire Line
+	5000 1350 5150 1350
+$Comp
+L power:+9V #PWR?
+U 1 1 5CD83FDD
+P 4100 1350
+AR Path="/5CD516F1/5CD83FDD" Ref="#PWR?"  Part="1" 
+AR Path="/5CD83FDD" Ref="#PWR06"  Part="1" 
+F 0 "#PWR06" H 4100 1200 50  0001 C CNN
+F 1 "+9V" H 4115 1523 50  0000 C CNN
+F 2 "" H 4100 1350 50  0001 C CNN
+F 3 "" H 4100 1350 50  0001 C CNN
+	1    4100 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C10
+U 1 1 5CD853F3
+P 5150 1550
+F 0 "C10" H 5268 1596 50  0000 L CNN
+F 1 "22u" H 5268 1505 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x5.8" H 5188 1400 50  0001 C CNN
+F 3 "~" H 5150 1550 50  0001 C CNN
+	1    5150 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 1350 4250 1350
+$Comp
+L Device:CP C9
+U 1 1 5CD85FDD
+P 4250 1550
+F 0 "C9" H 4368 1596 50  0000 L CNN
+F 1 "10u" H 4368 1505 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x5.8" H 4288 1400 50  0001 C CNN
+F 3 "~" H 4250 1550 50  0001 C CNN
+	1    4250 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 1700 5150 1800
+Wire Wire Line
+	5150 1800 4700 1800
+Wire Wire Line
+	4250 1800 4250 1700
+Wire Wire Line
+	4700 1900 4700 1800
+Connection ~ 4700 1800
+Wire Wire Line
+	4700 1800 4250 1800
+Wire Wire Line
+	4700 1650 4700 1800
+Wire Wire Line
+	4250 1400 4250 1350
+Connection ~ 4250 1350
+Wire Wire Line
+	4250 1350 4400 1350
+Wire Wire Line
+	5150 1400 5150 1350
+Connection ~ 5150 1350
+Wire Wire Line
+	5150 1350 5400 1350
+$Comp
+L Connector:Barrel_Jack_Switch J?
+U 1 1 5CD8DB08
+P 8400 1250
+AR Path="/5CD516F1/5CD8DB08" Ref="J?"  Part="1" 
+AR Path="/5CD8DB08" Ref="J1"  Part="1" 
+F 0 "J1" H 8478 1575 50  0000 C CNN
+F 1 "Jack-DC" H 8478 1484 50  0000 C CNN
+F 2 "PartsStash:AliExpress55mmBarrelJack" H 8450 1210 50  0001 C CNN
+F 3 "" H 8450 1210 50  0001 C CNN
+	1    8400 1250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7950 1150 8100 1150
+Wire Wire Line
+	8100 1250 7950 1250
+Wire Wire Line
+	8100 1350 7950 1350
+$Comp
+L Transistor_BJT:BC847 Q3
+U 1 1 5CD8FBE8
+P 1850 1650
+F 0 "Q3" H 2041 1696 50  0000 L CNN
+F 1 "BC847" H 2041 1605 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2050 1575 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657" H 1850 1650 50  0001 L CNN
+	1    1850 1650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:BC847 Q4
+U 1 1 5CD91A90
+P 1850 2350
+F 0 "Q4" H 2041 2304 50  0000 L CNN
+F 1 "BC847" H 2041 2395 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2050 2275 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657" H 1850 2350 50  0001 L CNN
+	1    1850 2350
+	-1   0    0    1   
+$EndComp
+Text Label 3800 3150 0    50   ~ 0
+RST
+Wire Wire Line
+	3950 3150 3800 3150
+Wire Wire Line
+	5150 3150 5450 3150
+Text Label 5250 3150 0    50   ~ 0
+GPIO0
+$Comp
+L Device:R R10
+U 1 1 5CD93D87
+P 2300 2350
+F 0 "R10" V 2093 2350 50  0000 C CNN
+F 1 "12k" V 2184 2350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2230 2350 50  0001 C CNN
+F 3 "~" H 2300 2350 50  0001 C CNN
+	1    2300 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 5CD946A7
+P 2300 1650
+F 0 "R9" V 2093 1650 50  0000 C CNN
+F 1 "12k" V 2184 1650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2230 1650 50  0001 C CNN
+F 3 "~" H 2300 1650 50  0001 C CNN
+	1    2300 1650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1750 1450 1750 1300
+Wire Wire Line
+	1750 2550 1750 2700
+Wire Wire Line
+	2050 2350 2150 2350
+Wire Wire Line
+	2050 1650 2150 1650
+Wire Wire Line
+	2450 1650 2600 1650
+Wire Wire Line
+	2450 2350 2600 2350
+Wire Wire Line
+	1750 1850 1750 1900
+Wire Wire Line
+	1750 1900 2600 2100
+Connection ~ 2600 2350
+Wire Wire Line
+	2600 2350 2900 2350
+Wire Wire Line
+	1750 2150 1750 2100
+Wire Wire Line
+	2600 2100 2600 2350
+Wire Wire Line
+	1750 2100 2600 1900
+Wire Wire Line
+	2600 1900 2600 1650
+Connection ~ 2600 1650
+Wire Wire Line
+	2600 1650 2900 1650
+Text Label 2750 1650 0    50   ~ 0
+DTR
+Text Label 2750 2350 0    50   ~ 0
+RTS
+Text Label 1750 1450 1    50   ~ 0
+RST
+Text Label 1750 2700 1    50   ~ 0
+GPIO0
 $EndSCHEMATC
