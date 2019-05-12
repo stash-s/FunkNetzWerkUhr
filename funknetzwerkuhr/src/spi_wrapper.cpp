@@ -8,7 +8,7 @@ void SpiWrapper::init (uint16_t dataBits) {
     SPI.setDataMode(SPI_MODE0);
     SPI.setHwCs(true);
     SPI.setBitOrder(LSBFIRST);
-    SPI.setFrequency(8000000);
+    SPI.setFrequency(4000000);
 
     // tutaj
     setDataBits (dataBits);

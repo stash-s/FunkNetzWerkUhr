@@ -175,6 +175,8 @@ static void isr_call () {
 void
 NixieDisplay::init()
 {
+    Serial.println ("Nixie displayu init()");
+
     SpiWrapper::init(24);
 
     display_timer_divider = (clockCyclesPerMicrosecond() / 16) * 20; // 40us = 25kHz sampling freq
