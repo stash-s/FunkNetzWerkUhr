@@ -7,71 +7,95 @@
 #include <NTPClient.h>
 #include <SPI.h>
 
-#include "max_display.h"
+#define VFD 1
+#define Nixie 2
+
+#ifndef DISPLAY_HW
+#define DISPLAY_HW Nixie
+#endif // DISPLAY_HW
+
+#if DISPLAY_HW == VFD
+#include "vfd_display.h"
+#elif DISPLAY_HW == Nixie
+#include "nixie_display.h"
+#else
+#error "Unsupported or unknown display hardware: " #DISPLAY_HW
+#endif // DISPLAY_HW
+
+//#include "nixie_display.h"
 #include "light_sensor.h"
 
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 1 * 3600, 236 * 1000);
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 2 * 3600, 236 * 1000);
 
-int position=0;
+int position = 0;
 
 WiFiManager wifiManager;
-Display * display = new MaxDisplay();
+
+Display *display = new DISPLAY_HW_CLASS();
 
 LightSensor lightSensor;
 
-void setup() {
+void setup()
+{
     // put your setup code here, to run once:
-    pinMode (LED_BUILTIN, OUTPUT);
-    digitalWrite (LED_BUILTIN, LOW);
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, LOW);
 
     //wifiManager.resetSettings();
-    Serial.begin (9600);
+    Serial.begin(9600);
+
+    Serial.println("Initializing display");
 
     display->init();
-    display->setColor(255, 0, 0, false);
-
-    // lightSensor.onReading([](int value) {
-    //     display.setDigit (0,  value / 1000);
-    //     display.setDigit (1, (value % 1000) / 100);
-    //     display.setDigit (2, (value % 100)  / 10);
-    //     display.setDigit (3, (value % 10));
-    // });
+    display->setColor(255, 0, 0);
+    display->startAnimation();
 
     lightSensor.onLevelSet([](int value) {
         display->setBrightness(value);
-        // display.setDigit (0,  value / 1000);
-        // display.setDigit (1, (value % 1000) / 100);
-        // display.setDigit (2, (value % 100)  / 10);
-        // display.setDigit (3, (value % 10));
     });
 
-    wifiManager.setAPCallback([](WiFiManager * mgr){
-        display->setColor(0, 0, 255, false);
+    wifiManager.setAPCallback([](WiFiManager *mgr) {
+        display->setColor(0, 0, 255);
+        display->startAnimation();
     });
-    wifiManager.setConfigPortalTimeout (180);
-    
-    Serial.println ("connecting...");
-    if (wifiManager.autoConnect ("AutoconnectAP")) {
-        Serial.println ("connected ... yay!");
-    } else {
-        Serial.println ("connection failed, rebooting");
+    wifiManager.setConfigPortalTimeout(180);
+
+    Serial.println("connecting...");
+    if (wifiManager.autoConnect("AutoconnectAP"))
+    {
+        Serial.println("connected ... yay!");
+    }
+    else
+    {
+        Serial.println("connection failed, rebooting");
         ESP.restart();
     }
-    display->setColor(0, 255, 0, false);
+    display->setColor(0, 255, 0);
+    display->startAnimation();
 
-    timeClient.onStartUpdate ([](){ display->setColor (0,255,0,false); });
-    timeClient.onEndUpdate ([](){ 
-        display->setColor(0, 128, 128, true); });
+    timeClient.onStartUpdate([]() {
+        Serial.println("NTP update started");
+        display->setColor(0, 255, 0);
+        display->startAnimation();
+    });
+    timeClient.onEndUpdate([]() {
+        Serial.println("NTO update complete");
+        display->setColor(0, 128, 128);
+        display->stopAnimation();
+    });
 
     timeClient.begin();
 
     ArduinoOTA.onStart([]() {
         String type;
-        if (ArduinoOTA.getCommand() == U_FLASH) {
+        if (ArduinoOTA.getCommand() == U_FLASH)
+        {
             type = "sketch";
-        } else { // U_SPIFFS
+        }
+        else
+        { // U_SPIFFS
             type = "filesystem";
         }
 
@@ -88,45 +112,58 @@ void setup() {
         Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
     });
     ArduinoOTA.onError([](ota_error_t error) {
-          Serial.printf("Error[%u]: ", error);
-        if (error == OTA_AUTH_ERROR) {
+        Serial.printf("Error[%u]: ", error);
+        if (error == OTA_AUTH_ERROR)
+        {
             Serial.println("Auth Failed");
-        } else if (error == OTA_BEGIN_ERROR) {
-           Serial.println("Begin Failed");
-        } else if (error == OTA_CONNECT_ERROR) {
+        }
+        else if (error == OTA_BEGIN_ERROR)
+        {
+            Serial.println("Begin Failed");
+        }
+        else if (error == OTA_CONNECT_ERROR)
+        {
             Serial.println("Connect Failed");
-        } else if (error == OTA_RECEIVE_ERROR) {
+        }
+        else if (error == OTA_RECEIVE_ERROR)
+        {
             Serial.println("Receive Failed");
-        } else if (error == OTA_END_ERROR) {
+        }
+        else if (error == OTA_END_ERROR)
+        {
             Serial.println("End Failed");
         }
     });
     ArduinoOTA.begin();
 
-    digitalWrite (LED_BUILTIN, HIGH);
+    digitalWrite(LED_BUILTIN, HIGH);
 }
 
-void loop() {
+void loop()
+{
     // put your main code here, to run repeatedly:
-    lightSensor.handle ();
+    lightSensor.handle();
 
-    static int ntpFailCount=0;
+    static int ntpFailCount = 0;
 
-    if (timeClient.update()) {
+    if (timeClient.update())
+    {
 
-        ntpFailCount=0;
+        ntpFailCount = 0;
         //Serial.println (timeClient.getFormattedTime());
 
         display->setDigit(0, timeClient.getHours() / 10);
         display->setDigit(1, timeClient.getHours() % 10);
         display->setDigit(2, timeClient.getMinutes() / 10);
         display->setDigit(3, timeClient.getMinutes() % 10);
-
-    } else {
+    }
+    else
+    {
 
         ++ntpFailCount;
 
-        if (ntpFailCount > 5) {
+        if (ntpFailCount > 5)
+        {
             ESP.restart();
         }
     }
