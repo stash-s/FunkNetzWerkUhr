@@ -7,6 +7,19 @@
 
 #include "display.h"
 
+#define AUSF_A 1
+#define AUSF_C 2
+
+#ifdef NIXIE_VARIANT_AUSF_A
+#  define NIXIE_VARIANT AUSF_A
+#endif
+#ifdef NIXIE_VARIANT_AUSF_C
+#  define NIXIE_VARIANT AUSF_C
+#endif
+#ifndef NIXIE_VARIANT
+#  define NIXIE_VARIANT AUSF_A
+#endif
+
 
 #define DISPLAY_HW_CLASS NixieDisplay
 

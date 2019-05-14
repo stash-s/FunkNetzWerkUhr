@@ -20,6 +20,19 @@ uint8_t NixieDisplay::_slot_effect[MAX_DIGITS]={0,0,0,0};
 
 static int display_timer_divider=0;
 
+#ifdef NIXIE_VARIANT
+#if NIXIE_VARIANT==AUSF_C
+#pragma message "NIXIE_VARIANT=AUSF_C"
+#endif
+#if NIXIE_VARIANT==AUSF_A
+#pragma message "NIXIE_VARIANT=AUSF_A"
+#endif
+
+#endif
+
+
+#if NIXIE_VARIANT==AUSF_A
+
 static NixieDisplay::payload_t led_mux_map[] = {
     0b000100000000000000000000, // digit 1
     0b001000000000000000000000, // digit 2
@@ -63,6 +76,60 @@ static NixieDisplay::payload_t number_mux_map[] = {
     0b10000000000000, // number 9
 //    0b10000000000, // dot
 };
+
+#elif NIXIE_VARIANT==AUSF_C
+static NixieDisplay::payload_t led_mux_map[] = {
+    0b000100000000000000000000, // digit 1
+    0b000000000010000000000000, // digit 2
+    0b000000000000000001000000, // digit 3
+    0b000000000000000000000001, // nope
+    //   |   |   |   |   |   |
+};
+
+static NixieDisplay::payload_t color_map[] = {
+    0b001000000000000000000010, // green
+    0b000000000001000000000010, // red
+    0b001000000001000000000000, // blue
+    0b001000000001000000000010, // blank all
+    
+    0b001000000000000000000010, // green
+    //   |   |   |   |   |   |
+};
+
+
+static NixieDisplay::payload_t dots_map[] = {
+    0b000000000000000000000000, // dots off
+    0 //0b000000011000000000000000  // dots on
+};
+
+
+static NixieDisplay::payload_t digit_mux_map[] = {
+    //   |   |   |   |   |   |
+    0b100000000000000000000000, //0b0001, // digit 1
+    0b000000001000000000000000, //0b0010, // digit 2
+    0b000000000000010000000000, //0b0100, // digit 3
+    0b000000000000000000010000, //0b1000, // digit 4
+};
+
+
+static NixieDisplay::payload_t number_mux_map[] = {
+    //   |   |   |   |   |   |
+    0b000001000000000000000000,// 0b1000000000000, // number 0
+    0b000000000000000000100000,// 0b1000000000, // number 1
+    0b000000000000000000001000,// 0b100000000, // number 2
+    0b000000000000000000000100,// 0b10000000, // number 3
+    0b000000000000000010000000,// 0b10000, // number 4
+    0b010000000000000000000000,// 0b100000, // number 5
+    0b000000000100000000000000,// 0b100000000000000, // number 6
+    //   |   |   |   |   |   |
+    0b000000000000000010000000,// 0b100000000000, // number 7
+    0b000010000000000000000000,// 0b1000000, // number 8
+    0b000000000000100000000000,// 0b10000000000000, // number 9
+    0b000000100000000000000000
+//    0b10000000000, // dot
+};
+
+#endif
 
 NixieDisplay::NixieDisplay()
 {}
@@ -137,7 +204,7 @@ void tick (/* arguments */) {
 
         }
 
-        uint32_t color_mask = RGB_MASK;
+        uint32_t color_mask = color_map[3];
         uint32_t number_mask = number_mux_map[get_digit(current_digit)];
 
         // if pwm counter >= pwm, blank digits
@@ -146,9 +213,9 @@ void tick (/* arguments */) {
 
         } else {
 
-            if (NixieDisplay::_red   > color_counter) color_mask &= RED_MASK;
-            if (NixieDisplay::_green > color_counter) color_mask &= GREEN_MASK;
-            if (NixieDisplay::_blue  > color_counter) color_mask &= BLUE_MASK;
+            if (NixieDisplay::_red   > color_counter) color_mask &= color_map[0];
+            if (NixieDisplay::_green > color_counter) color_mask &= color_map[1];
+            if (NixieDisplay::_blue  > color_counter) color_mask &= color_map[2];
 
             #ifdef FULL_COLOR
                 for (auto i : led_mux_map) {
