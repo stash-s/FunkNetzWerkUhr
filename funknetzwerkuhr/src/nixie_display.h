@@ -1,27 +1,34 @@
-#ifndef __MAX_DISPLAY_H__
-#define __MAX_DISPLAY_H__
+#pragma once
 
 #include <Arduino.h>
 
 #include "clock_config.h"
-
 #include "display.h"
 
 #define AUSF_A 1
 #define AUSF_C 2
+#define AUSF_D 3
 
 #ifdef NIXIE_VARIANT_AUSF_A
 #  define NIXIE_VARIANT AUSF_A
-#endif
-#ifdef NIXIE_VARIANT_AUSF_C
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+#elif defined (NIXIE_VARIANT_AUSF_C)
 #  define NIXIE_VARIANT AUSF_C
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+#elif defined (NIXIE_VARIANT_AUSF_D)
+#  define NIXIE_VARIANT AUSF_D
+const int BLINK_LED = 2;
+const int SHDN_PIN  = 16;
+//#else
+//#  error Unknown Nixie hardware variant.
 #endif
+
+
 #ifndef NIXIE_VARIANT
 #  define NIXIE_VARIANT AUSF_A
 #endif
-
-
-#define DISPLAY_HW_CLASS NixieDisplay
 
 #define MAX_DIGITS 4
 #define RGB_MASK   0b000011100000000000000000
@@ -36,7 +43,7 @@ class NixieDisplay : public Display {
 public:
     typedef uint32_t payload_t;
 
-    NixieDisplay ();
+    NixieDisplay (const AppConfig &);
     virtual void init();
 
     virtual void shutdown ();
@@ -62,5 +69,3 @@ private:
     friend void tick (/* arguments */);
     friend uint8_t get_digit (unsigned int);
 };
-
-#endif //  __MAX_DISPLAY_H__

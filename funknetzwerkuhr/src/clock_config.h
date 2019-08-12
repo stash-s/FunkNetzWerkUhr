@@ -1,10 +1,8 @@
-#ifndef __CLOCK_CONFIG_H__
-#define __CLOCK_CONFIG_H__
+#pragma once
 
-const int BLINK_LED = 2;
-const int SHDN_PIN = 4;
-const int LATCH_PIN = 15;
-const int FILAMENT_PIN = 5;
+
+// const int LATCH_PIN = 15;
+// const int FILAMENT_PIN = 5;
 
 
 #define PWM_MAX 33
@@ -12,5 +10,3 @@ const int FILAMENT_PIN = 5;
 #define PWM_INIT (32)
 
 #define FULL_COLOR
-
-#endif // __CLOCK_CONFIG_H__

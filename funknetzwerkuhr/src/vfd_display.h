@@ -1,5 +1,4 @@
-#ifndef __MAX_DISPLAY_H__
-#define __MAX_DISPLAY_H__
+#pragma once
 
 #include <Arduino.h>
 
@@ -7,8 +6,9 @@
 
 #include "display.h"
 
+//const int BLINK_LED = 2;
+//const int SHDN_PIN = 4;
 
-#define DISPLAY_HW_CLASS VfdDisplay
 
 #define MAX_DIGITS 4
 
@@ -19,7 +19,7 @@ class VfdDisplay : public Display {
 public:
     typedef uint32_t payload_t;
 
-    VfdDisplay ();
+    VfdDisplay (const AppConfig & config);
     virtual void init() override;
 
     virtual void shutdown ();
@@ -28,6 +28,8 @@ public:
     virtual void startAnimation () override;
     virtual void stopAnimation () override;
     virtual void setBrightness (uint8_t brightness) override;
+
+    static uint8_t getDigit (unsigned int);
 
 private:
 
@@ -38,7 +40,11 @@ private:
     static uint8_t _pwm;
 
     friend void tick (/* arguments */);
-    friend uint8_t get_digit (unsigned int);
 };
 
-#endif //  __MAX_DISPLAY_H__
+ICACHE_RAM_ATTR
+inline
+uint8_t VfdDisplay::getDigit (unsigned int digit) {
+    return _digits[digit];
+}
+

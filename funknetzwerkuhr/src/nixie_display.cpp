@@ -7,7 +7,8 @@
 
 using namespace SpiWrapper;
 
-static uint32_t payload=0;
+static NixieDisplay::payload_t payload=0;
+static uint8_t  digitsCount;
 
 bool NixieDisplay::_pulse_colors = false;
 
@@ -20,27 +21,20 @@ uint8_t NixieDisplay::_slot_effect[MAX_DIGITS]={0,0,0,0};
 
 static int display_timer_divider=0;
 
-#ifdef NIXIE_VARIANT
-#if NIXIE_VARIANT==AUSF_C
-#pragma message "NIXIE_VARIANT=AUSF_C"
-#endif
-#if NIXIE_VARIANT==AUSF_A
-#pragma message "NIXIE_VARIANT=AUSF_A"
-#endif
+static NixieDisplay::payload_t *led_mux_map;
+static NixieDisplay::payload_t *color_map;
+static NixieDisplay::payload_t *dots_map;
+static NixieDisplay::payload_t *digit_mux_map;
+static NixieDisplay::payload_t *number_mux_map;
 
-#endif
-
-
-#if NIXIE_VARIANT==AUSF_A
-
-static NixieDisplay::payload_t led_mux_map[] = {
+static NixieDisplay::payload_t ausf_a_led_mux_map[] = {
     0b000100000000000000000000, // digit 1
     0b001000000000000000000000, // digit 2
     0b010000000000000000000000, // digit 3
     0b100000000000000000000000, // nope
 };
 
-static NixieDisplay::payload_t color_map[] = {
+static NixieDisplay::payload_t ausf_a_color_map[] = {
     0b000011000000000000000000, // red
     0b000010100000000000000000, // green
     0b000001100000000000000000, // blue
@@ -49,13 +43,13 @@ static NixieDisplay::payload_t color_map[] = {
 };
 
 
-static NixieDisplay::payload_t dots_map[] = {
+static NixieDisplay::payload_t ausf_a_dots_map[] = {
     0b000000000000000000000000, // dots off
     0b000000011000000000000000  // dots on
 };
 
 
-static NixieDisplay::payload_t digit_mux_map[] = {
+static NixieDisplay::payload_t ausf_a_digit_mux_map[] = {
     0b0001, // digit 1
     0b0010, // digit 2
     0b0100, // digit 3
@@ -63,7 +57,7 @@ static NixieDisplay::payload_t digit_mux_map[] = {
 };
 
 
-static NixieDisplay::payload_t number_mux_map[] = {
+static NixieDisplay::payload_t ausf_a_number_mux_map[] = {
     0b1000000000000, // number 0
     0b1000000000, // number 1
     0b100000000, // number 2
@@ -77,8 +71,7 @@ static NixieDisplay::payload_t number_mux_map[] = {
 //    0b10000000000, // dot
 };
 
-#elif NIXIE_VARIANT==AUSF_C
-static NixieDisplay::payload_t led_mux_map[] = {
+static NixieDisplay::payload_t ausf_c_led_mux_map[] = {
     0b000100000000000000000000, // digit 1
     0b000000000010000000000000, // digit 2
     0b000000000000000001000000, // digit 3
@@ -86,7 +79,7 @@ static NixieDisplay::payload_t led_mux_map[] = {
     //   |   |   |   |   |   |
 };
 
-static NixieDisplay::payload_t color_map[] = {
+static NixieDisplay::payload_t ausf_c_color_map[] = {
     0b001000000000000000000010, // green
     0b000000000001000000000010, // red
     0b001000000001000000000000, // blue
@@ -97,13 +90,14 @@ static NixieDisplay::payload_t color_map[] = {
 };
 
 
-static NixieDisplay::payload_t dots_map[] = {
-    0b000000000000000000000000, // dots off
-    0 //0b000000011000000000000000  // dots on
+static NixieDisplay::payload_t ausf_c_dots_map[] = {
+    0,
+    0b000000000000001100000000, // dots off
+    //0 //0b000000011000000000000000  // dots on
 };
 
 
-static NixieDisplay::payload_t digit_mux_map[] = {
+static NixieDisplay::payload_t ausf_c_digit_mux_map[] = {
     //   |   |   |   |   |   |
     0b100000000000000000000000, //0b0001, // digit 1
     0b000000001000000000000000, //0b0010, // digit 2
@@ -111,27 +105,24 @@ static NixieDisplay::payload_t digit_mux_map[] = {
     0b000000000000000000010000, //0b1000, // digit 4
 };
 
-
-static NixieDisplay::payload_t number_mux_map[] = {
+static NixieDisplay::payload_t ausf_c_number_mux_map[] = {
     //   |   |   |   |   |   |
     0b000001000000000000000000,// 0b1000000000000, // number 0
     0b000000000000000000100000,// 0b1000000000, // number 1
     0b000000000000000000001000,// 0b100000000, // number 2
     0b000000000000000000000100,// 0b10000000, // number 3
-    0b000000000000000010000000,// 0b10000, // number 4
+    0b000000010000000000000000,// 0b10000, // number 4
     0b010000000000000000000000,// 0b100000, // number 5
     0b000000000100000000000000,// 0b100000000000000, // number 6
     //   |   |   |   |   |   |
     0b000000000000000010000000,// 0b100000000000, // number 7
     0b000010000000000000000000,// 0b1000000, // number 8
     0b000000000000100000000000,// 0b10000000000000, // number 9
-    0b000000100000000000000000
-//    0b10000000000, // dot
+    0b000000100000000000000000,//    0b10000000000, // dot
 };
 
-#endif
-
-NixieDisplay::NixieDisplay()
+NixieDisplay::NixieDisplay(const AppConfig & config)
+    :Display (config)
 {}
 
 void  NixieDisplay::setBrightness (uint8_t brightness) {
@@ -218,8 +209,8 @@ void tick (/* arguments */) {
             if (NixieDisplay::_blue  > color_counter) color_mask &= color_map[2];
 
             #ifdef FULL_COLOR
-                for (auto i : led_mux_map) {
-                    color_mask |= i;
+                for (int i=0; i < digitsCount; ++i) {
+                    color_mask |= led_mux_map[i];
                 }
             #else
                 color_mask |= led_mux_map[current_digit];
@@ -242,7 +233,33 @@ static void isr_call () {
 void
 NixieDisplay::init()
 {
-    Serial.println ("Nixie displayu init()");
+    Serial.println ("Nixie display init()");
+
+    switch (getConfig().getHardwareVariant()) {
+        case NIXIE_AUSF_A:
+            led_mux_map = ausf_a_led_mux_map;
+            color_map = ausf_a_color_map;
+            dots_map = ausf_a_dots_map;
+            digit_mux_map = ausf_a_digit_mux_map;
+            number_mux_map = ausf_a_number_mux_map;
+            break;
+        
+        case NIXIE_AUSF_C:
+        case NIXIE_AUSF_D:
+            led_mux_map = ausf_c_led_mux_map;
+            color_map = ausf_c_color_map;
+            dots_map = ausf_c_dots_map;
+            digit_mux_map = ausf_c_digit_mux_map;
+            number_mux_map = ausf_c_number_mux_map;
+            break;
+
+        default:
+            Serial.println ("Unsupported Nixie hardware, bailing out with AUSF_A defaults.");
+
+            break;
+    }
+
+    digitsCount = getConfig ().getDigitsCount ();
 
     SpiWrapper::init(24);
 
@@ -253,13 +270,13 @@ NixieDisplay::init()
     timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
     timer1_write(display_timer_divider);
 
-    pinMode (SHDN_PIN, OUTPUT);
-    digitalWrite (SHDN_PIN, LOW);
+    pinMode (getConfig().getShutdownPin(), OUTPUT);
+    digitalWrite (getConfig().getShutdownPin(), LOW);
 }
 
 
 void NixieDisplay::shutdown () {
-    digitalWrite (SHDN_PIN, HIGH);
+    digitalWrite (getConfig().getShutdownPin(), HIGH);
 }
 
 void NixieDisplay::setDigit (unsigned int digit, uint8_t value) {

@@ -1,10 +1,12 @@
-#ifndef __DISPLAY_H__
-#define __DISPLAY_H__
+#pragma once
 
 #include <Arduino.h>
+#include "appconfig.h"
 
 class Display {
     public:
+        Display (const AppConfig & config);
+
         virtual void init()=0;
 
         virtual void shutdown ()=0;
@@ -13,6 +15,14 @@ class Display {
         virtual void startAnimation ();
         virtual void stopAnimation ();
         virtual void setBrightness (uint8_t brightness)=0;
+
+        const AppConfig & getConfig () const;
+
+    private:
+        const AppConfig & _config;
 };
 
-#endif // __DISPLAY_H__
+inline
+const AppConfig & Display::getConfig () const {
+    return _config;
+}

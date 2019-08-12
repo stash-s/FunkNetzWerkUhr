@@ -6,24 +6,19 @@
 #include <ArduinoOTA.h>
 #include <NTPClient.h>
 #include <SPI.h>
+#include <FS.h>
 
-#define VFD 1
-#define Nixie 2
+#include "appconfig.h"
+#include "clock_config.h"
 
-#ifndef DISPLAY_HW
-#define DISPLAY_HW Nixie
-#endif // DISPLAY_HW
-
-#if DISPLAY_HW == VFD
-#include "vfd_display.h"
-#elif DISPLAY_HW == Nixie
 #include "nixie_display.h"
-#else
-#error "Unsupported or unknown display hardware: " #DISPLAY_HW
-#endif // DISPLAY_HW
-
-//#include "nixie_display.h"
+#include "vfd_display.h"
 #include "light_sensor.h"
+
+#define HTTP_REST_PORT 80
+#define STRING_SIZE 32
+#define DBG_OUTPUT_PORT Serial
+
 
 WiFiUDP ntpUDP;
 
@@ -33,18 +28,148 @@ int position = 0;
 
 WiFiManager wifiManager;
 
-Display *display = new DISPLAY_HW_CLASS();
+ESP8266WebServer http_rest_server(HTTP_REST_PORT);
+
+
+AppConfig config;
+Display *display; // = new DISPLAY_HW_CLASS();
 
 LightSensor lightSensor;
 
+#ifdef NIXIE_AUSF_C
+#warning we are nixie C
+#endif
+
+// flag for saving data
+bool shouldSaveConfig = false;
+bool needRestart = false;
+
+String getContentType(String filename) {
+  if (filename.endsWith(".htm")) {
+    return "text/html";
+  } else if (filename.endsWith(".html")) {
+    return "text/html";
+  } else if (filename.endsWith(".css")) {
+    return "text/css";
+  } else if (filename.endsWith(".js")) {
+    return "application/javascript";
+  } else if (filename.endsWith(".png")) {
+    return "image/png";
+  } else if (filename.endsWith(".gif")) {
+    return "image/gif";
+  } else if (filename.endsWith(".jpg")) {
+    return "image/jpeg";
+  } else if (filename.endsWith(".ico")) {
+    return "image/x-icon";
+  } else if (filename.endsWith(".xml")) {
+    return "text/xml";
+  } else if (filename.endsWith(".pdf")) {
+    return "application/x-pdf";
+  } else if (filename.endsWith(".zip")) {
+    return "application/x-zip";
+  } else if (filename.endsWith(".gz")) {
+    return "application/x-gzip";
+  }
+  return "text/plain";
+}
+
+void config_rest_server_routing() {
+    http_rest_server.on("/", HTTP_GET, []() {
+        http_rest_server.send(200, "text/html",
+                              "Welcome to the ESP8266 REST Web Server");
+    });
+
+    http_rest_server.on("/reset", HTTP_GET, []() {
+        Serial.println("reset called");
+
+        http_rest_server.send(200, "text/html", "Calling reset");
+        needRestart = true;
+    });
+
+    http_rest_server.on("/timezone", HTTP_GET, []() {
+        http_rest_server.send(200, "text/html", config.getTimeZone());
+    });
+
+    http_rest_server.on("/foo", HTTP_GET, []() {
+        if ( ! http_rest_server.hasArg ("dir") ) {
+            http_rest_server.send (500,"text/plain", "BAD ARGUMENTS");
+            return;
+        }
+
+        String path = http_rest_server.arg("dir");
+        DBG_OUTPUT_PORT.println("handleFileList: " + path);
+        Dir dir = SPIFFS.openDir(path);
+        path = String();
+
+        String output = "[";
+
+        while (dir.next()) {
+            File entry = dir.openFile ("r");
+            if (output != "[") {
+                output += ','; 
+            }
+            bool isDir = false;
+            output += "{\"type\":\"";
+            output += (isDir) ? "dir" : "file";
+            output += "\",\"name\":\"";
+            output += String(entry.name()).substring(1);
+            output += "\"}";
+            entry.close();
+        }
+
+        output += "]";
+
+        http_rest_server.send(200, "text/html", output);
+    });
+
+    http_rest_server.on("/file-read", HTTP_GET, []() {
+        String path = http_rest_server.arg("path");
+        DBG_OUTPUT_PORT.println("handleFileRead: " + path);
+        if (path.endsWith("/")) {
+            path += "index.htm";
+        }
+        String contentType = getContentType(path);
+        String pathWithGz = path + ".gz";
+        if (SPIFFS.exists(pathWithGz) || SPIFFS.exists(path)) {
+            if (SPIFFS.exists(pathWithGz)) {
+                path += ".gz";
+            }
+            File file = SPIFFS.open(path, "r");
+            http_rest_server.streamFile(file, contentType);
+            file.close();
+            return true;
+        }
+        return false;
+    });
+}
+
+
 void setup()
 {
+    Serial.begin(9600);
+
+    DBG_OUTPUT_PORT.println ("Setup started");
+
+    config.restore ();
+
+    switch (config.getHardwareVariant()) {
+        case VFD:
+            display = new VfdDisplay (config);
+            break;
+
+        case NIXIE_AUSF_A:
+        case NIXIE_AUSF_C:
+        case NIXIE_AUSF_D:
+            display = new NixieDisplay (config);
+            break;
+    }
+    
     // put your setup code here, to run once:
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, LOW);
 
     //wifiManager.resetSettings();
-    Serial.begin(9600);
+    
 
     Serial.println("Initializing display");
 
@@ -61,6 +186,12 @@ void setup()
         display->startAnimation();
     });
     wifiManager.setConfigPortalTimeout(180);
+
+    wifiManager.setSaveConfigCallback([&]() {
+        config.save();
+    });
+
+    wifiManager.setHostname(config.getNodeId().c_str());
 
     Serial.println("connecting...");
     if (wifiManager.autoConnect("AutoconnectAP"))
@@ -136,6 +267,9 @@ void setup()
     });
     ArduinoOTA.begin();
 
+    config_rest_server_routing();
+    http_rest_server.begin();
+
     digitalWrite(LED_BUILTIN, HIGH);
 }
 
@@ -169,4 +303,13 @@ void loop()
     }
 
     ArduinoOTA.handle();
+    http_rest_server.handleClient();
+
+    if (needRestart) {
+        delay(1000);
+        wifiManager.resetSettings();
+        wifiManager.erase();
+        delay(1000);
+        ESP.restart();
+    }
 }
