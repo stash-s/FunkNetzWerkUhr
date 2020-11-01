@@ -17,7 +17,6 @@ NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 1 * 3600, 236 * 1000);
 
 int position=0;
 
-
 WiFiManager wifiManager;
 #if defined(AUSF_B) || defined(AUSF_C)
 Display * display = new MaxDisplay();
