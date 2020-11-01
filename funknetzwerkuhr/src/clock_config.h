@@ -6,7 +6,9 @@
 #define AUSF_B
 #endif 
 
-#ifdef AUSF_B
+#ifdef AUSF_A
+
+#elif defined(AUSF_B)
 const int BLINK_LED = 2;
 const int SHDN_PIN = 4;
 const int LATCH_PIN = 15;

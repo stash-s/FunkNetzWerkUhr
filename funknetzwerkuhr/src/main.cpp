@@ -21,7 +21,7 @@ int position=0;
 WiFiManager wifiManager;
 #if defined(AUSF_B) || defined(AUSF_C)
 Display * display = new MaxDisplay();
-#elif defined AUSF_A
+#elif defined(AUSF_A)
 #error undefined hardware
 #endif
 
@@ -39,8 +39,19 @@ void setup() {
     display->setColor(255, 0, 0, false);
 
     lightSensor.onLevelSet([](int value) {
+    #ifdef DEBUG
+        Serial.print ("light sensor: level set: ");
+        Serial.println (value);
+    #endif
         display->setBrightness(value);
     });
+
+    #ifdef DEBUG
+    lightSensor.onReading([](int value) {
+        Serial.print ("light sensor: value seen: ");
+        Serial.println (value);
+    });
+    #endif
 
     wifiManager.setAPCallback([](WiFiManager * mgr){
         display->setColor(0, 0, 255, false);
