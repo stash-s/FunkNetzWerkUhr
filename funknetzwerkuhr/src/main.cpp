@@ -7,6 +7,7 @@
 #include <NTPClient.h>
 #include <SPI.h>
 
+#include "clock_config.h"
 #include "max_display.h"
 #include "light_sensor.h"
 
@@ -16,8 +17,13 @@ NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 1 * 3600, 236 * 1000);
 
 int position=0;
 
+
 WiFiManager wifiManager;
+#if defined(AUSF_B) || defined(AUSF_C)
 Display * display = new MaxDisplay();
+#elif defined AUSF_A
+#error undefined hardware
+#endif
 
 LightSensor lightSensor;
 

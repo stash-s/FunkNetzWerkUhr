@@ -1,15 +1,11 @@
 
+#include <functional>
+
 #include <SPI.h>
 
 #include "clock_config.h"
 #include "max_display.h"
 
-#include <functional>
-
-#define RGB_MASK   0b000011100000000000000000
-#define RED_MASK   0b000011000000000000000000
-#define GREEN_MASK 0b000010100000000000000000
-#define BLUE_MASK  0b000001100000000000000000
 
 static uint32_t payload=0;
 
@@ -31,6 +27,13 @@ inline void setDataBits(uint16_t bits) {
     SPI1U1 = ((SPI1U1 & mask) | ((bits << SPILMOSI) | (bits << SPILMISO)));
 }
 
+#ifdef AUSF_B
+
+#define RGB_MASK   0b000011100000000000000000
+#define RED_MASK   0b000011000000000000000000
+#define GREEN_MASK 0b000010100000000000000000
+#define BLUE_MASK  0b000001100000000000000000
+
 static MaxDisplay::payload_t led_mux_map[] = {
     0b000100000000000000000000, // digit 1
     0b001000000000000000000000, // digit 2
@@ -38,20 +41,10 @@ static MaxDisplay::payload_t led_mux_map[] = {
     0b100000000000000000000000, // digit 4
 };
 
-// static MaxDisplay::payload_t color_map[] = {
-//     0b000011000000000000000000, // red
-//     0b000010100000000000000000, // green
-//     0b000001100000000000000000, // blue
-//     0b000010100000000000000000, // green
-//     0b000011100000000000000000, // blank all
-// };
-
-
 static MaxDisplay::payload_t dots_map[] = {
     0b000000000000000000000000, // dots off
     0b000000011000000000000000  // dots on
 };
-
 
 static MaxDisplay::payload_t digit_mux_map[] = {
     0b0001, // digit 1
@@ -59,7 +52,6 @@ static MaxDisplay::payload_t digit_mux_map[] = {
     0b0100, // digit 3
     0b1000, // digit 4
 };
-
 
 static MaxDisplay::payload_t number_mux_map[] = {
     0b1000000000000, // number 0
@@ -74,6 +66,63 @@ static MaxDisplay::payload_t number_mux_map[] = {
     0b10000000000000, // number 9
 //    0b10000000000, // dot
 };
+
+#elif defined (AUSF_C)
+
+#define RGB_MASK   0b001000000001000000000010
+#define RED_MASK   0b000000000001000000000010
+#define GREEN_MASK 0b001000000000000000000010
+#define BLUE_MASK  0b001000000001000000000000
+
+static MaxDisplay::payload_t led_mux_map[] = {
+    0b000100000000000000000000, // digit 1
+    0b000000000010000000000000, // digit 2
+    0b000000000000000001000000, // digit 3
+    0b000000000000000000000001, // nope
+    //   |   |   |   |   |   |
+};
+
+static MaxDisplay::payload_t color_map[] = {
+    0b001000000000000000000010, // green
+    0b000000000001000000000010, // red
+    0b001000000001000000000000, // blue
+    0b001000000001000000000010, // blank all
+};
+
+
+static MaxDisplay::payload_t dots_map[] = {
+    0b000000000000000000000000, // dots off
+    0b000000000000001100000000  // dots on
+};
+
+
+static MaxDisplay::payload_t digit_mux_map[] = {
+    //   |   |   |   |   |   |
+    0b100000000000000000000000, //0b0001, // digit 1
+    0b000000001000000000000000, //0b0010, // digit 2
+    0b000000000000010000000000, //0b0100, // digit 3
+    0b000000000000000000010000, //0b1000, // digit 4
+};
+
+
+static MaxDisplay::payload_t number_mux_map[] = {
+    //   |   |   |   |   |   |
+    0b000001000000000000000000,// 0b1000000000000, // number 0
+    0b000000000000000000100000,// 0b1000000000, // number 1
+    0b000000000000000000001000,// 0b100000000, // number 2
+    0b000000000000000000000100,// 0b10000000, // number 3
+    0b000000000000000010000000,// 0b10000, // number 4
+    0b010000000000000000000000,// 0b100000, // number 5
+    0b000000000100000000000000,// 0b100000000000000, // number 6
+    //   |   |   |   |   |   |
+    0b000000000000000010000000,// 0b100000000000, // number 7
+    0b000010000000000000000000,// 0b1000000, // number 8
+    0b000000000000100000000000,// 0b10000000000000, // number 9
+    0b000000100000000000000000
+//    0b10000000000, // dot
+};
+
+#endif 
 
 MaxDisplay::MaxDisplay()
 {}

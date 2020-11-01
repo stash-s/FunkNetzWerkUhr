@@ -1,13 +1,10 @@
-#ifndef __MAX_DISPLAY_H__
-#define __MAX_DISPLAY_H__
+#pragma once
 
 #include <Arduino.h>
 
 #include "clock_config.h"
 
 #include "display.h"
-
-
 
 #define MAX_DIGITS 4
 
@@ -40,5 +37,3 @@ private:
     friend void tick (/* arguments */);
     friend uint8_t get_digit (unsigned int);
 };
-
-#endif //  __MAX_DISPLAY_H__
