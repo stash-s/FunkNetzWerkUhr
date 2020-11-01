@@ -6,6 +6,11 @@
 
 #include <functional>
 
+#define RGB_MASK   0b000011100000000000000000
+#define RED_MASK   0b000011000000000000000000
+#define GREEN_MASK 0b000010100000000000000000
+#define BLUE_MASK  0b000001100000000000000000
+
 static uint32_t payload=0;
 
 bool MaxDisplay::_pulse_colors = false;
@@ -30,16 +35,16 @@ static MaxDisplay::payload_t led_mux_map[] = {
     0b000100000000000000000000, // digit 1
     0b001000000000000000000000, // digit 2
     0b010000000000000000000000, // digit 3
-    0b100000000000000000000000, // nope
+    0b100000000000000000000000, // digit 4
 };
 
-static MaxDisplay::payload_t color_map[] = {
-    0b000011000000000000000000, // red
-    0b000010100000000000000000, // green
-    0b000001100000000000000000, // blue
-    0b000010100000000000000000, // green
-    0b000011100000000000000000, // blank all
-};
+// static MaxDisplay::payload_t color_map[] = {
+//     0b000011000000000000000000, // red
+//     0b000010100000000000000000, // green
+//     0b000001100000000000000000, // blue
+//     0b000010100000000000000000, // green
+//     0b000011100000000000000000, // blank all
+// };
 
 
 static MaxDisplay::payload_t dots_map[] = {
@@ -176,15 +181,10 @@ static void isr_call () {
 
     while(SPI1CMD & SPIBUSY) {}
 
-    setDataBits (24); //8 * sizeof(payload));
+    setDataBits (24);
     SPI1W0 = payload;
-    //SPI1W1 = payload >> 32;
 
     SPI1CMD |= SPIBUSY;
-    //while(SPI1CMD & SPIBUSY) {}
-
-    // latchhigh
-    //digitalWrite (15, HIGH);
 }
 
 void
@@ -197,7 +197,7 @@ MaxDisplay::init()
     SPI.setFrequency(8000000);
 
     // tutaj
-    setDataBits (24);
+    //setDataBits (24);
 
     display_timer_divider = (clockCyclesPerMicrosecond() / 16) * 20; // 40us = 25kHz sampling freq
 

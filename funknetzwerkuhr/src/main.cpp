@@ -32,19 +32,8 @@ void setup() {
     display->init();
     display->setColor(255, 0, 0, false);
 
-    // lightSensor.onReading([](int value) {
-    //     display.setDigit (0,  value / 1000);
-    //     display.setDigit (1, (value % 1000) / 100);
-    //     display.setDigit (2, (value % 100)  / 10);
-    //     display.setDigit (3, (value % 10));
-    // });
-
     lightSensor.onLevelSet([](int value) {
         display->setBrightness(value);
-        // display.setDigit (0,  value / 1000);
-        // display.setDigit (1, (value % 1000) / 100);
-        // display.setDigit (2, (value % 100)  / 10);
-        // display.setDigit (3, (value % 10));
     });
 
     wifiManager.setAPCallback([](WiFiManager * mgr){
@@ -113,6 +102,7 @@ void loop() {
     static int ntpFailCount=0;
 
     if (timeClient.update()) {
+        //Serial.println ("time client update succesful");
 
         ntpFailCount=0;
         //Serial.println (timeClient.getFormattedTime());
@@ -123,10 +113,13 @@ void loop() {
         display->setDigit(3, timeClient.getMinutes() % 10);
 
     } else {
+        Serial.println ("failed ntp update");
 
         ++ntpFailCount;
 
         if (ntpFailCount > 5) {
+            Serial.println ("Number of failures exceeded limit, rebooting");
+            Serial.println ("2nd time Number of failures exceeded limit, rebooting");
             ESP.restart();
         }
     }
