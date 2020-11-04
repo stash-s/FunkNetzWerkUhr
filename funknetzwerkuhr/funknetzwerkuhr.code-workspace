@@ -3,6 +3,7 @@
 		{
 			"path": "."
 		}
+<<<<<<< HEAD
 	],
     "settings": {
         "terminal.integrated.env.osx": {
@@ -10,4 +11,7 @@
             "PLATFORMIO_CALLER": "vscode"
         }
     }
+=======
+	]
+>>>>>>> origin/hardware-reset
 }

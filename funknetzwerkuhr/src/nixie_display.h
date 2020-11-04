@@ -1,12 +1,11 @@
-#ifndef __MAX_DISPLAY_H__
-#define __MAX_DISPLAY_H__
+#pragma once
 
 #include <Arduino.h>
 
 #include "clock_config.h"
-
 #include "display.h"
 
+<<<<<<< HEAD:funknetzwerkuhr/src/nixie_display.h
 #define AUSF_A 1
 #define AUSF_C 2
 
@@ -22,15 +21,33 @@
 
 
 #define DISPLAY_HW_CLASS NixieDisplay
+=======
+#if defined(AUSF_B)
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+const int LATCH_PIN = 15;
 
-#define MAX_DIGITS 4
-#define RGB_MASK   0b000011100000000000000000
-#define RED_MASK   0b000011000000000000000000
-#define GREEN_MASK 0b000010100000000000000000
-#define BLUE_MASK  0b000001100000000000000000
+#elif defined(AUSF_C)
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+const int LATCH_PIN = 15;
+>>>>>>> origin/hardware-reset:funknetzwerkuhr/src/max_display.h
+
+#else
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+const int LATCH_PIN = 15;
+
+#endif
 
 
+<<<<<<< HEAD:funknetzwerkuhr/src/nixie_display.h
 class NixieDisplay : public Display {
+=======
+#define MAX_DIGITS 4
+
+class MaxDisplay : public Display {
+>>>>>>> origin/hardware-reset:funknetzwerkuhr/src/max_display.h
 
 
 public:
@@ -62,5 +79,3 @@ private:
     friend void tick (/* arguments */);
     friend uint8_t get_digit (unsigned int);
 };
-
-#endif //  __MAX_DISPLAY_H__
