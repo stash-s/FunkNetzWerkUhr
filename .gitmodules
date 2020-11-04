@@ -1,3 +1,0 @@
-[submodule "funknetzwerkuhr/lib/NTPClient"]
-	path = funknetzwerkuhr/lib/NTPClient
-	url = git@github.com:stash-s/NTPClient.git
