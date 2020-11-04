@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:ausf_d-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L ausf_d-rescue:MAX1771-Parts_Stash-funknetzwerkuhr-rescue U?
+L ausf_d-rescue:MAX1771-Parts_Stash-funknetzwerkuhr-rescue-ausf_d-rescue U?
 U 1 1 5B71C581
 P 5550 3800
 AR Path="/5B71C581" Ref="U?"  Part="1" 

@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:ausf_d-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -91,7 +90,7 @@ VSS
 Wire Wire Line
 	4950 5550 5100 5550
 $Comp
-L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import R6
+L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import-ausf_d-rescue R6
 U 1 1 5CD6CAB6
 P 4350 3450
 F 0 "R6" H 4200 3509 59  0000 L BNN
@@ -102,7 +101,7 @@ F 3 "" H 4350 3450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import R5
+L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import-ausf_d-rescue R5
 U 1 1 5CD6CABC
 P 4050 3150
 F 0 "R5" H 3900 3209 59  0000 L BNN
@@ -113,7 +112,7 @@ F 3 "" H 4050 3150 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L ausf_d-rescue:R-EU_0411_15-esp-vfd-clock-eagle-import R4
+L ausf_d-rescue:R-EU_0411_15-esp-vfd-clock-eagle-import-ausf_d-rescue R4
 U 1 1 5CD6CAC2
 P 3750 4250
 F 0 "R4" H 3600 4309 59  0000 L BNN
@@ -124,7 +123,7 @@ F 3 "" H 3750 4250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import R8
+L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import-ausf_d-rescue R8
 U 1 1 5CD6CAC8
 P 4750 5550
 F 0 "R8" H 4600 5609 59  0000 L BNN
@@ -135,7 +134,7 @@ F 3 "" H 4750 5550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import R7
+L ausf_d-rescue:R-EU_0204_7-esp-vfd-clock-eagle-import-ausf_d-rescue R7
 U 1 1 5CD6CACE
 P 4350 5850
 F 0 "R7" H 4200 5909 59  0000 L BNN
@@ -172,9 +171,11 @@ F 3 "" H 6850 2350 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L ausf_d-rescue:BD140G-esp-vfd-clock-eagle-import Q2
+L ausf_d-rescue:BD140G-esp-vfd-clock-eagle-import-ausf_d-rescue Q2
 U 1 1 5CD6CAE0
 P 4350 2450
+AR Path="/5CD6CAE0" Ref="Q2"  Part="1" 
+AR Path="/5CD5170D/5CD6CAE0" Ref="Q2"  Part="1" 
 F 0 "Q2" H 3950 2750 59  0000 L BNN
 F 1 "2SD669AD-C" H 3950 2650 59  0000 L BNN
 F 2 "Package_TO_SOT_SMD:TO-252-3_TabPin2" H 4350 2450 50  0001 C CNN
@@ -227,7 +228,7 @@ F 3 "" H 6450 4700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ausf_d-rescue:GND-esp-vfd-clock-eagle-import #U016
+L ausf_d-rescue:GND-esp-vfd-clock-eagle-import-ausf_d-rescue #U016
 U 1 1 5CD6CB0A
 P 6450 4250
 F 0 "#U016" H 6450 4250 50  0001 C CNN
@@ -266,7 +267,7 @@ Connection ~ 4950 2350
 Wire Wire Line
 	4950 2350 5500 2350
 $Comp
-L ausf_d-rescue:MC34063AP-esp-vfd-clock-eagle-import U2
+L ausf_d-rescue:MC34063AP-esp-vfd-clock-eagle-import-ausf_d-rescue U2
 U 1 1 5CD6CAB0
 P 5350 4250
 F 0 "U2" H 4750 5050 59  0000 L BNN
