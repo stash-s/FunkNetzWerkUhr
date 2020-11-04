@@ -3,8 +3,25 @@
 #include <Arduino.h>
 
 #include "clock_config.h"
-
 #include "display.h"
+
+#if defined(AUSF_B)
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+const int LATCH_PIN = 15;
+
+#elif defined(AUSF_C)
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+const int LATCH_PIN = 15;
+
+#else
+const int BLINK_LED = 2;
+const int SHDN_PIN = 4;
+const int LATCH_PIN = 15;
+
+#endif
+
 
 #define MAX_DIGITS 4
 
