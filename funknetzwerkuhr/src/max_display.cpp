@@ -82,14 +82,6 @@ static MaxDisplay::payload_t led_mux_map[] = {
     //   |   |   |   |   |   |
 };
 
-static MaxDisplay::payload_t color_map[] = {
-    0b001000000000000000000010, // green
-    0b000000000001000000000010, // red
-    0b001000000001000000000000, // blue
-    0b001000000001000000000010, // blank all
-};
-
-
 static MaxDisplay::payload_t dots_map[] = {
     0b000000000000000000000000, // dots off
     0b000000000000001100000000  // dots on
