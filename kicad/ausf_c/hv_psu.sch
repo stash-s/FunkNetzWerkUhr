@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:funknetzwerkuhr-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -61,7 +60,7 @@ Wire Wire Line
 Wire Wire Line
 	4100 2050 4100 1950
 $Comp
-L funknetzwerkuhr-rescue:MAX1771-Parts_Stash U4
+L funknetzwerkuhr-rescue:MAX1771-Parts_Stash-funknetzwerkuhr-rescue U4
 U 1 1 5B71C581
 P 5550 3800
 AR Path="/5B71C581" Ref="U4"  Part="1" 

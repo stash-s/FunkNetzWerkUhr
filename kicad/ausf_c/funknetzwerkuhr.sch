@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:funknetzwerkuhr-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -231,7 +230,7 @@ F26 "ANODE_LED_3" I L 10300 3100 50
 F27 "ANODE_LED_4" I L 10300 3200 50 
 $EndSheet
 $Comp
-L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B5C06CE
 P 1350 5150
 AR Path="/5B5B1D70/5B3B1181/5B5C06CE" Ref="Q?"  Part="1" 
@@ -248,7 +247,7 @@ Wire Wire Line
 Wire Wire Line
 	1450 6300 1450 5750
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B5C06D9
 P 1050 5850
 AR Path="/5B5B1D70/5B3B1181/5B5C06D9" Ref="Q?"  Part="1" 
@@ -336,7 +335,7 @@ Entry Wire Line
 Entry Wire Line
 	10000 900  10100 1000
 $Comp
-L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B6151F7
 P 2250 5150
 AR Path="/5B5B1D70/5B3B1181/5B6151F7" Ref="Q?"  Part="1" 
@@ -353,7 +352,7 @@ Wire Wire Line
 Wire Wire Line
 	2350 6300 2350 5750
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B615200
 P 1950 5850
 AR Path="/5B5B1D70/5B3B1181/5B615200" Ref="Q?"  Part="1" 
@@ -465,7 +464,7 @@ DRIVE_LED_A4
 Text Label 1550 4400 1    50   ~ 0
 DRIVE_BLUE
 $Comp
-L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B61DCAA
 P 3150 5150
 AR Path="/5B5B1D70/5B3B1181/5B61DCAA" Ref="Q?"  Part="1" 
@@ -482,7 +481,7 @@ Wire Wire Line
 Wire Wire Line
 	3250 6300 3250 5750
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B61DCB3
 P 2850 5850
 AR Path="/5B5B1D70/5B3B1181/5B61DCB3" Ref="Q?"  Part="1" 
@@ -658,7 +657,7 @@ Wire Wire Line
 Wire Wire Line
 	2350 5450 2350 5350
 $Comp
-L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B657A9D
 P 4050 5150
 AR Path="/5B5B1D70/5B3B1181/5B657A9D" Ref="Q?"  Part="1" 
@@ -675,7 +674,7 @@ Wire Wire Line
 Wire Wire Line
 	4150 6300 4150 5750
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q?
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
 U 1 1 5B657AA6
 P 3750 5850
 AR Path="/5B5B1D70/5B3B1181/5B657AA6" Ref="Q?"  Part="1" 
@@ -783,7 +782,7 @@ DRIVE_D3
 Text Label 1750 4400 1    50   ~ 0
 DRIVE_D2
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q10
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q10
 U 1 1 5B66EB7A
 P 4600 5150
 F 0 "Q10" V 4800 5200 50  0000 L CNN
@@ -838,7 +837,7 @@ Wire Wire Line
 Entry Wire Line
 	4700 6300 4800 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q11
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q11
 U 1 1 5B68C6FD
 P 5150 5150
 F 0 "Q11" V 5350 5200 50  0000 L CNN
@@ -885,7 +884,7 @@ Wire Wire Line
 Entry Wire Line
 	5250 6300 5350 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q12
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q12
 U 1 1 5B68F8EA
 P 5650 5150
 F 0 "Q12" V 5850 5200 50  0000 L CNN
@@ -968,7 +967,7 @@ Wire Wire Line
 Entry Wire Line
 	6250 6300 6350 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q14
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q14
 U 1 1 5B6968F8
 P 6650 5150
 F 0 "Q14" V 6850 5200 50  0000 L CNN
@@ -1015,7 +1014,7 @@ Wire Wire Line
 Entry Wire Line
 	6750 6300 6850 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q15
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q15
 U 1 1 5B69A76F
 P 7150 5150
 F 0 "Q15" V 7350 5200 50  0000 L CNN
@@ -1062,7 +1061,7 @@ Wire Wire Line
 Entry Wire Line
 	7250 6300 7350 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q16
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q16
 U 1 1 5B69E9E7
 P 7650 5150
 F 0 "Q16" V 7850 5200 50  0000 L CNN
@@ -1109,7 +1108,7 @@ Wire Wire Line
 Entry Wire Line
 	7750 6300 7850 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q17
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q17
 U 1 1 5B6A3147
 P 8150 5150
 F 0 "Q17" V 8350 5200 50  0000 L CNN
@@ -1156,7 +1155,7 @@ Wire Wire Line
 Entry Wire Line
 	8250 6300 8350 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q18
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q18
 U 1 1 5B6A7F16
 P 8650 5150
 F 0 "Q18" V 8850 5200 50  0000 L CNN
@@ -1203,7 +1202,7 @@ Wire Wire Line
 Entry Wire Line
 	8750 6300 8850 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q19
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q19
 U 1 1 5B6ACF8A
 P 9150 5150
 F 0 "Q19" V 9350 5200 50  0000 L CNN
@@ -1250,7 +1249,7 @@ Wire Wire Line
 Entry Wire Line
 	9250 6300 9350 6400
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q20
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q20
 U 1 1 5B6B2485
 P 9650 5150
 F 0 "Q20" V 9850 5200 50  0000 L CNN
@@ -1484,7 +1483,7 @@ D9
 Text Label 9750 6300 1    50   ~ 0
 DOT
 $Comp
-L funknetzwerkuhr-rescue:ESP-12E-ESP8266 U6
+L funknetzwerkuhr-rescue:ESP-12E-ESP8266-funknetzwerkuhr-rescue U6
 U 1 1 5B6C570B
 P 2250 1150
 F 0 "U6" H 2250 1915 50  0000 C CNN
@@ -1834,7 +1833,7 @@ DRIVE_S1
 Entry Wire Line
 	10450 4500 10550 4600
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q22
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q22
 U 1 1 5B7684A7
 P 10750 5150
 F 0 "Q22" V 10950 5200 50  0000 L CNN
@@ -2385,7 +2384,7 @@ Wire Wire Line
 Wire Wire Line
 	4150 7050 4150 7100
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q21
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q21
 U 1 1 5B6C98E5
 P 10200 5150
 F 0 "Q21" V 10400 5200 50  0000 L CNN
@@ -2409,7 +2408,7 @@ F 3 "~" H 10000 4900 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash Q13
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q13
 U 1 1 5B692F19
 P 6150 5150
 F 0 "Q13" V 6350 5200 50  0000 L CNN

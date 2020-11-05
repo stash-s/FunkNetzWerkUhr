@@ -8,7 +8,7 @@ F0 "U" -300 550 50 H V C CNN
 F1 "74xx_74HC595" -300 -650 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
-ALIAS 74LS595 74HCT595
+ALIAS 74LS595 74HCT595 74AHC595 74AHCT595
 $FPLIST
  DIP*W7.62mm*
  SOIC*3.9x9.9mm*P1.27mm*
@@ -160,9 +160,9 @@ $FPLIST
  D_*
 $ENDFPLIST
 DRAW
-P 2 0 1 8 -50 50 -50 -50 N
+P 2 0 1 10 -50 50 -50 -50 N
 P 2 0 1 0 50 0 -50 0 N
-P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
+P 4 0 1 10 50 50 50 -50 -50 0 50 50 N
 X K 1 -150 0 100 R 50 50 1 1 P
 X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
@@ -183,8 +183,8 @@ $FPLIST
 $ENDFPLIST
 DRAW
 P 2 0 1 0 50 0 -50 0 N
-P 3 0 1 8 -50 -50 -50 50 -30 50 N
-P 4 0 1 8 50 -50 50 50 -50 0 50 -50 N
+P 3 0 1 10 -50 -50 -50 50 -30 50 N
+P 4 0 1 10 50 -50 50 50 -50 0 50 -50 N
 X K 1 -150 0 100 R 50 50 1 1 P
 X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
@@ -295,32 +295,28 @@ ENDDEF
 #
 # Transistor_FET_IRF740
 #
-DEF Transistor_FET_IRF740 Q 0 0 Y N 1 F N
+DEF Transistor_FET_IRF740 Q 0 20 Y N 1 F N
 F0 "Q" 250 75 50 H V L CNN
 F1 "Transistor_FET_IRF740" 250 0 50 H V L CNN
 F2 "Package_TO_SOT_THT:TO-220-3_Vertical" 250 -75 50 H I L CIN
 F3 "" 0 0 50 H I L CNN
-ALIAS IRF3205 IRF540N IRF740 IRLB8721PBF IRLZ34N IRLZ44N
+ALIAS IRF3205 IRF540N IRF740 IRLB8721PBF IRLZ34N IRLZ44N VNP10N07 IPP060N06N
 $FPLIST
  TO?220*
 $ENDFPLIST
 DRAW
-C 65 0 111 0 1 10 N
-C 100 -70 11 0 1 0 F
-C 100 70 11 0 1 0 F
+C 65 0 110 0 1 10 N
+C 100 -70 10 0 1 0 F
+C 100 70 10 0 1 0 F
 P 2 0 1 0 10 0 -100 0 N
-P 2 0 1 0 30 -70 100 -70 N
+P 2 0 1 10 10 75 10 -75 N
 P 2 0 1 10 30 -50 30 -90 N
-P 2 0 1 0 30 0 100 0 N
 P 2 0 1 10 30 20 30 -20 N
-P 2 0 1 0 30 70 100 70 N
 P 2 0 1 10 30 90 30 50 N
-P 2 0 1 0 100 -70 100 -100 N
-P 2 0 1 0 100 -70 100 0 N
 P 2 0 1 0 100 100 100 70 N
-P 3 0 1 10 10 75 10 -75 10 -75 N
+P 3 0 1 0 100 -100 100 0 30 0 N
+P 4 0 1 0 30 -70 130 -70 130 70 30 70 N
 P 4 0 1 0 40 0 80 15 80 -15 40 0 F
-P 4 0 1 0 100 -70 130 -70 130 70 100 70 N
 P 4 0 1 0 110 20 115 15 145 15 150 10 N
 P 4 0 1 0 130 15 115 -10 145 -10 130 15 N
 X G 1 -200 0 100 R 50 50 1 1 I
@@ -329,11 +325,11 @@ X S 3 100 -200 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_ESP-12E-ESP8266
+# funknetzwerkuhr-rescue_ESP-12E-ESP8266-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_ESP-12E-ESP8266 U 0 40 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_ESP-12E-ESP8266-funknetzwerkuhr-rescue U 0 40 Y Y 1 F N
 F0 "U" 0 -100 50 H V C CNN
-F1 "funknetzwerkuhr-rescue_ESP-12E-ESP8266" 0 100 50 H V C CNN
+F1 "funknetzwerkuhr-rescue_ESP-12E-ESP8266-funknetzwerkuhr-rescue" 0 100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -367,11 +363,11 @@ X GND 9 900 -400 300 L 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_IN-12-Russian_Lamps
+# funknetzwerkuhr-rescue_IN-12-Russian_Lamps-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_IN-12-Russian_Lamps T 0 40 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_IN-12-Russian_Lamps-funknetzwerkuhr-rescue T 0 40 Y Y 1 F N
 F0 "T" -200 750 50 H V C CNN
-F1 "funknetzwerkuhr-rescue_IN-12-Russian_Lamps" -150 -750 50 H V C CNN
+F1 "funknetzwerkuhr-rescue_IN-12-Russian_Lamps-funknetzwerkuhr-rescue" -150 -750 50 H V C CNN
 F2 "" -100 -300 50 H I C CNN
 F3 "" -100 -300 50 H I C CNN
 DRAW
@@ -395,11 +391,11 @@ X 0 2 -400 500 200 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_LED_RGB_CA-Parts_Stash
+# funknetzwerkuhr-rescue_LED_RGB_CA-Parts_Stash-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_LED_RGB_CA-Parts_Stash D 0 40 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_LED_RGB_CA-Parts_Stash-funknetzwerkuhr-rescue D 0 40 Y Y 1 F N
 F0 "D" -200 550 50 H V C CNN
-F1 "funknetzwerkuhr-rescue_LED_RGB_CA-Parts_Stash" -50 -450 50 H V C CNN
+F1 "funknetzwerkuhr-rescue_LED_RGB_CA-Parts_Stash-funknetzwerkuhr-rescue" -50 -450 50 H V C CNN
 F2 "" -350 100 50 H I C CNN
 F3 "" -350 100 50 H I C CNN
 DRAW
@@ -427,11 +423,11 @@ X B 4 400 -150 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_MAX1771-Parts_Stash
+# funknetzwerkuhr-rescue_MAX1771-Parts_Stash-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_MAX1771-Parts_Stash U 0 40 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_MAX1771-Parts_Stash-funknetzwerkuhr-rescue U 0 40 Y Y 1 F N
 F0 "U" -300 400 50 H V C CNN
-F1 "funknetzwerkuhr-rescue_MAX1771-Parts_Stash" -350 -400 50 H V C CNN
+F1 "funknetzwerkuhr-rescue_MAX1771-Parts_Stash-funknetzwerkuhr-rescue" -350 -400 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -447,11 +443,11 @@ X CS 8 450 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_MMBTA42-Parts_Stash
+# funknetzwerkuhr-rescue_MMBTA42-Parts_Stash-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_MMBTA42-Parts_Stash Q 0 0 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q 0 0 Y Y 1 F N
 F0 "Q" 250 50 50 H V C CNN
-F1 "funknetzwerkuhr-rescue_MMBTA42-Parts_Stash" 350 -50 50 H V C CNN
+F1 "funknetzwerkuhr-rescue_MMBTA42-Parts_Stash-funknetzwerkuhr-rescue" 350 -50 50 H V C CNN
 F2 "" 50 0 50 H I C CNN
 F3 "" 50 0 50 H I C CNN
 $FPLIST
@@ -469,11 +465,11 @@ X C 3 100 200 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_MMBTA92-Parts_Stash
+# funknetzwerkuhr-rescue_MMBTA92-Parts_Stash-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_MMBTA92-Parts_Stash Q 0 0 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q 0 0 Y Y 1 F N
 F0 "Q" 200 50 50 H V L CNN
-F1 "funknetzwerkuhr-rescue_MMBTA92-Parts_Stash" 200 -50 50 H V L CNN
+F1 "funknetzwerkuhr-rescue_MMBTA92-Parts_Stash-funknetzwerkuhr-rescue" 200 -50 50 H V L CNN
 F2 "" -50 50 50 H I C CNN
 F3 "" -50 50 50 H I C CNN
 $FPLIST
@@ -492,11 +488,11 @@ X C 3 100 -200 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# funknetzwerkuhr-rescue_ins-1-Russian_Lamps
+# funknetzwerkuhr-rescue_ins-1-Russian_Lamps-funknetzwerkuhr-rescue
 #
-DEF funknetzwerkuhr-rescue_ins-1-Russian_Lamps L 0 40 Y Y 1 F N
+DEF funknetzwerkuhr-rescue_ins-1-Russian_Lamps-funknetzwerkuhr-rescue L 0 40 Y Y 1 F N
 F0 "L" -70 140 50 H V C CNN
-F1 "funknetzwerkuhr-rescue_ins-1-Russian_Lamps" 0 -150 50 H V C CNN
+F1 "funknetzwerkuhr-rescue_ins-1-Russian_Lamps-funknetzwerkuhr-rescue" 0 -150 50 H V C CNN
 F2 "" 0 0 50 V I C CNN
 F3 "" 0 0 50 V I C CNN
 DRAW
