@@ -1,0 +1,2467 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 74xx:74HC595 U1
+U 1 1 5B5B38D1
+P 6050 3400
+F 0 "U1" V 6004 4041 50  0000 L CNN
+F 1 "74HC595" V 6095 4041 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 6050 3400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 6050 3400 50  0001 C CNN
+	1    6050 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L 74xx:74HC595 U3
+U 1 1 5B5B3A5D
+P 1750 3450
+F 0 "U3" V 1704 4091 50  0000 L CNN
+F 1 "74HC595" V 1795 4091 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 1750 3450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 1750 3450 50  0001 C CNN
+	1    1750 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5850 3000 5850 2700
+Wire Wire Line
+	5850 2700 3650 2700
+Wire Wire Line
+	3650 2700 3650 3000
+Wire Wire Line
+	1550 3050 1550 2700
+Wire Wire Line
+	1550 2700 3650 2700
+$Comp
+L power:GND #PWR05
+U 1 1 5B5B3BE8
+P 5300 3450
+F 0 "#PWR05" H 5300 3200 50  0001 C CNN
+F 1 "GND" H 5305 3277 50  0000 C CNN
+F 2 "" H 5300 3450 50  0001 C CNN
+F 3 "" H 5300 3450 50  0001 C CNN
+	1    5300 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 5B5B3C7C
+P 3100 3450
+F 0 "#PWR03" H 3100 3200 50  0001 C CNN
+F 1 "GND" H 3105 3277 50  0000 C CNN
+F 2 "" H 3100 3450 50  0001 C CNN
+F 3 "" H 3100 3450 50  0001 C CNN
+	1    3100 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5B5B3CC2
+P 1000 3500
+F 0 "#PWR01" H 1000 3250 50  0001 C CNN
+F 1 "GND" H 1005 3327 50  0000 C CNN
+F 2 "" H 1000 3500 50  0001 C CNN
+F 3 "" H 1000 3500 50  0001 C CNN
+	1    1000 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR02
+U 1 1 5B5B3D09
+P 2400 3400
+F 0 "#PWR02" H 2400 3250 50  0001 C CNN
+F 1 "+3V3" H 2415 3573 50  0000 C CNN
+F 2 "" H 2400 3400 50  0001 C CNN
+F 3 "" H 2400 3400 50  0001 C CNN
+	1    2400 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR04
+U 1 1 5B5B3D64
+P 4500 3350
+F 0 "#PWR04" H 4500 3200 50  0001 C CNN
+F 1 "+3V3" H 4515 3523 50  0000 C CNN
+F 2 "" H 4500 3350 50  0001 C CNN
+F 3 "" H 4500 3350 50  0001 C CNN
+	1    4500 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR06
+U 1 1 5B5B3DB6
+P 6700 3350
+F 0 "#PWR06" H 6700 3200 50  0001 C CNN
+F 1 "+3V3" H 6715 3523 50  0000 C CNN
+F 2 "" H 6700 3350 50  0001 C CNN
+F 3 "" H 6700 3350 50  0001 C CNN
+	1    6700 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3350 6700 3400
+Wire Wire Line
+	6700 3400 6650 3400
+Wire Wire Line
+	5350 3400 5300 3400
+Wire Wire Line
+	5300 3400 5300 3450
+Wire Wire Line
+	4500 3350 4500 3400
+Wire Wire Line
+	4500 3400 4450 3400
+Wire Wire Line
+	3150 3400 3100 3400
+Wire Wire Line
+	3100 3400 3100 3450
+Wire Wire Line
+	2400 3400 2400 3450
+Wire Wire Line
+	2400 3450 2350 3450
+Wire Wire Line
+	1050 3450 1000 3450
+Wire Wire Line
+	1000 3450 1000 3500
+$Comp
+L Regulator_Linear:AP1117-33 U5
+U 1 1 5B5B57E0
+P 6500 950
+F 0 "U5" H 6500 1192 50  0000 C CNN
+F 1 "NCP1117-33G" H 6500 1101 50  0000 C CNN
+F 2 "PartsStash_RW:DPACK2" H 6500 1150 50  0001 C CNN
+F 3 "http://www.diodes.com/datasheets/AP1117.pdf" H 6600 700 50  0001 C CNN
+	1    6500 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR015
+U 1 1 5B5B5A7B
+P 6900 900
+F 0 "#PWR015" H 6900 750 50  0001 C CNN
+F 1 "+3V3" H 6915 1073 50  0000 C CNN
+F 2 "" H 6900 900 50  0001 C CNN
+F 3 "" H 6900 900 50  0001 C CNN
+	1    6900 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR014
+U 1 1 5B5B5AED
+P 6500 1300
+F 0 "#PWR014" H 6500 1050 50  0001 C CNN
+F 1 "GND" H 6505 1127 50  0000 C CNN
+F 2 "" H 6500 1300 50  0001 C CNN
+F 3 "" H 6500 1300 50  0001 C CNN
+	1    6500 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 950  6900 950 
+Wire Wire Line
+	6500 1300 6500 1250
+$Comp
+L Device:R R3
+U 1 1 5B5B64B3
+P 1000 2500
+F 0 "R3" H 1070 2546 50  0000 L CNN
+F 1 "10k" H 1070 2455 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 930 2500 50  0001 C CNN
+F 3 "~" H 1000 2500 50  0001 C CNN
+	1    1000 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 2700 1000 2650
+Connection ~ 1550 2700
+$Comp
+L power:+3V3 #PWR0101
+U 1 1 5B5B676F
+P 1000 2200
+F 0 "#PWR0101" H 1000 2050 50  0001 C CNN
+F 1 "+3V3" H 1015 2373 50  0000 C CNN
+F 2 "" H 1000 2200 50  0001 C CNN
+F 3 "" H 1000 2200 50  0001 C CNN
+	1    1000 2200
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 10300 600  700  2700
+U 5B5B1D70
+F0 "front_panel" 50
+F1 "front_panel.sch" 50
+F2 "ANODE_1" I L 10300 700 50 
+F3 "ANODE_2" I L 10300 800 50 
+F4 "ANODE_3" I L 10300 900 50 
+F5 "ANODE_4" I L 10300 1000 50 
+F6 "DIGIT_0" I L 10300 1100 50 
+F7 "DIGIT_1" I L 10300 1200 50 
+F8 "DIGIT_2" I L 10300 1300 50 
+F9 "DIGIT_3" I L 10300 1400 50 
+F10 "DIGIT_4" I L 10300 1500 50 
+F11 "DIGIT_5" I L 10300 1600 50 
+F12 "DIGIT_6" I L 10300 1700 50 
+F13 "DIGIT_7" I L 10300 1800 50 
+F14 "DIGIT_8" I L 10300 1900 50 
+F15 "DIGIT_9" I L 10300 2000 50 
+F16 "DIGIT_DOT" I L 10300 2100 50 
+F17 "ANODE_N1" I L 10300 2200 50 
+F18 "CATHODE_N1" I L 10300 2300 50 
+F19 "ANODE_N2" I L 10300 2400 50 
+F20 "CATHODE_N2" I L 10300 2500 50 
+F21 "RED" I L 10300 2600 50 
+F22 "GREEN" I L 10300 2700 50 
+F23 "BLUE" I L 10300 2800 50 
+F24 "ANODE_LED_1" I L 10300 2900 50 
+F25 "ANODE_LED_2" I L 10300 3000 50 
+F26 "ANODE_LED_3" I L 10300 3100 50 
+F27 "ANODE_LED_4" I L 10300 3200 50 
+$EndSheet
+$Comp
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B5C06CE
+P 1350 5150
+AR Path="/5B5B1D70/5B3B1181/5B5C06CE" Ref="Q?"  Part="1" 
+AR Path="/5B5C06CE" Ref="Q3"  Part="1" 
+F 0 "Q3" V 1550 5200 50  0000 L CNN
+F 1 "MMBTA92" V 1550 4750 50  0000 L CNN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 1550 5075 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 1350 5150 50  0001 L CNN
+	1    1350 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1450 4700 1450 4950
+Wire Wire Line
+	1450 6300 1450 5750
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B5C06D9
+P 1050 5850
+AR Path="/5B5B1D70/5B3B1181/5B5C06D9" Ref="Q?"  Part="1" 
+AR Path="/5B5C06D9" Ref="Q2"  Part="1" 
+F 0 "Q2" V 1250 5900 50  0000 L CNN
+F 1 "MMBTA42" V 1250 5500 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 1250 5775 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 1050 5850 50  0001 L CNN
+	1    1050 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B5C06E0
+P 1150 5400
+AR Path="/5B5B1D70/5B3B1181/5B5C06E0" Ref="R?"  Part="1" 
+AR Path="/5B5C06E0" Ref="R6"  Part="1" 
+F 0 "R6" H 1220 5446 50  0000 L CNN
+F 1 "1M" H 1220 5355 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1080 5400 50  0001 C CNN
+F 3 "~" H 1150 5400 50  0001 C CNN
+	1    1150 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 5250 1150 5150
+Wire Wire Line
+	1150 5650 1150 5550
+$Comp
+L power:GND #PWR?
+U 1 1 5B5C06E9
+P 1150 6100
+AR Path="/5B5B1D70/5B3B1181/5B5C06E9" Ref="#PWR?"  Part="1" 
+AR Path="/5B5C06E9" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 1150 5850 50  0001 C CNN
+F 1 "GND" H 1155 5927 50  0000 C CNN
+F 2 "" H 1150 6100 50  0001 C CNN
+F 3 "" H 1150 6100 50  0001 C CNN
+	1    1150 6100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 6100 1150 6050
+$Comp
+L Device:R R4
+U 1 1 5B5D4BA1
+P 850 5400
+F 0 "R4" H 780 5354 50  0000 R CNN
+F 1 "33k" H 780 5445 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 780 5400 50  0001 C CNN
+F 3 "~" H 850 5400 50  0001 C CNN
+	1    850  5400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	850  5850 850  5550
+Wire Wire Line
+	850  5250 850  4600
+Wire Wire Line
+	8550 1100 8250 1100
+Text Label 8300 900  0    50   ~ 0
+180V
+Text Label 8350 1100 0    50   ~ 0
+9V
+Text Label 6050 950  0    50   ~ 0
+9V
+Text Label 1450 4900 1    50   ~ 0
+180V
+Text Label 10250 700  2    50   ~ 0
+A1
+Text Label 10250 800  2    50   ~ 0
+A2
+Text Label 10250 900  2    50   ~ 0
+A3
+Text Label 10250 1000 2    50   ~ 0
+A4
+Text Label 1450 5850 3    50   ~ 0
+A1
+Entry Wire Line
+	10000 600  10100 700 
+Entry Wire Line
+	10000 700  10100 800 
+Entry Wire Line
+	10000 800  10100 900 
+Entry Wire Line
+	10000 900  10100 1000
+$Comp
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B6151F7
+P 2250 5150
+AR Path="/5B5B1D70/5B3B1181/5B6151F7" Ref="Q?"  Part="1" 
+AR Path="/5B6151F7" Ref="Q5"  Part="1" 
+F 0 "Q5" V 2450 5200 50  0000 L CNN
+F 1 "MMBTA92" V 2450 4750 50  0000 L CNN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 2450 5075 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 2250 5150 50  0001 L CNN
+	1    2250 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 4700 2350 4950
+Wire Wire Line
+	2350 6300 2350 5750
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B615200
+P 1950 5850
+AR Path="/5B5B1D70/5B3B1181/5B615200" Ref="Q?"  Part="1" 
+AR Path="/5B615200" Ref="Q4"  Part="1" 
+F 0 "Q4" V 2150 5900 50  0000 L CNN
+F 1 "MMBTA42" V 2150 5500 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 2150 5775 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 1950 5850 50  0001 L CNN
+	1    1950 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B615207
+P 2050 5400
+AR Path="/5B5B1D70/5B3B1181/5B615207" Ref="R?"  Part="1" 
+AR Path="/5B615207" Ref="R10"  Part="1" 
+F 0 "R10" H 2120 5446 50  0000 L CNN
+F 1 "1M" H 2120 5355 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1980 5400 50  0001 C CNN
+F 3 "~" H 2050 5400 50  0001 C CNN
+	1    2050 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 5250 2050 5150
+Wire Wire Line
+	2050 5650 2050 5550
+$Comp
+L power:GND #PWR?
+U 1 1 5B615210
+P 2050 6100
+AR Path="/5B5B1D70/5B3B1181/5B615210" Ref="#PWR?"  Part="1" 
+AR Path="/5B615210" Ref="#PWR012"  Part="1" 
+F 0 "#PWR012" H 2050 5850 50  0001 C CNN
+F 1 "GND" H 2055 5927 50  0000 C CNN
+F 2 "" H 2050 6100 50  0001 C CNN
+F 3 "" H 2050 6100 50  0001 C CNN
+	1    2050 6100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 6100 2050 6050
+$Comp
+L Device:R R8
+U 1 1 5B615217
+P 1750 5400
+F 0 "R8" H 1680 5354 50  0000 R CNN
+F 1 "33k" H 1680 5445 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1680 5400 50  0001 C CNN
+F 3 "~" H 1750 5400 50  0001 C CNN
+	1    1750 5400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1750 5850 1750 5550
+Wire Wire Line
+	1750 5250 1750 4600
+Text Label 2350 4900 1    50   ~ 0
+180V
+Text Label 2350 5850 3    50   ~ 0
+A4
+Entry Wire Line
+	750  4500 850  4600
+Entry Wire Line
+	1650 4500 1750 4600
+Text Label 850  4600 0    50   ~ 0
+DRIVE_A1
+Text Label 1750 4600 0    50   ~ 0
+DRIVE_A4
+Wire Wire Line
+	5550 3800 5550 3900
+Wire Wire Line
+	5550 3900 5000 3900
+Wire Wire Line
+	5000 3900 5000 2900
+Wire Wire Line
+	5000 2900 4250 2900
+Wire Wire Line
+	4250 2900 4250 3000
+Wire Wire Line
+	3350 3800 3350 3900
+Wire Wire Line
+	3350 3900 2800 3900
+Wire Wire Line
+	2800 3900 2800 2900
+Wire Wire Line
+	2800 2900 2150 2900
+Wire Wire Line
+	2150 2900 2150 3050
+Entry Wire Line
+	1750 4400 1850 4500
+Entry Wire Line
+	1450 4400 1550 4500
+Entry Wire Line
+	1550 4400 1650 4500
+Entry Wire Line
+	1650 4400 1750 4500
+Wire Wire Line
+	1450 4400 1450 3850
+Wire Wire Line
+	1550 3850 1550 4400
+Wire Wire Line
+	1650 3850 1650 4400
+Wire Wire Line
+	1750 3850 1750 4400
+Text Label 1450 4400 1    50   ~ 0
+DRIVE_LED_A4
+Text Label 1550 4400 1    50   ~ 0
+DRIVE_BLUE
+$Comp
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B61DCAA
+P 3150 5150
+AR Path="/5B5B1D70/5B3B1181/5B61DCAA" Ref="Q?"  Part="1" 
+AR Path="/5B61DCAA" Ref="Q7"  Part="1" 
+F 0 "Q7" V 3350 5200 50  0000 L CNN
+F 1 "MMBTA92" V 3350 4850 50  0000 L CNN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 3350 5075 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 3150 5150 50  0001 L CNN
+	1    3150 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 4700 3250 4950
+Wire Wire Line
+	3250 6300 3250 5750
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B61DCB3
+P 2850 5850
+AR Path="/5B5B1D70/5B3B1181/5B61DCB3" Ref="Q?"  Part="1" 
+AR Path="/5B61DCB3" Ref="Q6"  Part="1" 
+F 0 "Q6" V 3050 5900 50  0000 L CNN
+F 1 "MMBTA42" V 3050 5500 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 3050 5775 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 2850 5850 50  0001 L CNN
+	1    2850 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B61DCBA
+P 2950 5400
+AR Path="/5B5B1D70/5B3B1181/5B61DCBA" Ref="R?"  Part="1" 
+AR Path="/5B61DCBA" Ref="R14"  Part="1" 
+F 0 "R14" H 3020 5446 50  0000 L CNN
+F 1 "1M" H 3020 5355 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2880 5400 50  0001 C CNN
+F 3 "~" H 2950 5400 50  0001 C CNN
+	1    2950 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 5250 2950 5150
+Wire Wire Line
+	2950 5650 2950 5550
+$Comp
+L power:GND #PWR?
+U 1 1 5B61DCC3
+P 2950 6100
+AR Path="/5B5B1D70/5B3B1181/5B61DCC3" Ref="#PWR?"  Part="1" 
+AR Path="/5B61DCC3" Ref="#PWR016"  Part="1" 
+F 0 "#PWR016" H 2950 5850 50  0001 C CNN
+F 1 "GND" H 2955 5927 50  0000 C CNN
+F 2 "" H 2950 6100 50  0001 C CNN
+F 3 "" H 2950 6100 50  0001 C CNN
+	1    2950 6100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 6100 2950 6050
+$Comp
+L Device:R R12
+U 1 1 5B61DCCA
+P 2650 5400
+F 0 "R12" H 2580 5354 50  0000 R CNN
+F 1 "33k" H 2580 5445 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2580 5400 50  0001 C CNN
+F 3 "~" H 2650 5400 50  0001 C CNN
+	1    2650 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 5850 2650 5550
+Wire Wire Line
+	2650 5250 2650 4600
+Text Label 3250 4900 1    50   ~ 0
+180V
+Text Label 3250 5850 3    50   ~ 0
+A3
+Entry Wire Line
+	2550 4500 2650 4600
+Text Label 2650 4600 0    50   ~ 0
+DRIVE_A3
+$Comp
+L Device:R R?
+U 1 1 5B62077E
+P 1150 4900
+AR Path="/5B5B1D70/5B3B1181/5B62077E" Ref="R?"  Part="1" 
+AR Path="/5B62077E" Ref="R5"  Part="1" 
+F 0 "R5" H 1220 4946 50  0000 L CNN
+F 1 "1M" H 1220 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1080 4900 50  0001 C CNN
+F 3 "~" H 1150 4900 50  0001 C CNN
+	1    1150 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6207D6
+P 2050 4900
+AR Path="/5B5B1D70/5B3B1181/5B6207D6" Ref="R?"  Part="1" 
+AR Path="/5B6207D6" Ref="R9"  Part="1" 
+F 0 "R9" H 2120 4946 50  0000 L CNN
+F 1 "1M" H 2120 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1980 4900 50  0001 C CNN
+F 3 "~" H 2050 4900 50  0001 C CNN
+	1    2050 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B62081E
+P 2950 4900
+AR Path="/5B5B1D70/5B3B1181/5B62081E" Ref="R?"  Part="1" 
+AR Path="/5B62081E" Ref="R13"  Part="1" 
+F 0 "R13" H 3020 4946 50  0000 L CNN
+F 1 "1M" H 3020 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2880 4900 50  0001 C CNN
+F 3 "~" H 2950 4900 50  0001 C CNN
+	1    2950 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 5150 2950 5050
+Connection ~ 2950 5150
+Wire Wire Line
+	3250 4700 2950 4700
+Wire Wire Line
+	2950 4700 2950 4750
+Connection ~ 3250 4700
+Wire Wire Line
+	2350 4700 2050 4700
+Wire Wire Line
+	2050 4700 2050 4750
+Wire Wire Line
+	1450 4700 1150 4700
+Wire Wire Line
+	1150 4700 1150 4750
+Wire Wire Line
+	2050 5150 2050 5050
+Connection ~ 2050 5150
+Wire Wire Line
+	1150 5150 1150 5050
+Connection ~ 1150 5150
+Wire Wire Line
+	2950 4700 2350 4700
+Connection ~ 2950 4700
+Connection ~ 2350 4700
+Wire Wire Line
+	2050 4700 1450 4700
+Connection ~ 2050 4700
+Connection ~ 1450 4700
+$Comp
+L Device:R R15
+U 1 1 5B642DE9
+P 3250 5600
+F 0 "R15" H 3180 5554 50  0000 R CNN
+F 1 "8k" H 3180 5645 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3180 5600 50  0001 C CNN
+F 3 "~" H 3250 5600 50  0001 C CNN
+	1    3250 5600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3250 5450 3250 5350
+$Comp
+L Device:R R11
+U 1 1 5B64AD60
+P 2350 5600
+F 0 "R11" H 2280 5554 50  0000 R CNN
+F 1 "8k" H 2280 5645 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 2280 5600 50  0001 C CNN
+F 3 "~" H 2350 5600 50  0001 C CNN
+	1    2350 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5B652A7A
+P 1450 5600
+F 0 "R7" H 1380 5554 50  0000 R CNN
+F 1 "8k" H 1380 5645 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1380 5600 50  0001 C CNN
+F 3 "~" H 1450 5600 50  0001 C CNN
+	1    1450 5600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1450 5450 1450 5350
+Wire Wire Line
+	2350 5450 2350 5350
+$Comp
+L funknetzwerkuhr-rescue:MMBTA92-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B657A9D
+P 4050 5150
+AR Path="/5B5B1D70/5B3B1181/5B657A9D" Ref="Q?"  Part="1" 
+AR Path="/5B657A9D" Ref="Q9"  Part="1" 
+F 0 "Q9" V 4250 5200 50  0000 L CNN
+F 1 "MMBTA92" V 4250 4850 50  0000 L CNN
+F 2 "PartsStash:MPSA92-TSOT-23_HandSoldering" H 4250 5075 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA92-D.PDF" H 4050 5150 50  0001 L CNN
+	1    4050 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 4700 4150 4950
+Wire Wire Line
+	4150 6300 4150 5750
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q?
+U 1 1 5B657AA6
+P 3750 5850
+AR Path="/5B5B1D70/5B3B1181/5B657AA6" Ref="Q?"  Part="1" 
+AR Path="/5B657AA6" Ref="Q8"  Part="1" 
+F 0 "Q8" V 3950 5900 50  0000 L CNN
+F 1 "MMBTA42" V 3950 5500 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 3950 5775 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MPSA42-D.PDF" H 3750 5850 50  0001 L CNN
+	1    3750 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B657AAD
+P 3850 5400
+AR Path="/5B5B1D70/5B3B1181/5B657AAD" Ref="R?"  Part="1" 
+AR Path="/5B657AAD" Ref="R18"  Part="1" 
+F 0 "R18" H 3920 5446 50  0000 L CNN
+F 1 "1M" H 3920 5355 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3780 5400 50  0001 C CNN
+F 3 "~" H 3850 5400 50  0001 C CNN
+	1    3850 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 5250 3850 5150
+Wire Wire Line
+	3850 5650 3850 5550
+$Comp
+L power:GND #PWR?
+U 1 1 5B657AB6
+P 3850 6100
+AR Path="/5B5B1D70/5B3B1181/5B657AB6" Ref="#PWR?"  Part="1" 
+AR Path="/5B657AB6" Ref="#PWR017"  Part="1" 
+F 0 "#PWR017" H 3850 5850 50  0001 C CNN
+F 1 "GND" H 3855 5927 50  0000 C CNN
+F 2 "" H 3850 6100 50  0001 C CNN
+F 3 "" H 3850 6100 50  0001 C CNN
+	1    3850 6100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 6100 3850 6050
+$Comp
+L Device:R R16
+U 1 1 5B657ABD
+P 3550 5400
+F 0 "R16" H 3480 5354 50  0000 R CNN
+F 1 "33k" H 3480 5445 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3480 5400 50  0001 C CNN
+F 3 "~" H 3550 5400 50  0001 C CNN
+	1    3550 5400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3550 5850 3550 5550
+Wire Wire Line
+	3550 5250 3550 4600
+Text Label 4150 4900 1    50   ~ 0
+180V
+Text Label 4150 5850 3    50   ~ 0
+A2
+Entry Wire Line
+	3450 4500 3550 4600
+Text Label 3550 4600 0    50   ~ 0
+DRIVE_A2
+$Comp
+L Device:R R?
+U 1 1 5B657ACA
+P 3850 4900
+AR Path="/5B5B1D70/5B3B1181/5B657ACA" Ref="R?"  Part="1" 
+AR Path="/5B657ACA" Ref="R17"  Part="1" 
+F 0 "R17" H 3920 4946 50  0000 L CNN
+F 1 "1M" H 3920 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3780 4900 50  0001 C CNN
+F 3 "~" H 3850 4900 50  0001 C CNN
+	1    3850 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 5150 3850 5050
+Connection ~ 3850 5150
+Wire Wire Line
+	4150 4700 3850 4700
+Wire Wire Line
+	3850 4700 3850 4750
+Wire Wire Line
+	3850 4700 3250 4700
+Connection ~ 3850 4700
+$Comp
+L Device:R R19
+U 1 1 5B657AD9
+P 4150 5600
+F 0 "R19" H 4080 5554 50  0000 R CNN
+F 1 "8k" H 4080 5645 50  0000 R CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4080 5600 50  0001 C CNN
+F 3 "~" H 4150 5600 50  0001 C CNN
+	1    4150 5600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4150 5450 4150 5350
+Text Label 1650 4400 1    50   ~ 0
+DRIVE_D3
+Text Label 1750 4400 1    50   ~ 0
+DRIVE_D2
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q10
+U 1 1 5B66EB7A
+P 4600 5150
+F 0 "Q10" V 4800 5200 50  0000 L CNN
+F 1 "MMBTA42" V 4800 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 4650 5150 50  0001 C CNN
+F 3 "" H 4650 5150 50  0001 C CNN
+	1    4600 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B66EC98
+P 4400 4900
+AR Path="/5B5B1D70/5B3B1181/5B66EC98" Ref="R?"  Part="1" 
+AR Path="/5B66EC98" Ref="R20"  Part="1" 
+F 0 "R20" H 4470 4946 50  0000 L CNN
+F 1 "33k" H 4470 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4330 4900 50  0001 C CNN
+F 3 "~" H 4400 4900 50  0001 C CNN
+	1    4400 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 5050 4400 5150
+Entry Wire Line
+	4300 4500 4400 4600
+Wire Wire Line
+	4400 4750 4400 4600
+$Comp
+L power:GND #PWR018
+U 1 1 5B67723A
+P 4700 4850
+F 0 "#PWR018" H 4700 4600 50  0001 C CNN
+F 1 "GND" H 4705 4677 50  0000 C CNN
+F 2 "" H 4700 4850 50  0001 C CNN
+F 3 "" H 4700 4850 50  0001 C CNN
+	1    4700 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4700 4950 4700 4850
+Entry Wire Line
+	4150 6300 4250 6400
+Entry Wire Line
+	3250 6300 3350 6400
+Entry Wire Line
+	2350 6300 2450 6400
+Entry Wire Line
+	1450 6300 1550 6400
+Wire Wire Line
+	4700 5350 4700 6300
+Entry Wire Line
+	4700 6300 4800 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q11
+U 1 1 5B68C6FD
+P 5150 5150
+F 0 "Q11" V 5350 5200 50  0000 L CNN
+F 1 "MMBTA42" V 5350 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 5200 5150 50  0001 C CNN
+F 3 "" H 5200 5150 50  0001 C CNN
+	1    5150 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B68C704
+P 4950 4900
+AR Path="/5B5B1D70/5B3B1181/5B68C704" Ref="R?"  Part="1" 
+AR Path="/5B68C704" Ref="R21"  Part="1" 
+F 0 "R21" H 5020 4946 50  0000 L CNN
+F 1 "33k" H 5020 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4880 4900 50  0001 C CNN
+F 3 "~" H 4950 4900 50  0001 C CNN
+	1    4950 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 5050 4950 5150
+Entry Wire Line
+	4850 4500 4950 4600
+Wire Wire Line
+	4950 4750 4950 4600
+$Comp
+L power:GND #PWR019
+U 1 1 5B68C70E
+P 5250 4850
+F 0 "#PWR019" H 5250 4600 50  0001 C CNN
+F 1 "GND" H 5255 4677 50  0000 C CNN
+F 2 "" H 5250 4850 50  0001 C CNN
+F 3 "" H 5250 4850 50  0001 C CNN
+	1    5250 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5250 4950 5250 4850
+Wire Wire Line
+	5250 5350 5250 6300
+Entry Wire Line
+	5250 6300 5350 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q12
+U 1 1 5B68F8EA
+P 5650 5150
+F 0 "Q12" V 5850 5200 50  0000 L CNN
+F 1 "MMBTA42" V 5850 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 5700 5150 50  0001 C CNN
+F 3 "" H 5700 5150 50  0001 C CNN
+	1    5650 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B68F8F1
+P 5450 4900
+AR Path="/5B5B1D70/5B3B1181/5B68F8F1" Ref="R?"  Part="1" 
+AR Path="/5B68F8F1" Ref="R22"  Part="1" 
+F 0 "R22" H 5520 4946 50  0000 L CNN
+F 1 "33k" H 5520 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 5380 4900 50  0001 C CNN
+F 3 "~" H 5450 4900 50  0001 C CNN
+	1    5450 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 5050 5450 5150
+Entry Wire Line
+	5350 4500 5450 4600
+Wire Wire Line
+	5450 4750 5450 4600
+$Comp
+L power:GND #PWR020
+U 1 1 5B68F8FB
+P 5750 4850
+F 0 "#PWR020" H 5750 4600 50  0001 C CNN
+F 1 "GND" H 5755 4677 50  0000 C CNN
+F 2 "" H 5750 4850 50  0001 C CNN
+F 3 "" H 5750 4850 50  0001 C CNN
+	1    5750 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5750 4950 5750 4850
+Wire Wire Line
+	5750 5350 5750 6300
+Entry Wire Line
+	5750 6300 5850 6400
+$Comp
+L Device:R R?
+U 1 1 5B692F20
+P 5950 4900
+AR Path="/5B5B1D70/5B3B1181/5B692F20" Ref="R?"  Part="1" 
+AR Path="/5B692F20" Ref="R23"  Part="1" 
+F 0 "R23" H 6020 4946 50  0000 L CNN
+F 1 "33k" H 6020 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 5880 4900 50  0001 C CNN
+F 3 "~" H 5950 4900 50  0001 C CNN
+	1    5950 4900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5950 5050 5950 5150
+Entry Wire Line
+	5850 4500 5950 4600
+Wire Wire Line
+	5950 4750 5950 4600
+$Comp
+L power:GND #PWR021
+U 1 1 5B692F2A
+P 6250 4850
+F 0 "#PWR021" H 6250 4600 50  0001 C CNN
+F 1 "GND" H 6255 4677 50  0000 C CNN
+F 2 "" H 6250 4850 50  0001 C CNN
+F 3 "" H 6250 4850 50  0001 C CNN
+	1    6250 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6250 4950 6250 4850
+Wire Wire Line
+	6250 5350 6250 6300
+Entry Wire Line
+	6250 6300 6350 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q14
+U 1 1 5B6968F8
+P 6650 5150
+F 0 "Q14" V 6850 5200 50  0000 L CNN
+F 1 "MMBTA42" V 6850 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 6700 5150 50  0001 C CNN
+F 3 "" H 6700 5150 50  0001 C CNN
+	1    6650 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6968FF
+P 6450 4900
+AR Path="/5B5B1D70/5B3B1181/5B6968FF" Ref="R?"  Part="1" 
+AR Path="/5B6968FF" Ref="R24"  Part="1" 
+F 0 "R24" H 6520 4946 50  0000 L CNN
+F 1 "33k" H 6520 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 6380 4900 50  0001 C CNN
+F 3 "~" H 6450 4900 50  0001 C CNN
+	1    6450 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 5050 6450 5150
+Entry Wire Line
+	6350 4500 6450 4600
+Wire Wire Line
+	6450 4750 6450 4600
+$Comp
+L power:GND #PWR022
+U 1 1 5B696909
+P 6750 4850
+F 0 "#PWR022" H 6750 4600 50  0001 C CNN
+F 1 "GND" H 6755 4677 50  0000 C CNN
+F 2 "" H 6750 4850 50  0001 C CNN
+F 3 "" H 6750 4850 50  0001 C CNN
+	1    6750 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6750 4950 6750 4850
+Wire Wire Line
+	6750 5350 6750 6300
+Entry Wire Line
+	6750 6300 6850 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q15
+U 1 1 5B69A76F
+P 7150 5150
+F 0 "Q15" V 7350 5200 50  0000 L CNN
+F 1 "MMBTA42" V 7350 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 7200 5150 50  0001 C CNN
+F 3 "" H 7200 5150 50  0001 C CNN
+	1    7150 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B69A776
+P 6950 4900
+AR Path="/5B5B1D70/5B3B1181/5B69A776" Ref="R?"  Part="1" 
+AR Path="/5B69A776" Ref="R25"  Part="1" 
+F 0 "R25" H 7020 4946 50  0000 L CNN
+F 1 "33k" H 7020 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 6880 4900 50  0001 C CNN
+F 3 "~" H 6950 4900 50  0001 C CNN
+	1    6950 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 5050 6950 5150
+Entry Wire Line
+	6850 4500 6950 4600
+Wire Wire Line
+	6950 4750 6950 4600
+$Comp
+L power:GND #PWR023
+U 1 1 5B69A780
+P 7250 4850
+F 0 "#PWR023" H 7250 4600 50  0001 C CNN
+F 1 "GND" H 7255 4677 50  0000 C CNN
+F 2 "" H 7250 4850 50  0001 C CNN
+F 3 "" H 7250 4850 50  0001 C CNN
+	1    7250 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7250 4950 7250 4850
+Wire Wire Line
+	7250 5350 7250 6300
+Entry Wire Line
+	7250 6300 7350 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q16
+U 1 1 5B69E9E7
+P 7650 5150
+F 0 "Q16" V 7850 5200 50  0000 L CNN
+F 1 "MMBTA42" V 7850 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 7700 5150 50  0001 C CNN
+F 3 "" H 7700 5150 50  0001 C CNN
+	1    7650 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B69E9EE
+P 7450 4900
+AR Path="/5B5B1D70/5B3B1181/5B69E9EE" Ref="R?"  Part="1" 
+AR Path="/5B69E9EE" Ref="R26"  Part="1" 
+F 0 "R26" H 7520 4946 50  0000 L CNN
+F 1 "33k" H 7520 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 7380 4900 50  0001 C CNN
+F 3 "~" H 7450 4900 50  0001 C CNN
+	1    7450 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 5050 7450 5150
+Entry Wire Line
+	7350 4500 7450 4600
+Wire Wire Line
+	7450 4750 7450 4600
+$Comp
+L power:GND #PWR024
+U 1 1 5B69E9F8
+P 7750 4850
+F 0 "#PWR024" H 7750 4600 50  0001 C CNN
+F 1 "GND" H 7755 4677 50  0000 C CNN
+F 2 "" H 7750 4850 50  0001 C CNN
+F 3 "" H 7750 4850 50  0001 C CNN
+	1    7750 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7750 4950 7750 4850
+Wire Wire Line
+	7750 5350 7750 6300
+Entry Wire Line
+	7750 6300 7850 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q17
+U 1 1 5B6A3147
+P 8150 5150
+F 0 "Q17" V 8350 5200 50  0000 L CNN
+F 1 "MMBTA42" V 8350 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 8200 5150 50  0001 C CNN
+F 3 "" H 8200 5150 50  0001 C CNN
+	1    8150 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6A314E
+P 7950 4900
+AR Path="/5B5B1D70/5B3B1181/5B6A314E" Ref="R?"  Part="1" 
+AR Path="/5B6A314E" Ref="R27"  Part="1" 
+F 0 "R27" H 8020 4946 50  0000 L CNN
+F 1 "33k" H 8020 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 7880 4900 50  0001 C CNN
+F 3 "~" H 7950 4900 50  0001 C CNN
+	1    7950 4900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7950 5050 7950 5150
+Entry Wire Line
+	7850 4500 7950 4600
+Wire Wire Line
+	7950 4750 7950 4600
+$Comp
+L power:GND #PWR025
+U 1 1 5B6A3158
+P 8250 4850
+F 0 "#PWR025" H 8250 4600 50  0001 C CNN
+F 1 "GND" H 8255 4677 50  0000 C CNN
+F 2 "" H 8250 4850 50  0001 C CNN
+F 3 "" H 8250 4850 50  0001 C CNN
+	1    8250 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8250 4950 8250 4850
+Wire Wire Line
+	8250 5350 8250 6300
+Entry Wire Line
+	8250 6300 8350 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q18
+U 1 1 5B6A7F16
+P 8650 5150
+F 0 "Q18" V 8850 5200 50  0000 L CNN
+F 1 "MMBTA42" V 8850 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 8700 5150 50  0001 C CNN
+F 3 "" H 8700 5150 50  0001 C CNN
+	1    8650 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6A7F1D
+P 8450 4900
+AR Path="/5B5B1D70/5B3B1181/5B6A7F1D" Ref="R?"  Part="1" 
+AR Path="/5B6A7F1D" Ref="R28"  Part="1" 
+F 0 "R28" H 8520 4946 50  0000 L CNN
+F 1 "33k" H 8520 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8380 4900 50  0001 C CNN
+F 3 "~" H 8450 4900 50  0001 C CNN
+	1    8450 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 5050 8450 5150
+Entry Wire Line
+	8350 4500 8450 4600
+Wire Wire Line
+	8450 4750 8450 4600
+$Comp
+L power:GND #PWR026
+U 1 1 5B6A7F27
+P 8750 4850
+F 0 "#PWR026" H 8750 4600 50  0001 C CNN
+F 1 "GND" H 8755 4677 50  0000 C CNN
+F 2 "" H 8750 4850 50  0001 C CNN
+F 3 "" H 8750 4850 50  0001 C CNN
+	1    8750 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8750 4950 8750 4850
+Wire Wire Line
+	8750 5350 8750 6300
+Entry Wire Line
+	8750 6300 8850 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q19
+U 1 1 5B6ACF8A
+P 9150 5150
+F 0 "Q19" V 9350 5200 50  0000 L CNN
+F 1 "MMBTA42" V 9350 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 9200 5150 50  0001 C CNN
+F 3 "" H 9200 5150 50  0001 C CNN
+	1    9150 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6ACF91
+P 8950 4900
+AR Path="/5B5B1D70/5B3B1181/5B6ACF91" Ref="R?"  Part="1" 
+AR Path="/5B6ACF91" Ref="R29"  Part="1" 
+F 0 "R29" H 9020 4946 50  0000 L CNN
+F 1 "33k" H 9020 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8880 4900 50  0001 C CNN
+F 3 "~" H 8950 4900 50  0001 C CNN
+	1    8950 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 5050 8950 5150
+Entry Wire Line
+	8850 4500 8950 4600
+Wire Wire Line
+	8950 4750 8950 4600
+$Comp
+L power:GND #PWR027
+U 1 1 5B6ACF9B
+P 9250 4850
+F 0 "#PWR027" H 9250 4600 50  0001 C CNN
+F 1 "GND" H 9255 4677 50  0000 C CNN
+F 2 "" H 9250 4850 50  0001 C CNN
+F 3 "" H 9250 4850 50  0001 C CNN
+	1    9250 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9250 4950 9250 4850
+Wire Wire Line
+	9250 5350 9250 6300
+Entry Wire Line
+	9250 6300 9350 6400
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q20
+U 1 1 5B6B2485
+P 9650 5150
+F 0 "Q20" V 9850 5200 50  0000 L CNN
+F 1 "MMBTA42" V 9850 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 9700 5150 50  0001 C CNN
+F 3 "" H 9700 5150 50  0001 C CNN
+	1    9650 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6B248C
+P 9450 4900
+AR Path="/5B5B1D70/5B3B1181/5B6B248C" Ref="R?"  Part="1" 
+AR Path="/5B6B248C" Ref="R30"  Part="1" 
+F 0 "R30" H 9520 4946 50  0000 L CNN
+F 1 "33k" H 9520 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 9380 4900 50  0001 C CNN
+F 3 "~" H 9450 4900 50  0001 C CNN
+	1    9450 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 5050 9450 5150
+Entry Wire Line
+	9350 4500 9450 4600
+Wire Wire Line
+	9450 4750 9450 4600
+$Comp
+L power:GND #PWR028
+U 1 1 5B6B2496
+P 9750 4850
+F 0 "#PWR028" H 9750 4600 50  0001 C CNN
+F 1 "GND" H 9755 4677 50  0000 C CNN
+F 2 "" H 9750 4850 50  0001 C CNN
+F 3 "" H 9750 4850 50  0001 C CNN
+	1    9750 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9750 4950 9750 4850
+Wire Wire Line
+	9750 5350 9750 6300
+Entry Wire Line
+	9750 6300 9850 6400
+Entry Wire Line
+	1850 4400 1950 4500
+Entry Wire Line
+	1950 4400 2050 4500
+Entry Wire Line
+	2050 4400 2150 4500
+Entry Wire Line
+	2150 4400 2250 4500
+Wire Wire Line
+	1850 3850 1850 4400
+Wire Wire Line
+	1950 3850 1950 4400
+Wire Wire Line
+	2050 3850 2050 4400
+Wire Wire Line
+	2150 3850 2150 4400
+Entry Wire Line
+	3550 4400 3650 4500
+Entry Wire Line
+	3650 4400 3750 4500
+Entry Wire Line
+	3750 4400 3850 4500
+Entry Wire Line
+	3850 4400 3950 4500
+Entry Wire Line
+	3950 4400 4050 4500
+Entry Wire Line
+	4050 4400 4150 4500
+Entry Wire Line
+	4150 4400 4250 4500
+Entry Wire Line
+	4250 4400 4350 4500
+Wire Wire Line
+	3550 3800 3550 4400
+Wire Wire Line
+	3650 4400 3650 3800
+Wire Wire Line
+	3750 4400 3750 3800
+Wire Wire Line
+	3850 4400 3850 3800
+Wire Wire Line
+	3950 4400 3950 3800
+Wire Wire Line
+	4050 4400 4050 3800
+Wire Wire Line
+	4150 4400 4150 3800
+Wire Wire Line
+	4250 4400 4250 3800
+Entry Wire Line
+	5750 4400 5850 4500
+Entry Wire Line
+	5850 4400 5950 4500
+Entry Wire Line
+	5950 4400 6050 4500
+Entry Wire Line
+	6050 4400 6150 4500
+Entry Wire Line
+	6150 4400 6250 4500
+Entry Wire Line
+	6250 4400 6350 4500
+Entry Wire Line
+	6350 4400 6450 4500
+Entry Wire Line
+	6450 4400 6550 4500
+Wire Wire Line
+	5750 3800 5750 4400
+Wire Wire Line
+	5850 4400 5850 3800
+Wire Wire Line
+	5950 4400 5950 3800
+Wire Wire Line
+	6050 4400 6050 3800
+Wire Wire Line
+	6150 4400 6150 3800
+Wire Wire Line
+	6250 4400 6250 3800
+Wire Wire Line
+	6350 4400 6350 3800
+Wire Wire Line
+	6450 4400 6450 3800
+Text Label 4400 4600 0    50   ~ 0
+DRIVE_D0
+Text Label 4950 4600 0    50   ~ 0
+DRIVE_D1
+Text Label 5450 4600 0    50   ~ 0
+DRIVE_D2
+Text Label 5950 4600 0    50   ~ 0
+DRIVE_D3
+Text Label 6450 4600 0    50   ~ 0
+DRIVE_D4
+Text Label 6950 4600 0    50   ~ 0
+DRIVE_D5
+Text Label 7450 4600 0    50   ~ 0
+DRIVE_D6
+Text Label 7950 4600 0    50   ~ 0
+DRIVE_D7
+Text Label 8450 4600 0    50   ~ 0
+DRIVE_D8
+Text Label 8950 4600 0    50   ~ 0
+DRIVE_D9
+Text Label 9450 4600 0    50   ~ 0
+DRIVE_DOT
+Text Label 1850 4400 1    50   ~ 0
+DRIVE_A4
+Text Label 1950 4400 1    50   ~ 0
+DRIVE_D1
+Text Label 2050 4400 1    50   ~ 0
+DRIVE_LED_A3
+Text Label 2150 4400 1    50   ~ 0
+DRIVE_D7
+Entry Wire Line
+	10000 1000 10100 1100
+Entry Wire Line
+	10000 1100 10100 1200
+Entry Wire Line
+	10000 1200 10100 1300
+Entry Wire Line
+	10000 1300 10100 1400
+Entry Wire Line
+	10000 1400 10100 1500
+Entry Wire Line
+	10000 1500 10100 1600
+Text Label 10150 1100 0    50   ~ 0
+D0
+Text Label 10150 1200 0    50   ~ 0
+D1
+Text Label 10150 1300 0    50   ~ 0
+D2
+Text Label 10150 1400 0    50   ~ 0
+D3
+Text Label 10150 1500 0    50   ~ 0
+D4
+Text Label 10150 1600 0    50   ~ 0
+D5
+Text Label 5250 6300 1    50   ~ 0
+D1
+Text Label 4700 6300 1    50   ~ 0
+D0
+Text Label 5750 6300 1    50   ~ 0
+D2
+Text Label 6250 6300 1    50   ~ 0
+D3
+Text Label 6750 6300 1    50   ~ 0
+D4
+Text Label 7250 6300 1    50   ~ 0
+D5
+Connection ~ 3650 2700
+Entry Wire Line
+	10000 1600 10100 1700
+Entry Wire Line
+	10000 1700 10100 1800
+Entry Wire Line
+	10000 1800 10100 1900
+Entry Wire Line
+	10000 1900 10100 2000
+Entry Wire Line
+	10000 2000 10100 2100
+Wire Wire Line
+	10100 1700 10300 1700
+Wire Wire Line
+	10100 1800 10300 1800
+Wire Wire Line
+	10300 1900 10100 1900
+Wire Wire Line
+	10300 2000 10100 2000
+Wire Wire Line
+	10300 2100 10100 2100
+Text Label 10150 1700 0    50   ~ 0
+D6
+Text Label 10150 1800 0    50   ~ 0
+D7
+Text Label 10150 1900 0    50   ~ 0
+D8
+Text Label 10150 2000 0    50   ~ 0
+D9
+Text Label 10150 2100 0    50   ~ 0
+DOT
+Text Label 7750 6300 1    50   ~ 0
+D6
+Text Label 8250 6300 1    50   ~ 0
+D7
+Text Label 8750 6300 1    50   ~ 0
+D8
+Text Label 9250 6300 1    50   ~ 0
+D9
+Text Label 9750 6300 1    50   ~ 0
+DOT
+$Comp
+L funknetzwerkuhr-rescue:ESP-12E-ESP8266-funknetzwerkuhr-rescue U6
+U 1 1 5B6C570B
+P 2250 1150
+F 0 "U6" H 2250 1915 50  0000 C CNN
+F 1 "ESP-12E" H 2250 1824 50  0000 C CNN
+F 2 "ESP8266:ESP-12E_SMD" H 2250 1150 50  0001 C CNN
+F 3 "http://l0l.org.uk/2014/12/esp8266-modules-hardware-guide-gotta-catch-em-all/" H 2250 1150 50  0001 C CNN
+	1    2250 1150
+	1    0    0    -1  
+$EndComp
+Text GLabel 750  2700 0    50   Input ~ 0
+BLANK
+Wire Wire Line
+	1450 2700 1550 2700
+Wire Wire Line
+	1000 2200 1000 2350
+Text GLabel 3150 1150 2    50   Input ~ 0
+BLANK
+Text GLabel 3150 1250 2    50   Input ~ 0
+FLASH
+Text GLabel 1350 850  0    50   Input ~ 0
+RESET
+$Comp
+L Switch:SW_DIP_x01 RST1
+U 1 1 5B6D7257
+P 1750 7100
+F 0 "RST1" H 1750 7367 50  0000 C CNN
+F 1 "SW_DIP_x01" H 1750 7276 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH-12mm" H 1750 7100 50  0001 C CNN
+F 3 "" H 1750 7100 50  0001 C CNN
+	1    1750 7100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_DIP_x01 FLASH1
+U 1 1 5B6D73F6
+P 2850 7100
+F 0 "FLASH1" H 2850 7367 50  0000 C CNN
+F 1 "SW_DIP_x01" H 2850 7276 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH-12mm" H 2850 7100 50  0001 C CNN
+F 3 "" H 2850 7100 50  0001 C CNN
+	1    2850 7100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R31
+U 1 1 5B6D751B
+P 2050 6950
+F 0 "R31" H 2120 6996 50  0000 L CNN
+F 1 "10k" H 2120 6905 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1980 6950 50  0001 C CNN
+F 3 "~" H 2050 6950 50  0001 C CNN
+	1    2050 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R32
+U 1 1 5B6D7600
+P 3150 6950
+F 0 "R32" H 3220 6996 50  0000 L CNN
+F 1 "10k" H 3220 6905 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3080 6950 50  0001 C CNN
+F 3 "~" H 3150 6950 50  0001 C CNN
+	1    3150 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR029
+U 1 1 5B6D7703
+P 1450 7100
+F 0 "#PWR029" H 1450 6850 50  0001 C CNN
+F 1 "GND" H 1455 6927 50  0000 C CNN
+F 2 "" H 1450 7100 50  0001 C CNN
+F 3 "" H 1450 7100 50  0001 C CNN
+	1    1450 7100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR031
+U 1 1 5B6D7F75
+P 2550 7100
+F 0 "#PWR031" H 2550 6850 50  0001 C CNN
+F 1 "GND" H 2555 6927 50  0000 C CNN
+F 2 "" H 2550 7100 50  0001 C CNN
+F 3 "" H 2550 7100 50  0001 C CNN
+	1    2550 7100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR030
+U 1 1 5B6D867B
+P 2050 6800
+F 0 "#PWR030" H 2050 6650 50  0001 C CNN
+F 1 "+3V3" H 2065 6973 50  0000 C CNN
+F 2 "" H 2050 6800 50  0001 C CNN
+F 3 "" H 2050 6800 50  0001 C CNN
+	1    2050 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR032
+U 1 1 5B6D887E
+P 3150 6800
+F 0 "#PWR032" H 3150 6650 50  0001 C CNN
+F 1 "+3V3" H 3165 6973 50  0000 C CNN
+F 2 "" H 3150 6800 50  0001 C CNN
+F 3 "" H 3150 6800 50  0001 C CNN
+	1    3150 6800
+	1    0    0    -1  
+$EndComp
+Text GLabel 2050 7100 3    50   Input ~ 0
+RESET
+Text GLabel 3150 7100 3    50   Input ~ 0
+FLASH
+$Comp
+L Device:R R33
+U 1 1 5B6FD2CF
+P 1300 2700
+F 0 "R33" V 1093 2700 50  0000 C CNN
+F 1 "0R0" V 1184 2700 50  0000 C CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1230 2700 50  0001 C CNN
+F 3 "~" H 1300 2700 50  0001 C CNN
+	1    1300 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1150 2700 1000 2700
+Wire Wire Line
+	1000 2700 750  2700
+Connection ~ 1000 2700
+Text GLabel 1350 1250 0    50   Input ~ 0
+HSPI_CLK
+Text GLabel 1350 1450 0    50   Input ~ 0
+HSPI_MOSI
+Text GLabel 3450 1450 2    50   Input ~ 0
+HSPI_CS
+Text GLabel 6450 3000 1    50   Input ~ 0
+HSPI_MOSI
+Text GLabel 1950 3050 1    50   Input ~ 0
+HSPI_CLK
+Text GLabel 4050 3000 1    50   Input ~ 0
+HSPI_CLK
+Text GLabel 6250 3000 1    50   Input ~ 0
+HSPI_CLK
+Text GLabel 5950 3000 1    50   Input ~ 0
+HSPI_CS
+Text GLabel 3750 3000 1    50   Input ~ 0
+HSPI_CS
+Text GLabel 1650 3050 1    50   Input ~ 0
+HSPI_CS
+$Comp
+L Device:R R37
+U 1 1 5B72DCEB
+P 4150 6850
+F 0 "R37" H 4220 6896 50  0000 L CNN
+F 1 "12k" H 4220 6805 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 4080 6850 50  0001 C CNN
+F 3 "~" H 4150 6850 50  0001 C CNN
+	1    4150 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_PHOTO R38
+U 1 1 5B72E290
+P 4150 7250
+F 0 "R38" H 4220 7296 50  0000 L CNN
+F 1 "R_PHOTO" H 4220 7205 50  0000 L CNN
+F 2 "OptoDevice:R_LDR_4.9x4.2mm_P2.54mm_Vertical" V 4200 7000 50  0001 L CNN
+F 3 "~" H 4150 7200 50  0001 C CNN
+	1    4150 7250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R36
+U 1 1 5B736D51
+P 3800 7250
+F 0 "R36" H 3870 7296 50  0000 L CNN
+F 1 "4k7" H 3870 7205 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3730 7250 50  0001 C CNN
+F 3 "~" H 3800 7250 50  0001 C CNN
+	1    3800 7250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 7400 4000 7400
+$Comp
+L power:GND #PWR038
+U 1 1 5B748462
+P 4000 7400
+F 0 "#PWR038" H 4000 7150 50  0001 C CNN
+F 1 "GND" H 4005 7227 50  0000 C CNN
+F 2 "" H 4000 7400 50  0001 C CNN
+F 3 "" H 4000 7400 50  0001 C CNN
+	1    4000 7400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4000 7400
+Wire Wire Line
+	4000 7400 4150 7400
+$Comp
+L power:+3V3 #PWR039
+U 1 1 5B7484E7
+P 4150 6700
+F 0 "#PWR039" H 4150 6550 50  0001 C CNN
+F 1 "+3V3" H 4165 6873 50  0000 C CNN
+F 2 "" H 4150 6700 50  0001 C CNN
+F 3 "" H 4150 6700 50  0001 C CNN
+	1    4150 6700
+	1    0    0    -1  
+$EndComp
+Text GLabel 4200 7050 2    50   Input ~ 0
+ADC
+Text GLabel 1350 950  0    50   Input ~ 0
+ADC
+$Comp
+L Device:R R35
+U 1 1 5B749011
+P 800 900
+F 0 "R35" H 870 946 50  0000 L CNN
+F 1 "10k" H 870 855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 730 900 50  0001 C CNN
+F 3 "~" H 800 900 50  0001 C CNN
+	1    800  900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR036
+U 1 1 5B75ACC9
+P 800 750
+F 0 "#PWR036" H 800 600 50  0001 C CNN
+F 1 "+3V3" H 815 923 50  0000 C CNN
+F 2 "" H 800 750 50  0001 C CNN
+F 3 "" H 800 750 50  0001 C CNN
+	1    800  750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR037
+U 1 1 5B75ADA2
+P 800 1550
+F 0 "#PWR037" H 800 1400 50  0001 C CNN
+F 1 "+3V3" H 815 1723 50  0000 C CNN
+F 2 "" H 800 1550 50  0001 C CNN
+F 3 "" H 800 1550 50  0001 C CNN
+	1    800  1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R39
+U 1 1 5B63E588
+P 3300 1600
+F 0 "R39" H 3370 1646 50  0000 L CNN
+F 1 "10k" H 3370 1555 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3230 1600 50  0001 C CNN
+F 3 "~" H 3300 1600 50  0001 C CNN
+	1    3300 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 1450 3300 1450
+Wire Wire Line
+	3300 1450 3150 1450
+Connection ~ 3300 1450
+Wire Wire Line
+	3150 1550 3150 1750
+Wire Wire Line
+	3150 1750 3300 1750
+$Comp
+L power:GND #PWR040
+U 1 1 5B663208
+P 3300 1750
+F 0 "#PWR040" H 3300 1500 50  0001 C CNN
+F 1 "GND" H 3305 1577 50  0000 C CNN
+F 2 "" H 3300 1750 50  0001 C CNN
+F 3 "" H 3300 1750 50  0001 C CNN
+	1    3300 1750
+	1    0    0    -1  
+$EndComp
+Connection ~ 3300 1750
+$Comp
+L Connector:Conn_01x04_Male J4
+U 1 1 5B66F399
+P 4400 950
+F 0 "J4" H 4373 923 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 4373 832 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 4400 950 50  0001 C CNN
+F 3 "~" H 4400 950 50  0001 C CNN
+	1    4400 950 
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3150 850  4200 850 
+Wire Wire Line
+	4200 950  3150 950 
+$Comp
+L power:+3V3 #PWR041
+U 1 1 5B6822C7
+P 4200 1050
+F 0 "#PWR041" H 4200 900 50  0001 C CNN
+F 1 "+3V3" V 4200 1300 50  0000 C CNN
+F 2 "" H 4200 1050 50  0001 C CNN
+F 3 "" H 4200 1050 50  0001 C CNN
+	1    4200 1050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR042
+U 1 1 5B68240D
+P 4200 750
+F 0 "#PWR042" H 4200 500 50  0001 C CNN
+F 1 "GND" V 4200 550 50  0000 C CNN
+F 2 "" H 4200 750 50  0001 C CNN
+F 3 "" H 4200 750 50  0001 C CNN
+	1    4200 750 
+	0    1    1    0   
+$EndComp
+Entry Wire Line
+	9900 4500 10000 4600
+Wire Wire Line
+	10000 5050 10000 5150
+Wire Wire Line
+	10000 4750 10000 4600
+$Comp
+L power:GND #PWR043
+U 1 1 5B6C98F5
+P 10300 4850
+F 0 "#PWR043" H 10300 4600 50  0001 C CNN
+F 1 "GND" H 10305 4677 50  0000 C CNN
+F 2 "" H 10300 4850 50  0001 C CNN
+F 3 "" H 10300 4850 50  0001 C CNN
+	1    10300 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10300 4950 10300 4850
+$Sheet
+S 8550 650  1000 1050
+U 5B5B1780
+F0 "hv_psu" 50
+F1 "hv_psu.sch" 50
+F2 "+180V" O L 8550 900 50 
+F3 "+9V" O L 8550 1100 50 
+$EndSheet
+Entry Wire Line
+	10300 6300 10400 6400
+Text Label 10000 4600 0    50   ~ 0
+DRIVE_S1
+Entry Wire Line
+	10450 4500 10550 4600
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q22
+U 1 1 5B7684A7
+P 10750 5150
+F 0 "Q22" V 10950 5200 50  0000 L CNN
+F 1 "MMBTA42" V 10950 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 10800 5150 50  0001 C CNN
+F 3 "" H 10800 5150 50  0001 C CNN
+	1    10750 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B7684AE
+P 10550 4900
+AR Path="/5B5B1D70/5B3B1181/5B7684AE" Ref="R?"  Part="1" 
+AR Path="/5B7684AE" Ref="R41"  Part="1" 
+F 0 "R41" H 10620 4946 50  0000 L CNN
+F 1 "33k" H 10620 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 10480 4900 50  0001 C CNN
+F 3 "~" H 10550 4900 50  0001 C CNN
+	1    10550 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10550 5050 10550 5150
+Wire Wire Line
+	10550 4750 10550 4600
+$Comp
+L power:GND #PWR044
+U 1 1 5B7684B7
+P 10850 4850
+F 0 "#PWR044" H 10850 4600 50  0001 C CNN
+F 1 "GND" H 10855 4677 50  0000 C CNN
+F 2 "" H 10850 4850 50  0001 C CNN
+F 3 "" H 10850 4850 50  0001 C CNN
+	1    10850 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10850 4950 10850 4850
+Wire Wire Line
+	10850 5350 10850 5800
+Entry Wire Line
+	10850 6300 10950 6400
+Text Label 10550 4600 0    50   ~ 0
+DRIVE_S2
+Text Label 3550 4350 1    50   ~ 0
+DRIVE_S1
+Text Label 3650 4350 1    50   ~ 0
+DRIVE_S2
+Text Label 3750 4350 1    50   ~ 0
+DRIVE_A3
+Text Label 3850 4350 1    50   ~ 0
+DRIVE_D9
+Text Label 3950 4350 1    50   ~ 0
+DRIVE_GREEN
+Text Label 4050 4350 1    50   ~ 0
+DRIVE_LED_A2
+Text Label 4150 4350 1    50   ~ 0
+DRIVE_D6
+Text Label 4250 4350 1    50   ~ 0
+DRIVE_A2
+Text Label 5750 4350 1    50   ~ 0
+DRIVE_D4
+Wire Wire Line
+	10300 1600 10100 1600
+Wire Wire Line
+	10100 1500 10300 1500
+Wire Wire Line
+	10100 1400 10300 1400
+Wire Wire Line
+	10100 1300 10300 1300
+Wire Wire Line
+	10100 1200 10300 1200
+Wire Wire Line
+	10300 1100 10100 1100
+Wire Wire Line
+	10300 1000 10100 1000
+Wire Wire Line
+	10300 900  10100 900 
+Wire Wire Line
+	10300 800  10100 800 
+Wire Wire Line
+	10300 700  10100 700 
+Wire Wire Line
+	800  1050 1350 1050
+Wire Wire Line
+	800  1550 1250 1550
+Entry Wire Line
+	10000 2100 10100 2200
+Entry Wire Line
+	10000 2200 10100 2300
+Entry Wire Line
+	10000 2400 10100 2500
+Entry Wire Line
+	10000 2300 10100 2400
+Entry Wire Line
+	10000 2500 10100 2600
+Entry Wire Line
+	10000 2600 10100 2700
+Entry Wire Line
+	10000 2700 10100 2800
+Entry Wire Line
+	10000 2800 10100 2900
+Entry Wire Line
+	10000 2900 10100 3000
+Entry Wire Line
+	10000 3000 10100 3100
+Entry Wire Line
+	10000 3100 10100 3200
+Wire Wire Line
+	10100 2200 10300 2200
+Wire Wire Line
+	10100 2300 10300 2300
+Wire Wire Line
+	10100 2400 10300 2400
+Wire Wire Line
+	10100 2500 10300 2500
+Wire Wire Line
+	10100 2600 10300 2600
+Wire Wire Line
+	10100 2700 10300 2700
+Wire Wire Line
+	10100 2800 10300 2800
+Wire Wire Line
+	10100 2900 10300 2900
+Wire Wire Line
+	10100 3000 10300 3000
+Wire Wire Line
+	10100 3100 10300 3100
+Wire Wire Line
+	10100 3200 10300 3200
+Text Label 10150 2200 0    50   ~ 0
+ANODE_N1
+Text Label 10150 2300 0    50   ~ 0
+CATHODE_N1
+Text Label 10150 2400 0    50   ~ 0
+ANODE_N2
+Text Label 10150 2500 0    50   ~ 0
+CATHODE_N2
+Text Label 10150 2600 0    50   ~ 0
+RED
+Text Label 10100 2700 0    50   ~ 0
+GREEN
+Text Label 10100 2800 0    50   ~ 0
+BLUE
+Text Label 10150 2900 0    50   ~ 0
+DRIVE_LED_A1
+Text Label 10150 3000 0    50   ~ 0
+DRIVE_LED_A2
+Text Label 10150 3100 0    50   ~ 0
+DRIVE_LED_A3
+Text Label 10150 3200 0    50   ~ 0
+DRIVE_LED_A4
+Text Label 10300 6300 1    50   ~ 0
+CATHODE_N1
+$Comp
+L Device:R R42
+U 1 1 5B8610D1
+P 10000 5550
+F 0 "R42" H 10070 5596 50  0000 L CNN
+F 1 "240k" H 10070 5505 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 9930 5550 50  0001 C CNN
+F 3 "~" H 10000 5550 50  0001 C CNN
+	1    10000 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Zener D6
+U 1 1 5B861254
+P 10150 5800
+F 0 "D6" H 10100 5700 50  0000 C CNN
+F 1 "1N4763A 91V" V 10350 5850 50  0000 C CNN
+F 2 "Diode_SMD:D_MiniMELF_Handsoldering" H 10150 5800 50  0001 C CNN
+F 3 "~" H 10150 5800 50  0001 C CNN
+	1    10150 5800
+	1    0    0    -1  
+$EndComp
+Entry Wire Line
+	10000 6300 10100 6400
+Wire Wire Line
+	10000 6300 10000 5800
+Connection ~ 10000 5800
+Wire Wire Line
+	10000 5800 10000 5700
+Connection ~ 10300 5800
+Wire Wire Line
+	10300 5800 10300 6300
+Wire Wire Line
+	10300 5350 10300 5800
+Text Label 10000 6300 1    50   ~ 0
+ANODE_N1
+$Comp
+L Device:R R43
+U 1 1 5B86D5CA
+P 10550 5550
+F 0 "R43" H 10620 5596 50  0000 L CNN
+F 1 "240k" H 10620 5505 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 10480 5550 50  0001 C CNN
+F 3 "~" H 10550 5550 50  0001 C CNN
+	1    10550 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Zener D7
+U 1 1 5B86D5D1
+P 10700 5800
+F 0 "D7" H 10650 5700 50  0000 C CNN
+F 1 "1N4763A 91V" V 10900 5850 50  0000 C CNN
+F 2 "Diode_SMD:D_MiniMELF_Handsoldering" H 10700 5800 50  0001 C CNN
+F 3 "~" H 10700 5800 50  0001 C CNN
+	1    10700 5800
+	1    0    0    -1  
+$EndComp
+Entry Wire Line
+	10550 6300 10650 6400
+Wire Wire Line
+	10550 6300 10550 5800
+Connection ~ 10550 5800
+Wire Wire Line
+	10550 5800 10550 5700
+Text Label 10550 6300 1    50   ~ 0
+ANODE_N2
+Connection ~ 10850 5800
+Wire Wire Line
+	10850 5800 10850 6300
+Text Label 10850 6300 1    50   ~ 0
+CATHODE_N2
+Wire Wire Line
+	10000 5400 10550 5400
+Text GLabel 1150 4700 0    50   Input ~ 0
+180V
+Text GLabel 10600 5400 2    50   Input ~ 0
+180v
+Wire Wire Line
+	10600 5400 10550 5400
+Connection ~ 10550 5400
+Text GLabel 7400 900  0    50   Input ~ 0
+180V
+Text Label 10050 5400 0    50   ~ 0
+180V
+Entry Wire Line
+	7750 4400 7850 4500
+Entry Wire Line
+	8250 4400 8350 4500
+Entry Wire Line
+	8750 4400 8850 4500
+$Comp
+L Device:R R?
+U 1 1 5B89825D
+P 7750 3700
+AR Path="/5B5B1D70/5B3B1181/5B89825D" Ref="R?"  Part="1" 
+AR Path="/5B89825D" Ref="R44"  Part="1" 
+F 0 "R44" H 7820 3746 50  0000 L CNN
+F 1 "68R" H 7820 3655 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 7680 3700 50  0001 C CNN
+F 3 "~" H 7750 3700 50  0001 C CNN
+	1    7750 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B898423
+P 8250 3700
+AR Path="/5B5B1D70/5B3B1181/5B898423" Ref="R?"  Part="1" 
+AR Path="/5B898423" Ref="R45"  Part="1" 
+F 0 "R45" H 8320 3746 50  0000 L CNN
+F 1 "15R" H 8320 3655 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8180 3700 50  0001 C CNN
+F 3 "~" H 8250 3700 50  0001 C CNN
+	1    8250 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B8985C4
+P 8750 3700
+AR Path="/5B5B1D70/5B3B1181/5B8985C4" Ref="R?"  Part="1" 
+AR Path="/5B8985C4" Ref="R46"  Part="1" 
+F 0 "R46" H 8820 3746 50  0000 L CNN
+F 1 "15R" H 8820 3655 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 8680 3700 50  0001 C CNN
+F 3 "~" H 8750 3700 50  0001 C CNN
+	1    8750 3700
+	1    0    0    -1  
+$EndComp
+Text Label 5850 4350 1    50   ~ 0
+DRIVE_DOT
+Text Label 5950 4350 1    50   ~ 0
+DRIVE_D0
+Text Label 6050 4350 1    50   ~ 0
+DRIVE_D8
+Text Label 6150 4350 1    50   ~ 0
+DRIVE_LED_A1
+Text Label 6250 4350 1    50   ~ 0
+DRIVE_RED
+Text Label 6350 4350 1    50   ~ 0
+DRIVE_D5
+Text Label 6450 4350 1    50   ~ 0
+DRIVE_A1
+Wire Wire Line
+	7750 4400 7750 3850
+Wire Wire Line
+	8250 4400 8250 3850
+Wire Wire Line
+	8750 4400 8750 3850
+Text Label 7750 4350 1    50   ~ 0
+DRIVE_RED
+Text Label 8250 4350 1    50   ~ 0
+DRIVE_GREEN
+Text Label 8750 4350 1    50   ~ 0
+DRIVE_BLUE
+Connection ~ 10000 2850
+Entry Wire Line
+	7650 2850 7750 2950
+Entry Wire Line
+	8150 2850 8250 2950
+Entry Wire Line
+	8650 2850 8750 2950
+Wire Wire Line
+	7750 3550 7750 2950
+Wire Wire Line
+	8250 2950 8250 3550
+Wire Wire Line
+	8750 2950 8750 3550
+Text Label 7750 3400 1    50   ~ 0
+RED
+Text Label 8250 3400 1    50   ~ 0
+GREEN
+Text Label 8750 3400 1    50   ~ 0
+BLUE
+$Comp
+L Device:C C1
+U 1 1 5B68474F
+P 1250 1700
+F 0 "C1" H 1365 1746 50  0000 L CNN
+F 1 "100n" H 1365 1655 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1288 1550 50  0001 C CNN
+F 3 "~" H 1250 1700 50  0001 C CNN
+	1    1250 1700
+	1    0    0    -1  
+$EndComp
+Connection ~ 1250 1550
+Wire Wire Line
+	1250 1550 1350 1550
+$Comp
+L power:GND #PWR045
+U 1 1 5B684C1F
+P 1250 1850
+F 0 "#PWR045" H 1250 1600 50  0001 C CNN
+F 1 "GND" H 1255 1677 50  0000 C CNN
+F 2 "" H 1250 1850 50  0001 C CNN
+F 3 "" H 1250 1850 50  0001 C CNN
+	1    1250 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C8
+U 1 1 5B691EE7
+P 2400 3650
+F 0 "C8" H 2515 3696 50  0000 L CNN
+F 1 "100n" H 2515 3605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2438 3500 50  0001 C CNN
+F 3 "~" H 2400 3650 50  0001 C CNN
+	1    2400 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR046
+U 1 1 5B691EEE
+P 2400 3800
+F 0 "#PWR046" H 2400 3550 50  0001 C CNN
+F 1 "GND" H 2405 3627 50  0000 C CNN
+F 2 "" H 2400 3800 50  0001 C CNN
+F 3 "" H 2400 3800 50  0001 C CNN
+	1    2400 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 3500 2400 3450
+Connection ~ 2400 3450
+$Comp
+L Device:C C9
+U 1 1 5B6AAD26
+P 4500 3600
+F 0 "C9" H 4615 3646 50  0000 L CNN
+F 1 "100n" H 4615 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4538 3450 50  0001 C CNN
+F 3 "~" H 4500 3600 50  0001 C CNN
+	1    4500 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR047
+U 1 1 5B6AAD2D
+P 4500 3750
+F 0 "#PWR047" H 4500 3500 50  0001 C CNN
+F 1 "GND" H 4505 3577 50  0000 C CNN
+F 2 "" H 4500 3750 50  0001 C CNN
+F 3 "" H 4500 3750 50  0001 C CNN
+	1    4500 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 3450 4500 3400
+Connection ~ 4500 3400
+$Comp
+L Device:C C10
+U 1 1 5B6C4313
+P 6700 3600
+F 0 "C10" H 6815 3646 50  0000 L CNN
+F 1 "100n" H 6815 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 6738 3450 50  0001 C CNN
+F 3 "~" H 6700 3600 50  0001 C CNN
+	1    6700 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR048
+U 1 1 5B6C431A
+P 6700 3750
+F 0 "#PWR048" H 6700 3500 50  0001 C CNN
+F 1 "GND" H 6705 3577 50  0000 C CNN
+F 2 "" H 6700 3750 50  0001 C CNN
+F 3 "" H 6700 3750 50  0001 C CNN
+	1    6700 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3450 6700 3400
+Connection ~ 6700 3400
+$Comp
+L Device:CP C12
+U 1 1 5B6D89E2
+P 6900 1100
+F 0 "C12" H 7018 1146 50  0000 L CNN
+F 1 "22uF" H 7018 1055 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 6938 950 50  0001 C CNN
+F 3 "~" H 6900 1100 50  0001 C CNN
+	1    6900 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 950  6900 900 
+Connection ~ 6900 950 
+Connection ~ 6500 1250
+Wire Wire Line
+	6050 1250 6500 1250
+Text Label 2850 2700 0    50   ~ 0
+~OE
+$Comp
+L 74xx:74HC595 U2
+U 1 1 5B5B3A0B
+P 3850 3400
+F 0 "U2" V 3804 4041 50  0000 L CNN
+F 1 "74HC595" V 3895 4041 50  0000 L CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 3850 3400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 3850 3400 50  0001 C CNN
+	1    3850 3400
+	0    1    1    0   
+$EndComp
+Text Label 2300 2900 0    50   ~ 0
+SERIAL_U3
+Text Label 4400 2900 0    50   ~ 0
+SERIAL_U2
+$Comp
+L Device:R R47
+U 1 1 5B99E4A8
+P 1850 2500
+F 0 "R47" H 1920 2546 50  0000 L CNN
+F 1 "10k" H 1920 2455 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 1780 2500 50  0001 C CNN
+F 3 "~" H 1850 2500 50  0001 C CNN
+	1    1850 2500
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R48
+U 1 1 5B99E6C8
+P 3950 2500
+F 0 "R48" H 4020 2546 50  0000 L CNN
+F 1 "10k" H 4020 2455 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 3880 2500 50  0001 C CNN
+F 3 "~" H 3950 2500 50  0001 C CNN
+	1    3950 2500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3950 3000 3950 2650
+Wire Wire Line
+	1850 3050 1850 2650
+$Comp
+L Device:R R49
+U 1 1 5B9C83BF
+P 6150 2850
+F 0 "R49" H 6220 2896 50  0000 L CNN
+F 1 "10k" H 6220 2805 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 6080 2850 50  0001 C CNN
+F 3 "~" H 6150 2850 50  0001 C CNN
+	1    6150 2850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+3V3 #PWR035
+U 1 1 5B9C84B3
+P 6150 2700
+F 0 "#PWR035" H 6150 2550 50  0001 C CNN
+F 1 "+3V3" H 6165 2873 50  0000 C CNN
+F 2 "" H 6150 2700 50  0001 C CNN
+F 3 "" H 6150 2700 50  0001 C CNN
+	1    6150 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR034
+U 1 1 5B9C8564
+P 3950 2350
+F 0 "#PWR034" H 3950 2200 50  0001 C CNN
+F 1 "+3V3" H 3965 2523 50  0000 C CNN
+F 2 "" H 3950 2350 50  0001 C CNN
+F 3 "" H 3950 2350 50  0001 C CNN
+	1    3950 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR033
+U 1 1 5B9C895D
+P 1850 2350
+F 0 "#PWR033" H 1850 2200 50  0001 C CNN
+F 1 "+3V3" H 1865 2523 50  0000 C CNN
+F 2 "" H 1850 2350 50  0001 C CNN
+F 3 "" H 1850 2350 50  0001 C CNN
+	1    1850 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 900  8550 900 
+Wire Wire Line
+	6500 1250 6900 1250
+Wire Wire Line
+	4200 7050 4150 7050
+Wire Wire Line
+	3800 7050 3800 7100
+Wire Wire Line
+	4150 7000 4150 7050
+Connection ~ 4150 7050
+Wire Wire Line
+	4150 7050 3800 7050
+Wire Wire Line
+	4150 7050 4150 7100
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q21
+U 1 1 5B6C98E5
+P 10200 5150
+F 0 "Q21" V 10400 5200 50  0000 L CNN
+F 1 "MMBTA42" V 10400 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 10250 5150 50  0001 C CNN
+F 3 "" H 10250 5150 50  0001 C CNN
+	1    10200 5150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B6C98EC
+P 10000 4900
+AR Path="/5B5B1D70/5B3B1181/5B6C98EC" Ref="R?"  Part="1" 
+AR Path="/5B6C98EC" Ref="R40"  Part="1" 
+F 0 "R40" H 10070 4946 50  0000 L CNN
+F 1 "33k" H 10070 4855 50  0000 L CNN
+F 2 "PartsStash:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder_Value" V 9930 4900 50  0001 C CNN
+F 3 "~" H 10000 4900 50  0001 C CNN
+	1    10000 4900
+	-1   0    0    1   
+$EndComp
+$Comp
+L funknetzwerkuhr-rescue:MMBTA42-Parts_Stash-funknetzwerkuhr-rescue Q13
+U 1 1 5B692F19
+P 6150 5150
+F 0 "Q13" V 6350 5200 50  0000 L CNN
+F 1 "MMBTA42" V 6350 4800 50  0000 L CNN
+F 2 "PartsStash:MPSA42-TSOT-23_HandSoldering" H 6200 5150 50  0001 C CNN
+F 3 "" H 6200 5150 50  0001 C CNN
+	1    6150 5150
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6000 950  6200 950 
+Text Notes 5000 1200 0    50   ~ 0
+Electrolitic capacitor \nis already covered by 220uF\n cap on input of 180v regulator
+Text Label 3250 850  0    50   ~ 0
+TXD
+Text Label 3250 950  0    50   ~ 0
+RXD
+$Comp
+L Connector:Conn_01x04_Male J2
+U 1 1 5CE3FFDC
+P 4500 1500
+F 0 "J2" H 4473 1473 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 4473 1382 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4500 1500 50  0001 C CNN
+F 3 "~" H 4500 1500 50  0001 C CNN
+	1    4500 1500
+	-1   0    0    1   
+$EndComp
+Text GLabel 4300 1300 0    50   Input ~ 0
+HSPI_CS
+Text GLabel 4300 1400 0    50   Input ~ 0
+HSPI_CLK
+Text GLabel 4300 1500 0    50   Input ~ 0
+HSPI_MOSI
+$Comp
+L power:GND #PWR049
+U 1 1 5CE41997
+P 4300 1600
+F 0 "#PWR049" H 4300 1350 50  0001 C CNN
+F 1 "GND" V 4300 1400 50  0000 C CNN
+F 2 "" H 4300 1600 50  0001 C CNN
+F 3 "" H 4300 1600 50  0001 C CNN
+	1    4300 1600
+	0    1    1    0   
+$EndComp
+Wire Bus Line
+	7650 2850 10000 2850
+Wire Bus Line
+	10000 2850 10000 3400
+Wire Bus Line
+	10000 600  10000 2850
+Wire Bus Line
+	750  6400 11150 6400
+Wire Bus Line
+	700  4500 11150 4500
+$EndSCHEMATC

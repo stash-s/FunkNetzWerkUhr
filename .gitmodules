@@ -1,0 +1,3 @@
+[submodule "funknetzwerkuhr/lib/ezTime"]
+	path = funknetzwerkuhr/lib/ezTime
+	url = git@github.com:stash-s/ezTime.git
