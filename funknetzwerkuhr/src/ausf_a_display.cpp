@@ -86,16 +86,6 @@ void ausf_a_tick(/* arguments */) {
     static int seconds_counter = 0;
     static int pwm_counter = 0;
 
-    static int filament_clock = 0;
-    static int filament_state = 0;
-
-    if (++filament_clock >= filament_timer_divider) {
-        filament_clock = 0;
-
-        filament_state = filament_state ? 0 : 1;
-        digitalWrite(FILAMENT_PIN, filament_state);
-    }
-
     ++pwm_counter;
     if (pwm_counter >= PWM_MAX) {
         pwm_counter = 0;
@@ -191,4 +181,20 @@ void AusfADisplay::setColor(uint8_t red, uint8_t green, uint8_t blue,
             spins -= 1;
         }
     }
+}
+
+void AusfADisplay::handle() { 
+    Display::handle();
+
+    static auto last_clock = millis();
+    static int filament_state = 0;
+    auto now = millis();
+
+    if (now - last_clock >= 10) {
+        last_clock = now;
+
+        filament_state = filament_state ? 0 : 1;
+        digitalWrite(FILAMENT_PIN, filament_state);
+    }
+
 }

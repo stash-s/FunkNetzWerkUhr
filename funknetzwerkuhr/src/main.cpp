@@ -33,7 +33,7 @@ void setup() {
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, LOW);
 
-    // wifiManager.resetSettings();
+    wifiManager.resetSettings();
     Serial.begin(9600);
 
     display->init();
@@ -54,13 +54,13 @@ void setup() {
     });
 #endif
     lightSensor.handle();
-    
+
     wifiManager.setAPCallback(
         [](WiFiManager *mgr) { display->setColor(0, 0, 255, false); });
     wifiManager.setConfigPortalTimeout(180);
 
     Serial.println("connecting...");
-    if (wifiManager.autoConnect("AutoconnectAP")) {
+    if (wifiManager.autoConnect("zegar")) {
         Serial.println("connected ... yay!");
     } else {
         Serial.println("connection failed, rebooting");
@@ -132,4 +132,6 @@ void loop() {
     display->setDigit(3, poland.minute() % 10);
 
     ArduinoOTA.handle();
+
+    display->handle();
 }

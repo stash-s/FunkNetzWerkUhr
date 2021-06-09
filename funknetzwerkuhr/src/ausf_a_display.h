@@ -26,7 +26,9 @@ public:
 
     virtual void setBrightness (uint8_t brightness);
 
-private:
+    virtual void handle();
+
+  private:
 
     static bool    _animate;
     static uint8_t _digits[MAX_DIGITS];
