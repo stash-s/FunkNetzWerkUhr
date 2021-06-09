@@ -3,7 +3,7 @@
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266WiFi.h>
-#include <NTPClient.h>
+#include <ezTime.h>
 #include <SPI.h>
 #include <WiFiManager.h>
 
@@ -16,10 +16,6 @@
 #include "max_display.h"
 #endif
 
-WiFiUDP ntpUDP;
-
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 1 * 3600, 236 * 1000);
-
 int position = 0;
 
 WiFiManager wifiManager;
@@ -29,6 +25,7 @@ Display *display = new MaxDisplay();
 Display *display = new AusfADisplay();
 #endif
 
+Timezone poland;
 LightSensor lightSensor;
 
 void setup() {
@@ -71,10 +68,20 @@ void setup() {
     }
     display->setColor(0, 255, 0, false);
 
-    timeClient.onStartUpdate([]() { display->setColor(0, 255, 0, false); });
-    timeClient.onEndUpdate([]() { display->setColor(0, 128, 128, true); });
+    if (!poland.setCache(0)) {
+        poland.setLocation("Europe/Warsaw");
+    }
 
-    timeClient.begin();
+    ezt::onNtpUpdateStart([]() {
+        Serial.println("NTP Update started ....");
+        display->setColor(0, 255, 0, false);
+    });
+    ezt::onNtpUpdateEnd([](bool result) {
+        Serial.println("NTP update finished.");
+        display->setColor(0, 128, 128, true);
+    });
+
+    ezt::waitForSync();
 
     ArduinoOTA.onStart([]() {
         String type;
@@ -118,31 +125,11 @@ void loop() {
     // put your main code here, to run repeatedly:
     lightSensor.handle();
 
-    static int ntpFailCount = 0;
-
-    if (timeClient.update()) {
-        // Serial.println ("time client update succesful");
-
-        ntpFailCount = 0;
-        // Serial.println (timeClient.getFormattedTime());
-
-        display->setDigit(0, timeClient.getHours() / 10);
-        display->setDigit(1, timeClient.getHours() % 10);
-        display->setDigit(2, timeClient.getMinutes() / 10);
-        display->setDigit(3, timeClient.getMinutes() % 10);
-
-    } else {
-        Serial.println("failed ntp update");
-
-        ++ntpFailCount;
-
-        if (ntpFailCount > 5) {
-            Serial.println("Number of failures exceeded limit, rebooting");
-            Serial.println(
-                "2nd time Number of failures exceeded limit, rebooting");
-            ESP.restart();
-        }
-    }
+    ezt::events();
+    display->setDigit(0, poland.hour() / 10);
+    display->setDigit(1, poland.hour() % 10);
+    display->setDigit(2, poland.minute() / 10);
+    display->setDigit(3, poland.minute() % 10);
 
     ArduinoOTA.handle();
 }

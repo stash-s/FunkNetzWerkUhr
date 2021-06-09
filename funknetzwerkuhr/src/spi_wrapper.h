@@ -5,17 +5,17 @@
 
 namespace SpiWrapper {
 
-    ICACHE_RAM_ATTR
+    IRAM_ATTR
     inline void setDataBits(uint16_t bits) {
         const uint32_t mask = ~((SPIMMOSI << SPILMOSI) | (SPIMMISO << SPILMISO));
         bits--;
         SPI1U1 = ((SPI1U1 & mask) | ((bits << SPILMOSI) | (bits << SPILMISO)));
     }
 
-    ICACHE_FLASH_ATTR
+ 
     void init(uint16_t dataBits);
 
-    ICACHE_RAM_ATTR
+    IRAM_ATTR
     inline void transmit (uint32_t payload, uint16_t dataBits) {
         while(SPI1CMD & SPIBUSY) {}
 

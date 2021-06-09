@@ -2,7 +2,6 @@
 
 #include <SPI.h>
 
-ICACHE_FLASH_ATTR
 void SpiWrapper::init (uint16_t dataBits) {
     SPI.begin ();
     SPI.setDataMode(SPI_MODE0);

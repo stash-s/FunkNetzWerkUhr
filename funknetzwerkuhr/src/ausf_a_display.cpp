@@ -14,10 +14,10 @@ uint8_t AusfADisplay::_digits[MAX_DIGITS];
 uint8_t AusfADisplay::_pwm = PWM_INIT;
 uint8_t AusfADisplay::_slot_effect[MAX_DIGITS] = {0, 0, 0, 0};
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 static int display_timer_divider = 0;
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 static int filament_timer_divider = 0;
 
 uint32_t lcd_mux[] = {0x400, 0x800, 0x200, 0x100};
@@ -37,7 +37,7 @@ static uint32_t lcd_seg_mask[] = {
 
 static uint32_t lcd_dot_mask[] = {0x0000, 0x0001};
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 inline void setDataBits(uint16_t bits) {
     const uint32_t mask = ~((SPIMMOSI << SPILMOSI) | (SPIMMISO << SPILMISO));
     bits--;
@@ -48,7 +48,7 @@ AusfADisplay::AusfADisplay() {}
 
 void AusfADisplay::setBrightness(uint8_t brightness) { _pwm = brightness; }
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 uint8_t ausf_a_get_digit(unsigned int digit) {
 
     static uint8_t slot_number[] = {4, 2, 6, 9};
@@ -80,7 +80,7 @@ uint8_t ausf_a_get_digit(unsigned int digit) {
     }
 }
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 void ausf_a_tick(/* arguments */) {
     static int current_digit = 0;
     static int seconds_counter = 0;
@@ -131,7 +131,7 @@ void ausf_a_tick(/* arguments */) {
     }
 }
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 static void isr_call() {
 
     ausf_a_tick();

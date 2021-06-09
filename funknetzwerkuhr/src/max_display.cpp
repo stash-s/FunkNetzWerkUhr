@@ -19,7 +19,7 @@ uint8_t MaxDisplay::_slot_effect[MAX_DIGITS] = {0, 0, 0, 0};
 
 static int display_timer_divider = 0;
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 inline void setDataBits(uint16_t bits) {
     const uint32_t mask = ~((SPIMMOSI << SPILMOSI) | (SPIMMISO << SPILMISO));
     bits--;
@@ -116,7 +116,7 @@ MaxDisplay::MaxDisplay() {}
 
 void MaxDisplay::setBrightness(uint8_t brightness) { _pwm = brightness; }
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 uint8_t get_digit(unsigned int digit) {
 
     static uint8_t slot_number[] = {4, 2, 6, 9};
@@ -148,7 +148,7 @@ uint8_t get_digit(unsigned int digit) {
     }
 }
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 void tick(/* arguments */) {
     static int current_digit = 0;
     static int seconds_counter = 0;
@@ -210,7 +210,7 @@ void tick(/* arguments */) {
     }
 }
 
-ICACHE_RAM_ATTR
+IRAM_ATTR
 static void isr_call() {
 
     tick();
