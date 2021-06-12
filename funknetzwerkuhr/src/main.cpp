@@ -1,14 +1,16 @@
 #include <Arduino.h>
 #include <ArduinoOTA.h>
 #include <DNSServer.h>
-#include <ESP8266WebServer.h>
 #include <ESP8266WiFi.h>
 #include <ezTime.h>
 #include <SPI.h>
-#include <WiFiManager.h>
+
+#include <ESPAsyncWebServer.h> //Local WebServer used to serve the configuration portal
+#include <ESPAsyncWiFiManager.h> //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 
 #include "clock_config.h"
 #include "light_sensor.h"
+#include "delay.hpp"
 
 #ifdef AUSF_A
 #include "ausf_a_display.h"
@@ -18,7 +20,11 @@
 
 int position = 0;
 
-WiFiManager wifiManager;
+AsyncWebServer server(80);
+DNSServer dns;
+
+Delay delayer;
+
 #if defined(AUSF_B) || defined(AUSF_C)
 Display *display = new MaxDisplay();
 #elif defined(AUSF_A)
@@ -28,12 +34,17 @@ Display *display = new AusfADisplay();
 Timezone poland;
 LightSensor lightSensor;
 
+void deviceReset() {
+    delay(3000);
+    ESP.reset();
+    delay(5000);
+}
+
 void setup() {
     // put your setup code here, to run once:
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, LOW);
 
-    wifiManager.resetSettings();
     Serial.begin(9600);
 
     display->init();
@@ -55,17 +66,37 @@ void setup() {
 #endif
     lightSensor.handle();
 
-    wifiManager.setAPCallback(
-        [](WiFiManager *mgr) { display->setColor(0, 0, 255, false); });
+    AsyncWiFiManager wifiManager(&server, &dns);
+
+    WiFi.persistent(true);
+
+    //wifiManager.setDebugOutput(true);
+    // wifiManager.setConnectTimeout(10);
     wifiManager.setConfigPortalTimeout(180);
+    wifiManager.setSaveConfigCallback([]() {
+        Serial.println("connection successful (ap connection saved)");
+    });
+
+    wifiManager.setAPCallback(
+        [](AsyncWiFiManager *mgr) { display->setColor(0, 0, 255, false); });
+
+    // exit after config instead of connecting
+    wifiManager.setBreakAfterConfig(true);
 
     Serial.println("connecting...");
-    if (wifiManager.autoConnect("zegar")) {
-        Serial.println("connected ... yay!");
-    } else {
-        Serial.println("connection failed, rebooting");
-        ESP.restart();
+    // tries to connect to last known settings
+    // if it does not connect it starts an access point with the specified name
+    // here  "AutoConnectAP" with password "password"
+    // and goes into a blocking loop awaiting configuration
+    if (!wifiManager.autoConnect("funknetzwerkuhr")) {
+        Serial.println(
+            "failed to connect, we should reset as see if it connects");
+        delay(3000);
+        ESP.reset();
+        delay(5000);
     }
+
+    Serial.println("connected ... yay!");
     display->setColor(0, 255, 0, false);
 
     if (!poland.setCache(0)) {
@@ -118,6 +149,47 @@ void setup() {
     });
     ArduinoOTA.begin();
 
+    server.reset();
+
+    server.on("/", [](AsyncWebServerRequest *request) {
+        Serial.println("/ requested");
+        request->send(200, "text/plain", "root - success");
+    });
+
+    server.on("/reset-wifi", [&](AsyncWebServerRequest *request) {
+        Serial.println("requested a reset");
+        request->send(200, "text/plain", "wifi reset - success");
+
+        Serial.println("rebooting");
+        delayer.delay([]() {
+            WiFi.persistent(true);
+            WiFi.disconnect();
+            Serial.println("rebooting now");
+            ESP.restart();
+        });
+    });
+
+    server.on("/restart", [&](AsyncWebServerRequest *request) {
+        Serial.println("reboot requested");
+        request->send(200, "text/plain", "reboot - success");
+        delayer.delay([]() {
+            Serial.println("restarting now");
+            ESP.restart();
+        });
+    });
+
+    server.on("/reset", [&](AsyncWebServerRequest *request) {
+        Serial.println("reboot requested");
+        request->send(200, "text/plain", "reset - success");
+        delayer.delay([]() {
+            Serial.println("resetting now");
+            ESP.reset();
+        });
+    });
+
+    server.begin();
+
+
     digitalWrite(LED_BUILTIN, HIGH);
 }
 
@@ -134,4 +206,8 @@ void loop() {
     ArduinoOTA.handle();
 
     display->handle();
+
+    delayer.handle();
+
+    //server->handleClient();
 }
