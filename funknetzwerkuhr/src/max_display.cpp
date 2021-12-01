@@ -175,7 +175,7 @@ void tick(/* arguments */) {
         seconds_counter = 0;
         dots_state = dots_state ? 0 : 1;
         if (dots_state && MaxDisplay::_pulse_colors) {
-            MaxDisplay::_red += 7;
+            MaxDisplay::_red += 1;
             MaxDisplay::_blue += 5;
             MaxDisplay::_green += 3;
         }
