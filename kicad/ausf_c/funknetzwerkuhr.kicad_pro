@@ -433,6 +433,19 @@
     "subpart_first_id": 65,
     "subpart_id_separator": 0
   },
-  "sheets": [],
+  "sheets": [
+    [
+      "7afa54c4-2181-41d3-81f7-39efc497ecae",
+      ""
+    ],
+    [
+      "00000000-0000-0000-0000-00005b5b1d70",
+      "front_panel"
+    ],
+    [
+      "00000000-0000-0000-0000-00005b5b1780",
+      "hv_psu"
+    ]
+  ],
   "text_variables": {}
 }

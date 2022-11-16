@@ -40,7 +40,9 @@ public:
 
     virtual void setBrightness (uint8_t brightness);
 
-private:
+    virtual void setDot(bool on);
+
+  private:
 
     static bool    _pulse_colors;
     static uint8_t _red;
@@ -48,6 +50,7 @@ private:
     static uint8_t _blue;
     static uint8_t _digits[MAX_DIGITS];
     static uint8_t _slot_effect[MAX_DIGITS];
+    static int dots_state;
 
     static uint8_t _pwm;
 

@@ -22,6 +22,7 @@ int position = 0;
 
 AsyncWebServer server(80);
 DNSServer dns;
+AsyncWiFiManager wifiManager(&server, &dns);
 
 Delay delayer;
 
@@ -33,12 +34,6 @@ Display *display = new AusfADisplay();
 
 Timezone poland;
 LightSensor lightSensor;
-
-void deviceReset() {
-    delay(3000);
-    ESP.reset();
-    delay(5000);
-}
 
 void setup() {
     // put your setup code here, to run once:
@@ -66,7 +61,6 @@ void setup() {
 #endif
     lightSensor.handle();
 
-    AsyncWiFiManager wifiManager(&server, &dns);
 
     WiFi.persistent(true);
 
@@ -153,20 +147,22 @@ void setup() {
 
     server.on("/", [](AsyncWebServerRequest *request) {
         Serial.println("/ requested");
-        request->send(200, "text/plain", "root - success");
-    });
+        AsyncResponseStream *response =
+            request->beginResponseStream("text/plain");
 
-    server.on("/reset-wifi", [&](AsyncWebServerRequest *request) {
-        Serial.println("requested a reset");
-        request->send(200, "text/plain", "wifi reset - success");
+        response->addHeader("Server", "ESP Async Web Server");
+        response->printf("current time: %02d:%02d:%02d\n", poland.hour(),
+                         poland.minute(), poland.second());
+        response->printf("uptime: %lds\n", millis()/1000);
 
-        Serial.println("rebooting");
-        delayer.delay([]() {
-            WiFi.persistent(true);
-            WiFi.disconnect();
-            Serial.println("rebooting now");
-            ESP.restart();
-        });
+        uint32_t hfree;
+        uint16_t hmax;
+        uint8_t hfrag;
+        ESP.getHeapStats(&hfree, &hmax, &hfrag);
+        response->printf("heap stats: free=%d, max=%d, frag=%d\n", hfree, hmax,
+                         hfrag);
+
+        request->send(response);
     });
 
     server.on("/restart", [&](AsyncWebServerRequest *request) {
@@ -182,13 +178,13 @@ void setup() {
         Serial.println("reboot requested");
         request->send(200, "text/plain", "reset - success");
         delayer.delay([]() {
+            wifiManager.resetSettings();
             Serial.println("resetting now");
             ESP.reset();
         });
     });
 
     server.begin();
-
 
     digitalWrite(LED_BUILTIN, HIGH);
 }
@@ -202,6 +198,7 @@ void loop() {
     display->setDigit(1, poland.hour() % 10);
     display->setDigit(2, poland.minute() / 10);
     display->setDigit(3, poland.minute() % 10);
+    display->setDot(poland.ms() < 500);
 
     ArduinoOTA.handle();
 

@@ -12,6 +12,8 @@ class Display {
         virtual void setColor (uint8_t red, uint8_t green, uint8_t blue, bool pulse=true);
         virtual void setBrightness (uint8_t brightness)=0;
 
+        virtual void setDot(bool on);
+
         virtual void handle();
 };
 

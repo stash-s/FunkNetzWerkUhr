@@ -7,3 +7,7 @@ void Display::setColor (uint8_t, uint8_t, uint8_t, bool) {
 void Display::handle () {
 
 }
+
+void Display::setDot (bool on) {
+
+}

@@ -17,6 +17,8 @@ uint8_t MaxDisplay::_digits[MAX_DIGITS];
 uint8_t MaxDisplay::_pwm = PWM_INIT;
 uint8_t MaxDisplay::_slot_effect[MAX_DIGITS] = {0, 0, 0, 0};
 
+int MaxDisplay::dots_state = 0;
+
 static int display_timer_divider = 0;
 
 IRAM_ATTR
@@ -151,7 +153,6 @@ uint8_t get_digit(unsigned int digit) {
 IRAM_ATTR
 void tick(/* arguments */) {
     static int current_digit = 0;
-    static int seconds_counter = 0;
     static int pwm_counter = 0;
     static uint8_t color_counter = 0;
 
@@ -167,19 +168,6 @@ void tick(/* arguments */) {
         }
     }
 
-    // MaxDisplay::payload_t anodes=0;
-
-    static int dots_state = 0;
-    ++seconds_counter;
-    if (seconds_counter >= (display_timer_divider * 16 * 16)) {
-        seconds_counter = 0;
-        dots_state = dots_state ? 0 : 1;
-        if (dots_state && MaxDisplay::_pulse_colors) {
-            MaxDisplay::_red += 1;
-            MaxDisplay::_blue += 5;
-            MaxDisplay::_green += 3;
-        }
-    }
 
     uint32_t color_mask = RGB_MASK;
     uint32_t number_mask = number_mux_map[get_digit(current_digit)];
@@ -205,8 +193,8 @@ void tick(/* arguments */) {
         color_mask |= led_mux_map[current_digit];
 #endif
 
-        payload = dots_map[dots_state] | digit_mux_map[current_digit] |
-                  color_mask | number_mask;
+        payload = dots_map[MaxDisplay::dots_state] |
+                  digit_mux_map[current_digit] | color_mask | number_mask;
     }
 }
 
@@ -266,4 +254,16 @@ void MaxDisplay::setColor(uint8_t red, uint8_t green, uint8_t blue,
             spins -= 1;
         }
     }
+}
+
+void MaxDisplay::setDot(bool on) {
+
+    if (on != MaxDisplay::dots_state && MaxDisplay::_pulse_colors) {
+        MaxDisplay::_red += 1;
+        MaxDisplay::_blue += 5;
+        MaxDisplay::_green += 3;
+    }
+
+    MaxDisplay::dots_state = on;
+
 }
